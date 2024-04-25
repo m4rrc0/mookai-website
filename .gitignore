@@ -1,0 +1,5 @@
+# Ignore le répertoire de sortie de Eleventy
+dist/
+
+# Ignore le répertoire des modules Node.js
+node_modules/
