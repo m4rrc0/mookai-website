@@ -1,8 +1,8 @@
 // Exporte une fonction qui configure Eleventy
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/assets/");
-  eleventyConfig.addPassthroughCopy("src/css/");
-  eleventyConfig.addWatchTarget("src/css/");
+  // eleventyConfig.addPassthroughCopy("src/css/");
+  // eleventyConfig.addWatchTarget("src/css/");
   // Retourne un objet contenant les options de configuration pour Eleventy
   return {
     // Répertoires d'entrée, d'inclusions et de sortie
