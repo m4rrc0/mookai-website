@@ -9,10 +9,9 @@ module.exports = {
       },
       colors: {
         deums: "#D9933D",
-        arriereplan: "#F7F7F7"
-      },
-      fontFamily: {
-        sans: ["Roboto Condensed", "ui-sans-serif", "system-ui", "sans-serif"],
+        arriereplan: "#F7F7F7",
+        piedpage: "#262626",
+        orange: "#D9933D"
       },
       fontSize: {
         nav: "24px",
