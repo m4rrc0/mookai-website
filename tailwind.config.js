@@ -16,6 +16,10 @@ module.exports = {
       fontSize: {
         nav: "24px",
       },
+      fontFamily:{
+        test:["MaPolice"],
+        shantell:['Shantell Sans']
+      }
     },
   },
   plugins: [],

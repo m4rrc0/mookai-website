@@ -1,27 +1,29 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ title }}</title>
-    <link rel="stylesheet" href="output.css">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="stylesheet" href="output.css" />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
     
+
     <!-- Autres éléments du head peuvent être ajoutés ici -->
-</head>
-<body class="font-roboto flex flex-col h-screen bg-arriereplan">
-    <!-- Inclusion de la navbar -->
-    {% include "partials/navbar.html" %}
+  </head>
+  <body class="font-roboto flex flex-col h-screen bg-arriereplan">
+    <div class="max-w-7xl h-full mx-auto w-full">
+      <!-- Contenu de votre body -->
+      <!-- Inclusion du header -->
+      {% include "partials/header.html" %}
 
-    <!-- Inclusion du header -->
-    {% include "partials/header.html" %}
+      <!-- Contenu de la page -->
+      <!-- {% block content %}
+            {{ content | safe }}
+            {% endblock %} -->
 
-    <!-- Contenu de la page -->
-    {% block content %}
-    {{ content | safe }}
-    {% endblock %}
-
-    <!-- Inclusion du footer -->
-    {% include "partials/footer.html" %}
-</body>
+      {% include "sections/form.html" %}
+    </div>
+      <!-- Inclusion du footer -->
+      {% include "partials/footer.html" %}
+  </body>
 </html>
