@@ -11,7 +11,8 @@ module.exports = {
         deums: "#D9933D",
         arriereplan: "#F7F7F7",
         piedpage: "#262626",
-        orange: "#D9933D"
+        orange: "#D9933D",
+        sanguine: "#D94423",
       },
       fontSize: {
         nav: "24px",
