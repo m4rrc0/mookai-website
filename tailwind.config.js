@@ -3,6 +3,10 @@ module.exports = {
   content: ["./src/**/*.{html,js}"],
   theme: {
     extend: {
+
+      backgroundImage:{
+        'hero-pattern': "url(/assets/images/reunion.jpg)",
+      },
       gridTemplateColumns: {
         menulg: "100px 1fr 50px",
         menuxl: "100px 1fr 100px"
