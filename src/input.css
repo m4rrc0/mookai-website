@@ -3,9 +3,9 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+/* body{
    max-width: 1920px; 
-}
+} */
 
 .barreVerticale{
     height: 85px;
