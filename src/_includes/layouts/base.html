@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr" class="h-full">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,7 +10,7 @@
 
     <!-- Autres éléments du head peuvent être ajoutés ici -->
   </head>
-  <body class="font-roboto flex flex-col h-screen bg-arriereplan">
+  <body class="font-robotoflex flex flex-col min-h-screen bg-arriereplan">
     <!-- <div class="max-w-7xl h-full mx-auto w-full">
     </div> -->
     <!-- Inclusion du header -->
@@ -20,8 +20,8 @@
       <!-- {% block content %}
             {{ content | safe }}
             {% endblock %} -->
-
-      {% include "sections/form.html" %}
+      {% include "sections/témoignagesQ.html" %}
+      {% include "sections/formQ.html" %}
       <!-- Inclusion du footer -->
       {% include "partials/footer.html" %}
   </body>

@@ -9,7 +9,8 @@ module.exports = {
       },
       gridTemplateColumns: {
         menulg: "100px 1fr 50px",
-        menuxl: "100px 1fr 100px"
+        menuxl: "100px 1fr 100px",
+        temoignage : "100px 1fr 1fr",
       },
       colors: {
         deums: "#D9933D",
@@ -17,6 +18,8 @@ module.exports = {
         piedpage: "#262626",
         orange: "#D9933D",
         sanguine: "#D94423",
+        brun: "#A2724E",
+        temoin: "#00000029",
       },
       fontSize: {
         nav: "24px",
