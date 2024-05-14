@@ -1,16 +1,15 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js}"],
+  content: ["./src/**/*.{html,js,njk}"],
   theme: {
     extend: {
-
-      backgroundImage:{
-        'hero-pattern': "url(/assets/images/reunion.jpg)",
+      backgroundImage: {
+        "hero-pattern": "url(/assets/images/reunion.jpg)",
       },
       gridTemplateColumns: {
         menulg: "100px 1fr 50px",
         menuxl: "100px 1fr 100px",
-        temoignage : "100px 1fr 1fr",
+        temoignage: "100px 1fr 1fr",
       },
       colors: {
         deums: "#D9933D",
@@ -24,10 +23,10 @@ module.exports = {
       fontSize: {
         nav: "24px",
       },
-      fontFamily:{
-        test:["MaPolice"],
-        shantell:['Shantell Sans']
-      }
+      fontFamily: {
+        test: ["MaPolice"],
+        shantell: ["Shantell Sans"],
+      },
     },
   },
   plugins: [],

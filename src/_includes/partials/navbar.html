@@ -1,57 +1,74 @@
 <nav class="fixed top-0 z-20 p-4 w-full h-20 bg-arriereplan">
+  <div
+    class="lg:max-w-7xl lg:fixed lg:left-0 lg:right-0 lg:mx-auto lg:grid lg:grid-cols-menulg xl:grid-cols-menuxl lg:bg-arriereplan"
+  >
+    <div class="flex justify-between items-center lg:justify-center">
+      <a href="#accueil" style="" class="text-zinc-800 hover:text-deums">
+        <!-- <img
+        src="/assets/images/logo-Mookaï-500px.svg"
+        alt="Logo de l'ASBL Mookai"
+        class="w-20"
+      /> -->
+        {% include "partials/logo.njk" %}
+      </a>
 
-  <div class="lg:max-w-7xl lg:fixed lg:left-0 lg:right-0 lg:mx-auto lg:grid lg:grid-cols-menulg xl:grid-cols-menuxl lg:bg-arriereplan">
-  <div class="flex justify-between items-center lg:justify-center">
-    <a href="#accueil">
-      <img
-      src="/assets/images/logo-Mookaï-500px.svg"
-      alt="Logo de l'ASBL Mookai"
-      class="w-20"
-    />
-    </a>
+      <button
+        class="icone-toggle bg-arriereplan rounded-md p-2 ring-1 ring-black ring-opacity-20 lg:hidden"
+      >
+        <img
+          src="assets/images/menu.svg"
+          alt="icône hamburger"
+          class="h-6 w-6"
+        />
+      </button>
+    </div>
 
-    <button class="icone-toggle bg-arriereplan rounded-md p-2 ring-1 ring-black ring-opacity-20 lg:hidden">
-      <img src="assets/images/menu.svg" alt="icône hamburger" class="h-6 w-6">
-    </button>
+    <ul
+      class="uppercase toggle-menu hidden px-1 pt-6 bg-arriereplan flex-col lg:flex lg:bg-transparent lg:pt-0 lg:flex-row lg:space-x-10 lg:w-auto lg:items-center lg:justify-end"
+    >
+      <li class="py-2 text-center border-t border-gray-200 lg:border-0">
+        <a
+          href="#accueil"
+          class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
+          >accueil</a
+        >
+      </li>
+
+      <li class="py-2 text-center border-t border-gray-200 lg:border-0">
+        <a
+          href="#valeurs"
+          class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
+          >valeurs</a
+        >
+      </li>
+
+      <li class="py-2 text-center border-t border-gray-200 lg:border-0">
+        <a
+          href="#apropos"
+          class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
+          >à propos</a
+        >
+      </li>
+
+      <li
+        class="py-2 text-center border-t border-b border-gray-200 lg:border-0"
+      >
+        <a
+          href="#services"
+          class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
+          >services</a
+        >
+      </li>
+
+      <li
+        class="py-2 text-center border-t border-b border-gray-200 lg:border-0"
+      >
+        <a
+          href="#temoignages"
+          class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
+          >témoignages</a
+        >
+      </li>
+    </ul>
   </div>
-
-
-  <ul class="uppercase toggle-menu hidden px-1 pt-6 bg-arriereplan flex-col lg:flex lg:bg-transparent lg:pt-0 lg:flex-row lg:space-x-10 lg:w-auto lg:items-center lg:justify-end">
-
-    <li class="py-2 text-center border-t border-gray-200 lg:border-0">
-      <a 
-      href="#accueil"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >accueil</a>
-    </li>
-
-    <li class="py-2 text-center border-t border-gray-200 lg:border-0">
-      <a 
-      href="#valeurs"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >valeurs</a>
-    </li>
-
-    <li class="py-2 text-center border-t border-gray-200 lg:border-0">
-      <a 
-      href="#apropos"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >à propos</a>
-    </li>
-
-    <li class="py-2 text-center border-t border-b border-gray-200 lg:border-0">
-      <a 
-      href="#services"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >services</a>
-    </li>
-
-    <li class="py-2 text-center border-t border-b border-gray-200 lg:border-0">
-      <a 
-      href="#temoignages"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >témoignages</a>
-    </li>
-  </ul>
-</div>
 </nav>
