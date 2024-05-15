@@ -12,20 +12,20 @@
     >
       <div class="w-full flex flex-col">
         <label for="firstname" class="text-brun">Prénom</label>
-        <input type="text" class="bg-arriereplan border-b-2 border-brun" />
+        <input type="text" class="bg-arriereplan border-b-2 border-brun focus:outline-none" required/>
       </div>
 
       <div class="w-full flex flex-col">
         <label for="email" class="text-brun">Mail</label>
-        <input type="email" class="bg-arriereplan border-b-2 border-brun" />
+        <input type="email" class="bg-arriereplan border-b-2 border-brun focus:outline-none" required/>
       </div>
       <div class="w-full flex flex-col">
         <label for="message" class="text-brun">Message</label>
         <textarea
           name="message"
           id="message"
-          class="bg-arriereplan border-2 border-brun resize-none h-60 rounded-md"
-        ></textarea>
+          class="bg-arriereplan border-2 border-brun resize-none h-60 rounded-md focus:outline-none"
+          required></textarea>
         <button
           type="submit"
           class="mt-5 bg-brun text-arriereplan py-3 rounded-md"
