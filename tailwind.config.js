@@ -20,6 +20,7 @@ module.exports = {
         sanguine: "#D94423",
         brun: "#A2724E",
         temoin: "#CFCFCF",
+        blob: "#8d8298",
       },
       fontSize: {
         nav: "24px",
