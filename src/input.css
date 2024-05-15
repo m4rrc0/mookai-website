@@ -3,13 +3,26 @@
 @tailwind components;
 @tailwind utilities;
 
-/* body{
-   max-width: 1920px; 
-} */
-
 .barreVerticale{
     height: 85px;
     border: 1px solid #D9933D;
+}
+
+.cls-1 {
+  fill: var(--color-logo, currentcolor);
+  stroke-width: 0px;
+}
+
+@media screen and (min-width: 1280px) {
+.sideways-lr {
+  writing-mode: sideways-lr;
+}
+@supports (not (writing-mode: sideways-lr)) {
+  .sideways-lr {
+    writing-mode: vertical-rl;
+    transform: rotate(-180deg);
+  }
+}
 }
 
 /* latin */
