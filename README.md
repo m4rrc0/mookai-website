@@ -1,8 +1,8 @@
 ## Todos
 
 - [x] add editor config ([prettier](https://github.com/tailwindlabs/prettier-plugin-tailwindcss), [editor config](https://editorconfig.org/), ...)
-- [ ] Convert project to Eleventy 3
-- [ ] Move assets out of the input directory
+- [x] Convert project to Eleventy 3
+- [x] Move assets out of the input directory
 - [ ] Properly use layout and templates
 - [ ] Verify project structure and usefulness of all files
 - [ ] verify markup
@@ -16,6 +16,7 @@
 
 ### optionnal
 
+- [x] Review config directories to more clearly isolate templates
 - [ ] naming conventions (css classes, files, ...)
 - [ ] move tailwind process to an 11ty template
 - [ ] Use PostCSS explicitely (and probably add other plugins)
@@ -23,4 +24,3 @@
 - [ ] look at using Typography plugin and prose class?
 - [ ] Dark mode ?
 - [ ] Add @11ty/eleventy-plugin-directory-output
-- [ ] Review config directories to more clearly isolate templates

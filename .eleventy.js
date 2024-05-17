@@ -13,8 +13,8 @@ export default function (eleventyConfig) {
 	return {
 		// Répertoires d'entrée, d'inclusions et de sortie
 		dir: {
-			input: "src", // Répertoire contenant les fichiers source
-			// includes: "_includes", // Répertoire contenant les fragments de code réutilisables. Default: "_includes"
+			input: "src/templates", // Répertoire contenant les fichiers source
+			includes: "../_includes", // Répertoire contenant les fragments de code réutilisables. Default: "_includes"
 			// data: "_data", // Directory for global data files. Default: "_data"
 			output: "dist", // Répertoire où seront générés les fichiers HTML
 		},
