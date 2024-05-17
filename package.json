@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-	"type": "module",
+  "type": "module",
   "engines": {
     "node": ">=18"
-	},
+  },
   "scripts": {
     "run": "npx @11ty/eleventy",
     "start": "concurrently \"npm run serve\" \"npm run tail\"",
@@ -14,21 +14,21 @@
     "tail": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
   },
   "keywords": [],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/m4rrc0/mookai-website.git"
-	},
-	"author": {
-		"name": "m4rrc0",
-		"url": "https://www.m4rr.co/"
-	},
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/m4rrc0/mookai-website/issues"
-	},
-	"homepage": "https://github.com/m4rrc0/mookai-website#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m4rrc0/mookai-website.git"
+  },
+  "author": {
+    "name": "m4rrc0",
+    "url": "https://www.m4rr.co/"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m4rrc0/mookai-website/issues"
+  },
+  "homepage": "https://github.com/m4rrc0/mookai-website#readme",
   "devDependencies": {
-    "@11ty/eleventy": "^2.0.1",
+    "@11ty/eleventy": "^3.0.0-alpha.10",
     "concurrently": "^8.2.2",
     "prettier": "^3.2.5",
     "prettier-plugin-jinja-template": "^1.4.0",
