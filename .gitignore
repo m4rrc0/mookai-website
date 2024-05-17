@@ -1,5 +1,19 @@
-# Ignore le répertoire de sortie de Eleventy
-dist/
+# Temporary
 
-# Ignore le répertoire des modules Node.js
+# Generic
+# Ignore Node Modules
 node_modules/
+package-lock.json
+.env
+.log
+.cache
+yarn.lock
+.vscode
+**/.DS_Store
+
+# App-specific
+# Ignore output directory
+dist
+
+# Netlify generated stuff
+.netlify/

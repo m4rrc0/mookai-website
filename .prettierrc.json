@@ -1,0 +1,17 @@
+{
+  "useTabs": true,
+	"singleQuote": false,
+	"semi": true,
+	"endOfLine": "lf",
+	"arrowParens": "always",
+	"printWidth": 100,
+  "plugins": ["prettier-plugin-jinja-template", "prettier-plugin-tailwindcss"],
+  "overrides": [
+    {
+      "files": ["*.njk", "*.html"],
+      "options": {
+        "parser": "jinja-template"
+      }
+    }
+  ]
+}
