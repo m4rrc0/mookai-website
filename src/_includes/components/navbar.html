@@ -1,53 +1,59 @@
-<nav class="fixed top-0 z-20 p-4 w-full h-20 bg-arriereplan">
+<nav class="fixed top-0 z-20 h-20 w-full bg-arriereplan p-4">
+	<div
+		class="lg:fixed lg:left-0 lg:right-0 lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-menulg lg:bg-arriereplan xl:grid-cols-menuxl"
+	>
+		<div class="flex items-center justify-between lg:justify-center">
+			<a href="#accueil" class="text-zinc-800 hover:text-deums"> {% include "svg/logo.njk" %} </a>
 
-  <div class="lg:max-w-7xl lg:fixed lg:left-0 lg:right-0 lg:mx-auto lg:grid lg:grid-cols-menulg xl:grid-cols-menuxl lg:bg-arriereplan">
-  <div class="flex justify-between items-center lg:justify-center">
-    <a href="#accueil" class="text-zinc-800 hover:text-deums">
-    {% include "svg/logo.njk" %}
-    </a>
+			<button
+				class="icone-toggle rounded-md bg-arriereplan p-2 ring-1 ring-black ring-opacity-20 lg:hidden"
+			>
+				<img src="assets/images/menu.svg" alt="icône hamburger" class="h-6 w-6" />
+			</button>
+		</div>
 
-    <button class="icone-toggle bg-arriereplan rounded-md p-2 ring-1 ring-black ring-opacity-20 lg:hidden">
-      <img src="assets/images/menu.svg" alt="icône hamburger" class="h-6 w-6">
-    </button>
-  </div>
+		<ul
+			class="toggle-menu hidden flex-col bg-arriereplan px-1 pt-6 uppercase lg:flex lg:w-auto lg:flex-row lg:items-center lg:justify-end lg:space-x-10 lg:bg-transparent lg:pt-0"
+		>
+			<li class="border-t border-gray-200 py-2 text-center lg:border-0">
+				<a
+					href="#accueil"
+					class="mx-auto block w-32 text-lg font-medium text-zinc-800 hover:font-semibold hover:text-deums"
+					>accueil</a
+				>
+			</li>
 
+			<li class="border-t border-gray-200 py-2 text-center lg:border-0">
+				<a
+					href="#valeurs"
+					class="mx-auto block w-32 text-lg font-medium text-zinc-800 hover:font-semibold hover:text-deums"
+					>valeurs</a
+				>
+			</li>
 
-  <ul class="uppercase toggle-menu hidden px-1 pt-6 bg-arriereplan flex-col lg:flex lg:bg-transparent lg:pt-0 lg:flex-row lg:space-x-10 lg:w-auto lg:items-center lg:justify-end">
+			<li class="border-t border-gray-200 py-2 text-center lg:border-0">
+				<a
+					href="#apropos"
+					class="mx-auto block w-32 text-lg font-medium text-zinc-800 hover:font-semibold hover:text-deums"
+					>à propos</a
+				>
+			</li>
 
-    <li class="py-2 text-center border-t border-gray-200 lg:border-0">
-      <a 
-      href="#accueil"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >accueil</a>
-    </li>
+			<li class="border-b border-t border-gray-200 py-2 text-center lg:border-0">
+				<a
+					href="#services"
+					class="mx-auto block w-32 text-lg font-medium text-zinc-800 hover:font-semibold hover:text-deums"
+					>services</a
+				>
+			</li>
 
-    <li class="py-2 text-center border-t border-gray-200 lg:border-0">
-      <a 
-      href="#valeurs"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >valeurs</a>
-    </li>
-
-    <li class="py-2 text-center border-t border-gray-200 lg:border-0">
-      <a 
-      href="#apropos"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >à propos</a>
-    </li>
-
-    <li class="py-2 text-center border-t border-b border-gray-200 lg:border-0">
-      <a 
-      href="#services"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >services</a>
-    </li>
-
-    <li class="py-2 text-center border-t border-b border-gray-200 lg:border-0">
-      <a 
-      href="#temoignages"
-      class="font-medium text-lg text-zinc-800 hover:text-deums hover:font-semibold block w-32 mx-auto"
-      >témoignages</a>
-    </li>
-  </ul>
-</div>
+			<li class="border-b border-t border-gray-200 py-2 text-center lg:border-0">
+				<a
+					href="#temoignages"
+					class="mx-auto block w-32 text-lg font-medium text-zinc-800 hover:font-semibold hover:text-deums"
+					>témoignages</a
+				>
+			</li>
+		</ul>
+	</div>
 </nav>

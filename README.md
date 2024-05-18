@@ -1,7 +1,7 @@
 ## Todos
 
 - [x] add editor config ([prettier](https://github.com/tailwindlabs/prettier-plugin-tailwindcss), [editor config](https://editorconfig.org/), ...)
-- [x] Convert project to Eleventy 3
+- [x] Convert project to Eleventy 3 and ESM
 - [x] Move assets out of the input directory
 - [x] Properly use layout and templates
 - [x] Verify project structure and usefulness of all files

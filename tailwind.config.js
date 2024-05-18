@@ -1,3 +1,5 @@
+import defaultTheme from "tailwindcss/defaultTheme";
+
 /** @type {import('tailwindcss').Config} */
 export default {
 	content: ["./src/**/*.{html,js,njk}"],
@@ -25,8 +27,8 @@ export default {
 				nav: "24px",
 			},
 			fontFamily: {
-				test: ["MaPolice"],
-				shantell: ["Shantell Sans"],
+				sans: ['"Roboto Condensed"', ...defaultTheme.fontFamily.sans],
+				chantal: ["chantal", ...defaultTheme.fontFamily.sans],
 			},
 		},
 	},
