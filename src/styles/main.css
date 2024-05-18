@@ -1,0 +1,44 @@
+/* BASE LAYER */
+/* @tailwind base; */
+@import "tailwind/base.css";
+@import "fonts.css";
+
+/* COMPONENTS LAYER */
+/* @tailwind components; */
+@import "tailwind/components.css";
+
+/* UTILITIES LAYER */
+/* @tailwind utilities; */
+@import "tailwind/utilities.css";
+
+.barreVerticale {
+	height: 85px;
+	border: 1px solid #d9933d;
+}
+
+.cls-1 {
+	fill: var(--color-logo, currentcolor);
+	stroke-width: 0px;
+}
+
+@media screen and (min-width: 1280px) {
+	.sideways-lr {
+		writing-mode: sideways-lr;
+	}
+	@supports (not (writing-mode: sideways-lr)) {
+		.sideways-lr {
+			writing-mode: vertical-rl;
+			transform: rotate(-180deg);
+		}
+	}
+}
+
+/* Full Bleed: break out of a reduced width */
+/* As seen here: https://piccalil.li/tutorial/creating-a-full-bleed-css-utility/ */
+/* .full-bleed,
+.full-bleed::before,
+.full-bleed::after {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  background-color: #262626;
+} */

@@ -2,7 +2,11 @@ import defaultTheme from "tailwindcss/defaultTheme";
 
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ["./src/**/*.{html,js,njk}"],
+	content: {
+		relative: true, // resolve paths relative to the tailwind.config.js file
+		files: ["./src/_includes/**/*.{html,js,njk}", "./src/templates/**/*.{html,js,njk}"],
+		// files: ["./src/**/*.{html,js,njk}"],
+	},
 	theme: {
 		extend: {
 			backgroundImage: {

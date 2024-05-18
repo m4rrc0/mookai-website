@@ -9,10 +9,11 @@
 	},
 	"scripts": {
 		"clean": "rm -rf dist",
-		"run": "npx @11ty/eleventy",
-		"start": "concurrently \"npm run serve\" \"npm run tail\"",
-		"serve": "npx eleventy --serve",
-		"tail": "npx tailwindcss -i ./src/input.css -o ./dist/assets/css/styles.css --watch"
+		"build": "npx @11ty/eleventy",
+		"serve": "npx @11ty/eleventy --serve",
+		"start": "npm run serve",
+		"tail": "npx tailwindcss -i ./src/input.css -o ./dist/assets/css/styles.css --watch",
+		"OLDstart": "concurrently \"npm run serve\" \"npm run tail\""
 	},
 	"keywords": [],
 	"repository": {
@@ -30,7 +31,10 @@
 	"homepage": "https://github.com/m4rrc0/mookai-website#readme",
 	"devDependencies": {
 		"@11ty/eleventy": "^3.0.0-alpha.10",
-		"concurrently": "^8.2.2",
+		"cssnano": "^7.0.1",
+		"postcss": "^8.4.38",
+		"postcss-import": "^16.1.0",
+		"postcss-preset-env": "^9.5.13",
 		"prettier": "^3.2.5",
 		"prettier-plugin-jinja-template": "^1.4.0",
 		"prettier-plugin-tailwindcss": "^0.5.14",

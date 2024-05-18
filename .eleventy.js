@@ -6,8 +6,9 @@ export default function (eleventyConfig) {
 	// Copy `src/assets/` to `dist/assets`
 	eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
-	eleventyConfig.addWatchTarget("src/input.css");
-	eleventyConfig.setWatchThrottleWaitTime(2000); // in milliseconds
+	// eleventyConfig.addWatchTarget("src/input.css");
+	// eleventyConfig.setWatchThrottleWaitTime(2000); // in milliseconds
+	eleventyConfig.addWatchTarget("src/styles/main.css");
 
 	// A Nunjucks filter to log variables in the console (and in the terminal)
 	// Use it like so: {{ variable | log | safe }}
@@ -29,7 +30,7 @@ export default function (eleventyConfig) {
 			output: "dist", // Répertoire où seront générés les fichiers HTML
 		},
 		// Formats de fichier de modèle pris en charge
-		templateFormats: ["md", "njk", "html"],
+		templateFormats: ["md", "njk", "html", "11ty.js"],
 		// Moteur de modèle Markdown
 		markdownTemplateEngine: "njk",
 		// Moteur de modèle HTML
