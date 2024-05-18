@@ -3,11 +3,21 @@
  */
 
 export default function (eleventyConfig) {
-	eleventyConfig.addPassthroughCopy("src/assets/");
-	// eleventyConfig.addPassthroughCopy("src/css/");
+	// Copy `src/assets/` to `dist/assets`
+	eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
 	eleventyConfig.addWatchTarget("src/input.css");
 	eleventyConfig.setWatchThrottleWaitTime(2000); // in milliseconds
+
+	// A Nunjucks filter to log variables in the console (and in the terminal)
+	// Use it like so: {{ variable | log | safe }}
+	eleventyConfig.addFilter("log", (value) => {
+		if (process.env.NODE_ENV === "production") {
+			return "";
+		}
+		console.log(value);
+		return `<script>console.log(${JSON.stringify(value)})</script>`;
+	});
 
 	// Retourne un objet contenant les options de configuration pour Eleventy
 	return {

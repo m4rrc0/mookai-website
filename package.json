@@ -1,38 +1,39 @@
 {
-  "name": "mookai-website",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "type": "module",
-  "engines": {
-    "node": ">=18"
-  },
-  "scripts": {
-    "run": "npx @11ty/eleventy",
-    "start": "concurrently \"npm run serve\" \"npm run tail\"",
-    "serve": "npx eleventy --serve",
-    "tail": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
-  },
-  "keywords": [],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/m4rrc0/mookai-website.git"
-  },
-  "author": {
-    "name": "m4rrc0",
-    "url": "https://www.m4rr.co/"
-  },
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/m4rrc0/mookai-website/issues"
-  },
-  "homepage": "https://github.com/m4rrc0/mookai-website#readme",
-  "devDependencies": {
-    "@11ty/eleventy": "^3.0.0-alpha.10",
-    "concurrently": "^8.2.2",
-    "prettier": "^3.2.5",
-    "prettier-plugin-jinja-template": "^1.4.0",
-    "prettier-plugin-tailwindcss": "^0.5.14",
-    "tailwindcss": "^3.4.3"
-  }
+	"name": "mookai-website",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"type": "module",
+	"engines": {
+		"node": ">=18"
+	},
+	"scripts": {
+		"clean": "rm -rf dist",
+		"run": "npx @11ty/eleventy",
+		"start": "concurrently \"npm run serve\" \"npm run tail\"",
+		"serve": "npx eleventy --serve",
+		"tail": "npx tailwindcss -i ./src/input.css -o ./dist/assets/css/styles.css --watch"
+	},
+	"keywords": [],
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/m4rrc0/mookai-website.git"
+	},
+	"author": {
+		"name": "m4rrc0",
+		"url": "https://www.m4rr.co/"
+	},
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/m4rrc0/mookai-website/issues"
+	},
+	"homepage": "https://github.com/m4rrc0/mookai-website#readme",
+	"devDependencies": {
+		"@11ty/eleventy": "^3.0.0-alpha.10",
+		"concurrently": "^8.2.2",
+		"prettier": "^3.2.5",
+		"prettier-plugin-jinja-template": "^1.4.0",
+		"prettier-plugin-tailwindcss": "^0.5.14",
+		"tailwindcss": "^3.4.3"
+	}
 }
