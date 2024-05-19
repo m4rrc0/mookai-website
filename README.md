@@ -24,3 +24,12 @@
 - [ ] look at using Tailwind Typography plugin and prose class?
 - [ ] Dark mode ?
 - [ ] Add @11ty/eleventy-plugin-directory-output
+
+### Preffered styling setup
+
+- [ ] Fluid font size
+- [ ] Fluid Spaces
+- [ ] Every Layout (ctx)
+- [ ] Color palettes (ctx)
+- [ ]
+- [ ]

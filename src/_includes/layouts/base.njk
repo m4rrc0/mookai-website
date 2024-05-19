@@ -7,12 +7,10 @@
 		{# <link rel="stylesheet" href="/assets/css/styles.css" /> #}
 		<link rel="stylesheet" href="/assets/css/main.css" />
 
-		<!-- Autres éléments du head peuvent être ajoutés ici -->
 		{% block head %}{% endblock %}
 	</head>
 	<body class="{{class.body}}">
 		<header>
-			<!-- Inclusion de la navbar -->
 			{% include "components/navbar.html" %}
 		</header>
 
@@ -20,6 +18,8 @@
 		{% block content %}
 			{{ content | safe }}
 		{% endblock %}
+
+		<p class="fluid-text-3xl fluid-m-s leading-neg-25">HELLO WORLD</p>
 
 		{% include "components/footer.html" %}
 

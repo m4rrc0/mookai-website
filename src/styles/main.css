@@ -1,15 +1,20 @@
 /* BASE LAYER */
-/* @tailwind base; */
-@import "tailwind/base.css";
+@import "tailwindcss/base";
+/* @import "helpers.css"; */
 @import "fonts.css";
+/* @import "typography.css"; */
 
 /* COMPONENTS LAYER */
-/* @tailwind components; */
-@import "tailwind/components.css";
+@import "tailwindcss/components";
 
 /* UTILITIES LAYER */
-/* @tailwind utilities; */
-@import "tailwind/utilities.css";
+@import "tailwindcss/utilities";
+
+/* TODO: add emphasis utilities */
+/* https://tailwindcss.com/docs/adding-custom-styles#adding-custom-utilities */
+/* https://tailwindcss.com/docs/plugins#dynamic-utilities */
+/* https://github.com/tailwindlabs/tailwindcss/discussions/6075 */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-color?retiredLocale=nl */
 
 .barreVerticale {
 	height: 85px;

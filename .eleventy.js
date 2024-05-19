@@ -8,7 +8,8 @@ export default function (eleventyConfig) {
 
 	// eleventyConfig.addWatchTarget("src/input.css");
 	// eleventyConfig.setWatchThrottleWaitTime(2000); // in milliseconds
-	eleventyConfig.addWatchTarget("src/styles/main.css");
+	eleventyConfig.addWatchTarget("src/");
+	eleventyConfig.addWatchTarget("tailwind.config.js");
 
 	// A Nunjucks filter to log variables in the console (and in the terminal)
 	// Use it like so: {{ variable | log | safe }}

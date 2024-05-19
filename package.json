@@ -11,9 +11,7 @@
 		"clean": "rm -rf dist",
 		"build": "npx @11ty/eleventy",
 		"serve": "npx @11ty/eleventy --serve",
-		"start": "npm run serve",
-		"tail": "npx tailwindcss -i ./src/input.css -o ./dist/assets/css/styles.css --watch",
-		"OLDstart": "concurrently \"npm run serve\" \"npm run tail\""
+		"start": "npm run serve"
 	},
 	"keywords": [],
 	"repository": {
@@ -32,12 +30,16 @@
 	"devDependencies": {
 		"@11ty/eleventy": "^3.0.0-alpha.10",
 		"cssnano": "^7.0.1",
+		"eslint-config-prettier": "^9.1.0",
+		"lodash": "^4.17.21",
 		"postcss": "^8.4.38",
 		"postcss-import": "^16.1.0",
 		"postcss-preset-env": "^9.5.13",
+		"postcss-utopia": "^1.0.3",
 		"prettier": "^3.2.5",
 		"prettier-plugin-jinja-template": "^1.4.0",
 		"prettier-plugin-tailwindcss": "^0.5.14",
+		"tailwind-utopia": "github:cwsdigital/tailwind-utopia",
 		"tailwindcss": "^3.4.3"
 	}
 }
