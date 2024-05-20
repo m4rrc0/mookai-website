@@ -1,8 +1,9 @@
 /* BASE LAYER */
 @import "tailwindcss/base";
-/* @import "helpers.css"; */
+@import "helpers.css";
 @import "fonts.css";
 /* @import "typography.css"; */
+@import "colors.css";
 
 /* COMPONENTS LAYER */
 @import "tailwindcss/components";

@@ -39,6 +39,7 @@ export async function render(data) {
 		twNesting,
 		tailwindcss,
 		postcssPresetEnv({
+			stage: 1,
 			features: { "nesting-rules": false }, // Need to exclude if using 'postcss-nesting' (or 'tailwindcss/nesting')
 		}), // OPTIONS: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#options
 		...(PROD ? [cssNano] : []),

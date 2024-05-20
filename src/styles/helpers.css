@@ -19,7 +19,8 @@
 @custom-selector :--strong strong, .strong, b, .b, .bold;
 @custom-selector :--strong_ :--strong, :--strong *;
 @custom-selector :--em em, .em, .italic;
-@custom-selector :--em_ :--em, :--em *; /* prettier-ignore */
+@custom-selector :--em_ :--em, :--em *;
+@custom-selector :--mark mark, .mark, .highlight; /* prettier-ignore */
 @custom-selector :--button button, .button, input[type='submit'], input[type='button'], input[type='reset'], [role="button"];
 @custom-selector :--focus :focus, .focus;
 @custom-selector :--selection ::selection, .selection;
