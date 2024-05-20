@@ -17,6 +17,7 @@ module.exports = {
         piedpage: "#262626",
         orange: "#D9933D",
         sanguine: "#D94423",
+        caramel:"#A2724E",
       },
       fontSize: {
         nav: "24px",
