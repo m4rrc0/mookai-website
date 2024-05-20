@@ -11,6 +11,7 @@ module.exports = {
         menulg: "9rem 1fr 50px",
         menuxl: "9rem 1fr 100px",
         temoignage : "9rem 1fr 1fr",
+        apropos : "9rem 1fr",
       },
       colors: {
         deums: "#D9933D",
@@ -27,7 +28,7 @@ module.exports = {
       },
       fontFamily:{
         test:["MaPolice"],
-        shantell:['Shantell Sans']
+        shantell:['Shantell Sans'],
       }
     },
   },
