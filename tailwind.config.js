@@ -18,6 +18,7 @@ module.exports = {
         orange: "#D9933D",
         sanguine: "#D94423",
         caramel:"#A2724E",
+		gris:"#F2F2F2",
       },
       fontSize: {
         nav: "24px",

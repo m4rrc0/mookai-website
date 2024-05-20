@@ -7,15 +7,6 @@
    max-width: 1920px; 
 } */
 
-.sideways-lr {
-  writing-mode: sideways-lr;
-}
-@supports (not (writing-mode: sideways-lr)) {
-  .sideways-lr {
-    writing-mode: vertical-rl;
-    transform: rotate(-180deg);
-  }
-}
 
 .barreVerticale{
     height: 85px;
