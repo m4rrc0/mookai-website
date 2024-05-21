@@ -10,9 +10,7 @@
 		{% block head %}{% endblock %}
 	</head>
 	<body class="{{class.body}}">
-		<header>
-			{% include "components/navbar.html" %}
-		</header>
+		{% include "components/navbar.njk" %}
 
 		<!-- Contenu de la page -->
 		{% block content %}

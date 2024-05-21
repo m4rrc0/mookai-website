@@ -13,7 +13,8 @@
 	/* Default */
 	:root,
 	.ctxc-reset,
-	.ctxc-default {
+	.ctxc-default,
+	.ctxc-light {
 		@apply border-current
             bg-white
             fill-current
@@ -82,14 +83,25 @@
 			background-color: var(--color-bg__code);
 			border-color: var(--color-border__code); */
 		}
+		/* --- SCROLLBAR --- */
+		/* TODO: this is for the Reel Layout Component */
+		/* --track-color */
+		/* --thumb-color */
+		/*  */
 	}
-	.ctxc-massive {
+	.ctxc-light-reverse,
+	.ctxc-dark {
 		/* prettier-ignore */
 	}
+	.ctxc-graybg {
+		/* prettier-ignore */
+		@apply bg-mouse
+            text-black;
+		/* & a {
+			@apply text-current;
+		}
+		& a:--hover {
+			@apply text-curcuma-dark;
+		} */
+	}
 }
-
-/* --- SCROLLBAR --- */
-/* TODO: this is for the Reel Layout Component */
-/* --track-color */
-/* --thumb-color */
-/*  */

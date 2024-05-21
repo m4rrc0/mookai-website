@@ -1,0 +1,54 @@
+/* nuds font-size system (with help of utopia.fyi) */
+/* --------------------------------------- */
+/* TODO: Chose strategy: */
+/* ? -> 1. Have globally available variables and pick among them to create ctx */
+/* 2. Variables are defined for each ctx with property name directly (recompute scale on each ctx */
+@layer base {
+	/* Define available global font-sizes variables with utopia */
+	/* NOTE: not useful if we use the tailwind plugin */
+	/* :root,
+	.ctxs-reset,
+	.ctxs-default {
+		@utopia typeScale({
+            minFontSize: 18,
+            maxFontSize: 20,
+            minTypeScale: 1.25,
+            maxTypeScale: 1.333,
+            positiveSteps: 6,
+            negativeSteps: 2,
+            prefix: "fs",
+            relativeTo: "viewport"
+            usePx: false,
+        });
+	} */
+	/* Default */
+	:root,
+	[class*="ctxs"],
+	.ctxs-reset,
+	.ctxs-default {
+		/* prettier-ignore */
+		.h0, .text-h0 { @apply fluid-text-3xl; } /* prettier-ignore */
+		h1, .h1, .text-h1 { @apply fluid-text-2xl; } /* prettier-ignore */
+		h2, .h2, .text-h2 { @apply fluid-text-xl; } /* prettier-ignore */
+		h3, .h3, .text-h3 { @apply fluid-text-lg; } /* prettier-ignore */
+		h4, .h4, .text-h4 { @apply fluid-text-base; } /* prettier-ignore */
+		p, .p, .text-p { @apply fluid-text-base; } /* prettier-ignore */
+		h5, .h5, .text-h5 { @apply fluid-text-sm; } /* prettier-ignore */
+		small, .small, .text-small { @apply fluid-text-sm; } /* prettier-ignore */
+		h6, .h6, .text-h6 { @apply fluid-text-xs; } /* prettier-ignore */
+		.text-xs { @apply fluid-text-xs; } /* prettier-ignore */
+	}
+	.ctxs-massive {
+		/* prettier-ignore */
+		.h0, .text-h0 { @apply fluid-text-5xl; } /* prettier-ignore */
+		h1, .h1, .text-h1 { @apply fluid-text-5xl; } /* prettier-ignore */
+		h2, .h2, .text-h2 { @apply fluid-text-4xl; } /* prettier-ignore */
+		h3, .h3, .text-h3 { @apply fluid-text-3xl; } /* prettier-ignore */
+		h4, .h4, .text-h4 { @apply fluid-text-2xl; } /* prettier-ignore */
+		h5, .h5, .text-h5 { @apply fluid-text-xl; } /* prettier-ignore */
+		h6, .h6, .text-h6 { @apply fluid-text-lg; } /* prettier-ignore */
+		p, .p, .text-p { @apply fluid-text-base; } /* prettier-ignore */
+		small, .small, .text-small { @apply fluid-text-sm; } /* prettier-ignore */
+		.text-xs { @apply fluid-text-xs; } /* prettier-ignore */
+	}
+}

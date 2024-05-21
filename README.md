@@ -29,7 +29,8 @@
 
 - [ ] Fluid font size
 - [ ] Fluid Spaces
-- [ ] Every Layout (ctx)
+- [x] Every Layout (ctx)
+  - [ ] Update the code for layouts
 - [ ] Color palettes (ctx)
-- [ ]
+- [ ] My utilities?
 - [ ]

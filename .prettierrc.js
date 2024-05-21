@@ -4,16 +4,22 @@ const config = {
 	singleQuote: false,
 	semi: true,
 	endOfLine: "lf",
-	tabWidth: 4,
+	tabWidth: 2,
 	trailingComma: "es5",
 	arrowParens: "always",
 	printWidth: 100,
-	plugins: ["prettier-plugin-jinja-template", "prettier-plugin-tailwindcss"],
+	plugins: [
+		// "prettier-plugin-jinja-template",
+		"prettier-plugin-tailwindcss",
+	],
 	overrides: [
 		{
-			files: ["*.njk", "*.html"],
+			files: [
+				"*.njk",
+				// "*.html"
+			],
 			options: {
-				parser: "jinja-template",
+				parser: "html",
 			},
 		},
 	],

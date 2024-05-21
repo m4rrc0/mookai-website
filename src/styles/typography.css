@@ -4,10 +4,11 @@
 /* ? -> 1. Have globally available variables and pick among them to create ctx */
 /* 2. Variables are defined for each ctx with property name directly (recompute scale on each ctx */
 @layer base {
+	/* Define available global font-sizes variables with utopia */
+	/* NOTE: not useful if we use the tailwind plugin */
 	:root,
 	.ctxs-reset,
 	.ctxs-default {
-		/* Define available global font-sizes variables */
 		@utopia typeScale({
             minFontSize: 18,
             maxFontSize: 20,
@@ -15,10 +16,14 @@
             maxTypeScale: 1.333,
             positiveSteps: 6,
             negativeSteps: 2,
-            prefix: "fs",
-            /* relativeTo: "container" */
-            /* usePx: false, */
+            prefix: "fluid",
+            relativeTo: "viewport"
+            usePx: false,
         });
+		/* Generates
+		--fluid--2: clamp(...);
+		--fluid--1: clamp(...); etc.
+		*/
 	}
 	/* Default */
 	:root,
@@ -26,28 +31,28 @@
 	.ctxs-reset,
 	.ctxs-default {
 		/* prettier-ignore */
-		.h0, .text-h0 { @apply text-fs4; } /* prettier-ignore */
-		h1, .h1, .text-h1 { @apply text-fs3; } /* prettier-ignore */
-		h2, .h2, .text-h2 { @apply text-fs2; } /* prettier-ignore */
-		h3, .h3, .text-h3 { @apply text-fs1; } /* prettier-ignore */
-		h4, .h4, .text-h4 { @apply text-fs0; } /* prettier-ignore */
-		p, .p, .text-p { @apply text-fs0; } /* prettier-ignore */
-		h5, .h5, .text-h5 { @apply text-fs-1; } /* prettier-ignore */
-		small, .small, .text-small { @apply text-fs-1; } /* prettier-ignore */
-		h6, .h6, .text-h6 { @apply text-fs-2; } /* prettier-ignore */
-		.text-xs { @apply text-fs-2; } /* prettier-ignore */
+		.h0, .text-h0 { @apply text-fluid-4; } /* prettier-ignore */
+		h1, .h1, .text-h1 { @apply text-fluid-3; } /* prettier-ignore */
+		h2, .h2, .text-h2 { @apply text-fluid-2; } /* prettier-ignore */
+		h3, .h3, .text-h3 { @apply text-fluid-1; } /* prettier-ignore */
+		h4, .h4, .text-h4 { @apply text-fluid-0; } /* prettier-ignore */
+		p, .p, .text-p { @apply text-fluid-0; } /* prettier-ignore */
+		h5, .h5, .text-h5 { @apply text-fluid--1; } /* prettier-ignore */
+		small, .small, .text-small { @apply text-fluid--1; } /* prettier-ignore */
+		h6, .h6, .text-h6 { @apply text-fluid--2; } /* prettier-ignore */
+		.text-xs { @apply text-fluid--2; } /* prettier-ignore */
 	}
 	.ctxs-massive {
 		/* prettier-ignore */
-		.h0, .text-h0 { @apply text-fs6; } /* prettier-ignore */
-		h1, .h1, .text-h1 { @apply text-fs6; } /* prettier-ignore */
-		h2, .h2, .text-h2 { @apply text-fs5; } /* prettier-ignore */
-		h3, .h3, .text-h3 { @apply text-fs4; } /* prettier-ignore */
-		h4, .h4, .text-h4 { @apply text-fs3; } /* prettier-ignore */
-		h5, .h5, .text-h5 { @apply text-fs2; } /* prettier-ignore */
-		h6, .h6, .text-h6 { @apply text-fs1; } /* prettier-ignore */
-		p, .p, .text-p { @apply text-fs0; } /* prettier-ignore */
-		small, .small, .text-small { @apply text-fs-1; } /* prettier-ignore */
-		.text-xs { @apply text-fs-2; } /* prettier-ignore */
+		.h0, .text-h0 { @apply text-fluid-6; } /* prettier-ignore */
+		h1, .h1, .text-h1 { @apply text-fluid-6; } /* prettier-ignore */
+		h2, .h2, .text-h2 { @apply text-fluid-5; } /* prettier-ignore */
+		h3, .h3, .text-h3 { @apply text-fluid-4; } /* prettier-ignore */
+		h4, .h4, .text-h4 { @apply text-fluid-3; } /* prettier-ignore */
+		h5, .h5, .text-h5 { @apply text-fluid-2; } /* prettier-ignore */
+		h6, .h6, .text-h6 { @apply text-fluid-1; } /* prettier-ignore */
+		p, .p, .text-p { @apply text-fluid-0; } /* prettier-ignore */
+		small, .small, .text-small { @apply text-fluid--1; } /* prettier-ignore */
+		.text-xs { @apply text-fluid--2; } /* prettier-ignore */
 	}
 }
