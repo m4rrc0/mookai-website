@@ -7,7 +7,7 @@
     "run": "npx @11ty/eleventy",
     "start": "concurrently \"npm run serve\" \"npm run tail\"",
     "serve": "npx eleventy --serve",
-    "tail": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+    "tail": "npx tailwindcss -i ./src/styles/main.css -o ./dist/assets/css/main.css --watch"
   },
   "keywords": [],
   "author": "",

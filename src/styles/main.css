@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 .barreVerticale{
     height: 85px;
     border: 1px solid #D9933D;
@@ -11,6 +12,12 @@
 .cls-1 {
   fill: var(--color-logo, currentcolor);
   stroke-width: 0px;
+}
+
+@layer components {
+  .svg-footer {
+    @apply text-orange hover:text-arriereplan;
+  }
 }
 
 @media screen and (min-width: 1280px) {

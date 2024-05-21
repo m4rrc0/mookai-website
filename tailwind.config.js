@@ -1,6 +1,9 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,js,njk}"],
+  content: 	{
+    relative: true, // resolve paths relative to the tailwind.config.js file
+    files: ["./src/_includes/**/*.{html,js,njk}", "./src/templates/**/*.{html,js,njk}"],
+},
   theme: {
     extend: {
 
@@ -20,6 +23,7 @@ module.exports = {
         orange: "#D9933D",
         sanguine: "#D94423",
         brun: "#A2724E",
+        brunclair: "#978076",
         temoin: "#CFCFCF",
         blob: "#8d8298",
       },
