@@ -6,7 +6,10 @@ class:
 sectionList: [{href: '#accueil', txt: 'accueil'},{href: '#valeurs', txt: 'valeurs'},{href: '#apropos', txt: 'à propos'},{href: '#services', txt: 'services'}, {href: '#temoignages', txt: 'témoignages'}]
 ---
 
-{% include "index/heading-group.html" %}
-{% include "index/blob.html" %}
-{% include "index/testimonialsQ.html" %}
-{% include "index/formQ.html" %}
+<main>
+  {% include "index/heading-group.html" %}
+  {% include "index/hero-img.njk" %}
+  {% include "index/blob.html" %}
+  {% include "index/testimonialsQ.html" %}
+  {% include "index/formQ.html" %}
+</main>
