@@ -1,22 +1,26 @@
-<div class="flex sm:flex-col py-20 justify-start flex-wrap bg-white h-full  w-full ">
+<div class="flex flex-col sm:flex-row py-20 justify-start flex-wrap bg-white h-full w-full">
 
-    <div class="h-40 flex items-center justify-center ">
-        <div class="transform sm:-rotate-90 mb-30 mt-20 text-7xl mx-auto whitespace-nowrap text-caramel">CONTACT</div>
+    <div class="sideways-lr h-40 flex items-center justify-center sm:w-1/5">
+        <div class=" mb-8  text-7xl mx-auto whitespace-nowrap text-caramel">CONTACT</div>
+    </div><!-- left margin of form -->
+
+    <div class="sm:w-3/5 mx-auto">
+        <form action="" class="mx-auto max-w-md flex flex-col items-center justify-center mb-36">
+            <div class="mb-4 ">
+                <label for="prenom" class="block  text-caramel mb-10">Prénom</label>
+                <input type="text" class="w-96 border-0 border-b-2 border-caramel focus:border-blue-500 focus:border-caramel focus:outline-none">
+            </div>
+            <div class="mb-4 ">
+                <label for="email" class="block  text-caramel mb-10">Mail</label>
+                <input type="email" class="w-96 border-0 border-b-2 border-caramel focus:border-blue-500 focus:border-caramel focus:outline-none">
+            </div>
+            <div class="mb-4 ">
+                <label for="message" class="block  text-caramel mb-10">Message</label>
+                <textarea  class="w-96 border-caramel border-2 h-60 rounded-lg border-solid focus:border-caramel focus:outline-none "></textarea>
+            </div>
+            <button type="submit" class="px-4 py-2 w-96 text-white rounded-md bg-caramel">Envoyer</button>
+        </form>
     </div>
 
-    <form action="" class="mx-auto max-w-md flex flex-col  items-center justify-center mb-36">
-    <div class="mb-4 ">
-        <label for="prenom" class="block  text-caramel mb-10">Prénom</label>
-        <input type="text" class="w-96 border-0 border-b-2 border-caramel focus:border-blue-500 focus:border-caramel focus:outline-none">
-    </div>
-    <div class="mb-4 ">
-        <label for="email" class="block  text-caramel mb-10">Mail</label>
-        <input type="email" class="w-96 border-0 border-b-2 border-caramel focus:border-blue-500 focus:border-caramel focus:outline-none">
-    </div>
-    <div class="mb-4 ">
-        <label for="message" class="block  text-caramel mb-10">Message</label>
-        <textarea  class="w-96 border-caramel border-2 h-60 rounded-lg border-solid focus:border-caramel focus:outline-none "></textarea>
-    </div>
-    <button type="submit" class="px-4 py-2 w-96 text-white rounded-md bg-caramel">Envoyer</button>
-</form>
+    <div class="sm:w-1/5"></div> <!-- right margin of form -->
 </div>
