@@ -4,6 +4,51 @@
 /* https://github.com/tailwindlabs/tailwindcss/discussions/6075 */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-color?retiredLocale=nl */
 
+@layer base {
+	details summary {
+		cursor: pointer;
+	}
+	details summary > * {
+		display: inline;
+	}
+}
+
+@layer components {
+	@media screen(lg) {
+		.js .services {
+			display: grid;
+			/* grid-template-areas: "headings text"; */
+			grid-template-columns: [headings-start] auto [headings-end text-start] 1fr [text-end];
+			/* grid-template-rows: repeat(auto-fit, var(--fluid-5)); */
+			grid-auto-rows: var(--fluid-3);
+
+			& > details {
+				display: contents;
+			}
+			& summary {
+				grid-area: headings;
+			}
+			/* prettier-ignore */
+			& > details:nth-child(1) > summary { grid-row: 1; } /* prettier-ignore */
+			& > details:nth-child(2) > summary { grid-row: 2; } /* prettier-ignore */
+			& > details:nth-child(3) > summary { grid-row: 3; } /* prettier-ignore */
+			& > details:nth-child(4) > summary { grid-row: 4; } /* prettier-ignore */
+			& > details:nth-child(5) > summary { grid-row: 5; } /* prettier-ignore */
+			& > details:nth-child(6) > summary { grid-row: 6; } /* prettier-ignore */
+			& > details:nth-child(7) > summary { grid-row: 7; } /* prettier-ignore */
+			& > details:nth-child(8) > summary { grid-row: 8; } /* prettier-ignore */
+			& > details:nth-child(9) > summary { grid-row: 9; } /* prettier-ignore */
+
+			& .details-text {
+				grid-area: text;
+				grid-row: 1 / span 7;
+			}
+			/* TODO: if details closed: text should be visibly hidden or even display none */
+		}
+	}
+	/* .services {} */
+}
+
 .barreVerticale {
 	height: 85px;
 	border: 1px solid #d9933d;

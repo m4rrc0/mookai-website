@@ -8,16 +8,10 @@ const config = {
 	trailingComma: "es5",
 	arrowParens: "always",
 	printWidth: 100,
-	plugins: [
-		// "prettier-plugin-jinja-template",
-		"prettier-plugin-tailwindcss",
-	],
+	plugins: ["prettier-plugin-jinja-template", "prettier-plugin-tailwindcss"],
 	overrides: [
 		{
-			files: [
-				"*.njk",
-				// "*.html"
-			],
+			files: ["*.njk", "*.html"],
 			options: {
 				parser: "html",
 			},
