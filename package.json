@@ -29,6 +29,9 @@
 	"homepage": "https://github.com/m4rrc0/mookai-website#readme",
 	"devDependencies": {
 		"@11ty/eleventy": "^3.0.0-alpha.10",
+		"@eslint/js": "^9.3.0",
+		"@unocss/eslint-config": "^0.60.3",
+		"@unocss/postcss": "^0.60.3",
 		"cssnano": "^7.0.1",
 		"eslint-config-prettier": "^9.1.0",
 		"lodash": "^4.17.21",
@@ -40,6 +43,7 @@
 		"prettier-plugin-jinja-template": "^1.4.0",
 		"prettier-plugin-tailwindcss": "^0.5.14",
 		"tailwind-utopia": "github:cwsdigital/tailwind-utopia",
-		"tailwindcss": "^3.4.3"
+		"tailwindcss": "^3.4.3",
+		"unocss": "^0.60.3"
 	}
 }

@@ -1,16 +1,20 @@
 ---
-layout: layouts/base.njk
+layout: layouts/base.html
 title: "Mookai ASBL: coopération créative et digitale"
 class:
   body: "max-w-5xl m-auto px-fluid-s"
-sectionList: [{href: '#accueil', txt: 'accueil'},{href: '#valeurs', txt: 'valeurs'},{href: '#apropos', txt: 'à propos'},{href: '#services', txt: 'services'}, {href: '#temoignages', txt: 'témoignages'}]
+sectionList:
+  [
+    { href: "#accueil", txt: "accueil" },
+    { href: "#valeurs", txt: "valeurs" },
+    { href: "#apropos", txt: "à propos" },
+    { href: "#services", txt: "services" },
+    { href: "#temoignages", txt: "témoignages" },
+  ]
 ---
 
 <main>
-  {% include "index/heading-group.html" %}
-  {% include "index/hero-img.njk" %}
-    {% include "index/services.njk" %}
-  {% include "index/blob.html" %}
-  {% include "index/testimonialsQ.html" %}
-  {% include "index/formQ.html" %}
+	{% include "index/heading-group.html" %} {% include "index/hero-img.njk" %} {% include
+	"index/services.njk" %} {% include "index/blob.html" %} {% include "index/testimonialsQ.html" %}
+	{% include "index/formQ.html" %}
 </main>

@@ -1,0 +1,21 @@
+/* BASE LAYER */
+@import "tailwindcss/base";
+/* @import "./reset.css"; */
+@import "helpers.css";
+/* @import "./vars.css"; */
+/* @import "./fonts-critical.css"; */
+@import "fonts.css";
+@import "./spaces.css";
+@import "typography.css";
+@import "colors.css";
+
+/* COMPONENTS LAYER */
+@import "tailwindcss/components";
+@import "./layouts.css";
+
+/* UTILITIES LAYER */
+@import "./utilities.css";
+@import "tailwindcss/utilities";
+
+/* PROJECT SPECIFIC */
+@import "./project.css";

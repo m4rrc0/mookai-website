@@ -5,6 +5,7 @@ import atImport from "postcss-import";
 import postcssPresetEnv from "postcss-preset-env";
 import tailwindcss from "tailwindcss";
 import twNesting from "tailwindcss/nesting/index.js";
+import UnoCSS from "@unocss/postcss";
 import cssNano from "cssnano";
 import utopia from "postcss-utopia";
 import { PROD } from "../env.js";
@@ -34,15 +35,16 @@ export async function render(data) {
 
 	// TODO: look at postcss config or other usefull plugins
 	return await postcss([
+		UnoCSS(),
 		atImport(),
-		utopia({ minWidth: 320, maxWidth: 1240 }),
-		twNesting,
-		tailwindcss,
+		// utopia({ minWidth: 320, maxWidth: 1240 }),
+		// // twNesting,
+		// // tailwindcss,
 		postcssPresetEnv({
 			stage: 1,
-			features: { "nesting-rules": false }, // Need to exclude if using 'postcss-nesting' (or 'tailwindcss/nesting')
+			// features: { "nesting-rules": false }, // Need to exclude if using 'postcss-nesting' (or 'tailwindcss/nesting')
 		}), // OPTIONS: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#options
-		...(PROD ? [cssNano] : []),
+		// ...(PROD ? [cssNano] : []),
 	])
 		.process(rawCss, { from: inputPathFull, to: destPath })
 		.then((result) => {

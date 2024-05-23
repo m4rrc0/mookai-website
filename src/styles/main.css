@@ -1,21 +1,26 @@
-/* BASE LAYER */
-@import "tailwindcss/base";
-/* @import "./reset.css"; */
-@import "helpers.css";
-/* @import "./vars.css"; */
-/* @import "./fonts-critical.css"; */
-@import "fonts.css";
-@import "./spaces.css";
-@import "typography.css";
-@import "colors.css";
+@import "./helpers.css";
 
-/* COMPONENTS LAYER */
-@import "tailwindcss/components";
-@import "./layouts.css";
+@import "./fonts.css";
 
-/* UTILITIES LAYER */
-@import "./utilities.css";
-@import "tailwindcss/utilities";
+@unocss pre;
+@unocss preflights;
+@unocss base;
+@unocss layouts;
+@unocss components;
+@unocss default;
+@unocss;
+@unocss utilities;
+@unocss utils;
 
-/* PROJECT SPECIFIC */
-@import "./project.css";
+p {
+	color: theme("colors.fuchsia.800");
+}
+/* // 'uno:[layer-name].css'
+import 'uno:components.css'
+
+import 'uno.css'
+
+// your own CSS
+
+// "utilities" layer will have the highest priority
+import 'uno:utilities.css' */
