@@ -14,14 +14,16 @@ import {
 export default defineConfig({
 	content: {
 		filesystem: ["**/*.{html,js,njk}"],
+		// filesystem: ["src/**/*.{html,js,njk}"],
 	},
 	// NOTE: cli config not tested
-	// cli: {
-	// 	entry: {
-	// 		patterns: ["src/styles/main.css"], // Glob patterns to match files
-	// 		outFile: "dist/test.css", // The output filename for the generated UnoCSS file
-	// 	},
-	// },
+	cli: {
+		entry: {
+			// patterns: ["src/styles/*.css"], // Glob patterns to match files
+			patterns: ["src/**/*.{html,js,njk,css}"],
+			outFile: "dist/assets/css/main.css", // The output filename for the generated UnoCSS file
+		},
+	},
 	presets: [
 		presetUno({
 			// dark: {light: '.light', dark: '.dark'}, // Custom DarkModeSelectors
@@ -53,7 +55,8 @@ export default defineConfig({
 	// layers: {
 	// 	pre: -1,
 	// 	preflights: 0,
-	// 	base: 1,
+	// 	reset: 1,
+	// 	base: 2,
 	// 	layouts: 3,
 	// 	components: 5,
 	// 	default: 9, // defaults are probably always utilities
@@ -133,11 +136,11 @@ export default defineConfig({
 	// 		};
 	// 	},
 	// ],
-	shortcuts: {
-		// shortcuts to multiple utilities
-		// btn: "py-2 px-4 font-semibold rounded-lg shadow-md",
-		// "btn-green": "text-white bg-green-500 hover:bg-green-700",
-		// single utility alias
-		// red: "text-red-100",
-	},
+	// shortcuts: {
+	// 	// shortcuts to multiple utilities
+	// 	btn: "py-2 px-4 font-semibold rounded-lg shadow-md",
+	// 	"btn-green": "text-white bg-green-500 hover:bg-green-700",
+	// 	// single utility alias
+	// 	red: "text-red-100",
+	// },
 });

@@ -11,7 +11,8 @@
 		"clean": "rm -rf dist",
 		"build": "npx @11ty/eleventy",
 		"serve": "npx @11ty/eleventy --serve",
-		"start": "npm run serve"
+		"start": "npm run serve",
+		"unocss": "unocss -w"
 	},
 	"keywords": [],
 	"repository": {
@@ -34,6 +35,7 @@
 		"@unocss/postcss": "^0.60.3",
 		"cssnano": "^7.0.1",
 		"eslint-config-prettier": "^9.1.0",
+		"lightningcss": "^1.25.0",
 		"lodash": "^4.17.21",
 		"postcss": "^8.4.38",
 		"postcss-import": "^16.1.0",

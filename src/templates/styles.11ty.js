@@ -1,16 +1,22 @@
 import * as fs from "fs";
 import * as url from "url";
-import postcss from "postcss";
-import atImport from "postcss-import";
-import postcssPresetEnv from "postcss-preset-env";
-import tailwindcss from "tailwindcss";
-import twNesting from "tailwindcss/nesting/index.js";
-import UnoCSS from "@unocss/postcss";
-import cssNano from "cssnano";
-import utopia from "postcss-utopia";
+// import { exec } from "node:child_process";
+import { exec, execSync } from "child_process";
 import { PROD } from "../env.js";
-
 // console.log({ tailwindcss });
+
+function uno() {
+	// const output = execSync("ls", { encoding: "utf-8" }); // the default is 'buffer'
+	execSync(`npm run unocss`, { encoding: "utf-8" });
+	console.log("Output was:\n", output);
+	// exec("cat *.js bad_file | wc -l", function (error, stdout, stderr) {
+	// 	console.log("stdout: " + stdout);
+	// 	console.log("stderr: " + stderr);
+	// 	if (error !== null) {
+	// 		console.log("exec error: " + error);
+	// 	}
+	// });
+}
 
 export async function data() {
 	const destFileName = "main.css";
@@ -34,20 +40,7 @@ export async function render(data) {
 	const { destPath, inputPath, inputPathFull, rawCss } = data;
 
 	// TODO: look at postcss config or other usefull plugins
-	return await postcss([
-		UnoCSS(),
-		atImport(),
-		// utopia({ minWidth: 320, maxWidth: 1240 }),
-		// // twNesting,
-		// // tailwindcss,
-		postcssPresetEnv({
-			stage: 1,
-			// features: { "nesting-rules": false }, // Need to exclude if using 'postcss-nesting' (or 'tailwindcss/nesting')
-		}), // OPTIONS: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#options
-		// ...(PROD ? [cssNano] : []),
-	])
-		.process(rawCss, { from: inputPathFull, to: destPath })
-		.then((result) => {
-			return result.css;
-		});
+	// return await postcss([])
+	uno();
+	return "";
 }

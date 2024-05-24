@@ -4,6 +4,7 @@
 
 @unocss pre;
 @unocss preflights;
+@unocss reset;
 @unocss base;
 @unocss layouts;
 @unocss components;
