@@ -3,112 +3,110 @@
 /* TODO: Chose strategy: */
 /* ? -> 1. Have globally available variables and pick among them to create ctx */
 /* 2. Variables are defined for each ctx with property name directly */
-@layer base {
-	:root,
-	.ctxc-reset,
-	.ctxc-default {
-		/* Define available global color variables */
-		/* Might not be needed because this is defined in tailwind config */
-	}
-	/* Default */
-	:root,
-	.ctxc-reset,
-	.ctxc-default,
-	.ctxc-light {
-		@apply border-current
-            bg-white
-            fill-current
-            stroke-transparent
-            text-black
-            decoration-current
-            caret-current
-            outline-current;
+:root,
+.ctxc-reset,
+.ctxc-default {
+	/* Define available global color variables */
+	/* Might not be needed because this is defined in tailwind config */
+}
+/* Default */
+:root,
+.ctxc-reset,
+.ctxc-default,
+.ctxc-light {
+	@apply border-current
+		bg-white
+		fill-current
+		stroke-transparent
+		text-black
+		decoration-current
+		caret-current
+		outline-current;
 
-		/* TODO: Does it work or should we abstract with local variables to be reused inside each color ctx by default */
-		/* + Easier to setup multiple themes */
-		/* Might depend on the project */
-		/* Could be done with
-            :root,
-	        [class*="ctxc"] {
-                & :--mark {
-                    @apply bg-transparent;
-                    box-shadow: inset 0 -0.5em 0 var(--_color-accent);
-                }
-            }
-            :root,
-            .ctxc-reset,
-            .ctxc-default {
-                --_color-text: ...
-                --_color-accent: theme(colors.curcuma.light)
-            }
-        */
-
-		/* More variable names definitions and fallback values for css selectors */
-		&:--focus,
-		& *:--focus {
-			@apply outline-curcuma-dark;
-		}
-		&:--selection,
-		& *::selection,
-		& :--selection {
-			@apply bg-curcuma-dark text-white;
-		}
-		& :--mark {
-			@apply bg-transparent;
-			position: relative;
-			&::after {
-				position: absolute;
-				content: "";
-				z-index: -1;
-				inset: 0 -5px 0 5px;
-				box-shadow: inset 0 -0.5em 0 theme(colors.curcuma.light);
+	/* TODO: Does it work or should we abstract with local variables to be reused inside each color ctx by default */
+	/* + Easier to setup multiple themes */
+	/* Might depend on the project */
+	/* Could be done with
+		:root,
+		[class*="ctxc"] {
+			& :--mark {
+				@apply bg-transparent;
+				box-shadow: inset 0 -0.5em 0 var(--_color-accent);
 			}
 		}
-		& a {
-			@apply text-current;
+		:root,
+		.ctxc-reset,
+		.ctxc-default {
+			--_color-text: ...
+			--_color-accent: theme(colors.curcuma.light)
 		}
-		& a:--hover {
-			@apply text-curcuma-dark;
-		}
-		& :--button {
-			/* color: var(--color-text__button);
-			background-color: var(--color-bg__button);
-			border-color: var(--color-border__button, currentcolor); */
-		}
-		& :--button:--hover {
-			/* color: var(--color-text__button--hover);
-			background-color: var(--color-bg__button--hover);
-			border-color: var(--color-border__button--hover, currentcolor); */
-		}
-		& :--button:--disabled {
-			/* color: var(--color-text__button--disabled);
-			background-color: var(--color-bg__button--disabled);
-			border-color: var(--color-border__button--disabled, currentcolor); */
-		}
-		& :--code {
-			/* color: var(--color-text__code);
-			background-color: var(--color-bg__code);
-			border-color: var(--color-border__code); */
-		}
-		/* --- SCROLLBAR --- */
-		/* TODO: this is for the Reel Layout Component */
-		/* --track-color */
-		/* --thumb-color */
-		/*  */
+	*/
+
+	/* More variable names definitions and fallback values for css selectors */
+	&:--focus,
+	& *:--focus {
+		@apply outline-curcuma-dark;
 	}
-	.ctxc-light-reverse,
-	.ctxc-dark {
-		/* prettier-ignore */
+	&:--selection,
+	& *::selection,
+	& :--selection {
+		@apply bg-curcuma-dark text-white;
 	}
-	.ctxc-graybg {
-		/* prettier-ignore */
-		@apply bg-mouse
-            text-black;
-		/* & a {
-			@apply text-current;
+	& :--mark {
+		@apply bg-transparent;
+		position: relative;
+		&::after {
+			position: absolute;
+			content: "";
+			z-index: -1;
+			inset: 0 -5px 0 5px;
+			box-shadow: inset 0 -0.5em 0 theme(colors.curcuma.light);
 		}
-		& a:--hover {
-			@apply text-curcuma-dark;
-		} */
 	}
+	& a {
+		@apply text-current;
+	}
+	& a:--hover {
+		@apply text-curcuma-dark;
+	}
+	& :--button {
+		/* color: var(--color-text__button);
+		background-color: var(--color-bg__button);
+		border-color: var(--color-border__button, currentcolor); */
+	}
+	& :--button:--hover {
+		/* color: var(--color-text__button--hover);
+		background-color: var(--color-bg__button--hover);
+		border-color: var(--color-border__button--hover, currentcolor); */
+	}
+	& :--button:--disabled {
+		/* color: var(--color-text__button--disabled);
+		background-color: var(--color-bg__button--disabled);
+		border-color: var(--color-border__button--disabled, currentcolor); */
+	}
+	& :--code {
+		/* color: var(--color-text__code);
+		background-color: var(--color-bg__code);
+		border-color: var(--color-border__code); */
+	}
+	/* --- SCROLLBAR --- */
+	/* TODO: this is for the Reel Layout Component */
+	/* --track-color */
+	/* --thumb-color */
+	/*  */
+}
+.ctxc-light-reverse,
+.ctxc-dark {
+	/* prettier-ignore */
+}
+.ctxc-graybg {
+	/* prettier-ignore */
+	@apply bg-mouse
+		text-black;
+	/* & a {
+		@apply text-current;
+	}
+	& a:--hover {
+		@apply text-curcuma-dark;
+	} */
 }

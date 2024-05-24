@@ -1,0 +1,15 @@
+<header class="ctxc-default full-bleed-before sticky top-0 z-50 py-fluid-s-m">
+	<nav class="cluster split-after-1 flex-wrap justify-between gap-fluid-0">
+		<div class="h-fluid-1 shrink-0">
+			<a href="#accueil" class="block h-full w-full">{% include "svg/logo.njk" %}</a>
+		</div>
+
+		<ul class="reset cluster fluid-gap-md uppercase">
+			{% for li in sectionList %}
+			<li class="">
+				<a href="{{ li.href }}" class="reset">{{ li.txt }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</header>

@@ -18,11 +18,7 @@
 		{% block head %}{% endblock %}
 	</head>
 	<body class="{{class.body}}">
-		<div>
-			<h1 class="pop-blue font-sans">HELLO</h1>
-		</div>
-
-		{% include "components/navbar.njk" %}
+		{% include "components/navbar.html" %}
 
 		<!-- Contenu de la page -->
 		{% block content %} {{ content | safe }} {% endblock %}

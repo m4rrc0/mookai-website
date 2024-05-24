@@ -1,26 +1,42 @@
+/* ---LAYERS --- */
+/* LAYER PRE (just in case)  */
 @import "./helpers.css";
+@import "./uno-imports/pre.css";
 
+/* LAYER PREFLIGHTS (VARIABLES)  */
+@import "./uno-imports/preflights.css";
+
+/* LAYER RESET  */
+@import "./reset.css";
+@import "./uno-imports/reset.css";
+
+/* LAYER BASE  */
 @import "./fonts.css";
+@import "./typography.css";
+@import "./spaces.css";
+@import "./uno-imports/base.css";
 
-@unocss pre;
-@unocss preflights;
-@unocss base;
-@unocss layouts;
-@unocss components;
-@unocss default;
-@unocss;
-@unocss utilities;
-@unocss utils;
+/* LAYER LAYOUTS  */
+@import "./layouts.css";
+@import "./uno-imports/layouts.css";
 
+/* LAYER COLORS  */
+@import "./colors.css";
+@import "./uno-imports/colors.css";
+
+/* LAYER COMPONENTS  */
+@import "./utilities.css"; /* complex utilities are more like components */
+@import "./uno-imports/components.css";
+
+/* LAYER PROJECT (custom project's css  */
+@import "./project.css";
+
+/* LAYER UTILITIES  */
+@import "./uno-imports/default.css";
+@import "./uno-imports/utilities.css";
+
+/* TODO: Should not have anything here */
+/* Cutom CSS goes into project.css */
 p {
 	color: theme("colors.fuchsia.800");
 }
-/* // 'uno:[layer-name].css'
-import 'uno:components.css'
-
-import 'uno.css'
-
-// your own CSS
-
-// "utilities" layer will have the highest priority
-import 'uno:utilities.css' */
