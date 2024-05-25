@@ -37,7 +37,7 @@ export async function render(data) {
 	return await postcss([
 		atImport(), // has to be first I believe
 		UnoCSS(),
-		utopia({ minWidth: 320, maxWidth: 1240 }),
+		// utopia({ minWidth: 320, maxWidth: 1240 }),
 		// // twNesting,
 		// // tailwindcss,
 		postcssPresetEnv({

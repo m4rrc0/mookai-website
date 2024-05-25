@@ -10,6 +10,9 @@ import {
 	transformerVariantGroup,
 } from "unocss";
 import defaultTheme from "tailwindcss/defaultTheme";
+// import { presetFluid } from "unocss-preset-fluid";
+import { presetFluid } from "./src/utils/unocss/preset-fluid/index.js";
+import computeRanges from "./src/utils/unocss/preset-fluid/computeRanges.js";
 
 const applyValsToKeys = (keysArr, valuesObj) => {
 	const result = {};
@@ -19,9 +22,24 @@ const applyValsToKeys = (keysArr, valuesObj) => {
 	return result;
 };
 
+const fluidConfig = {
+	minFontSize: 18,
+	maxFontSize: 20,
+	minTypeScale: 1.25,
+	maxTypeScale: 1.333,
+	positiveSteps: 10,
+	negativeSteps: 10,
+	// prefix: "fluid",
+	relativeTo: "viewport",
+	usePx: false,
+	rounding: 2,
+};
+const ranges = computeRanges(fluidConfig);
+console.log(ranges);
+
 export default defineConfig({
 	content: {
-		filesystem: ["**/*.{html,js,njk}"],
+		filesystem: ["./src/_includes/**/*.{html,js,njk}", "./src/templates/**/*.{html,js,njk}"],
 	},
 	// NOTE: cli config not tested
 	// cli: {
@@ -56,6 +74,22 @@ export default defineConfig({
 		// 		],
 		// 	},
 		// }),
+		presetFluid({
+			minWidth: 320,
+			maxWidth: 1240,
+			extendMinWidth: 200,
+			extendMaxWidth: 1920,
+			remBase: 16,
+			useRemByDefault: false,
+			commentHelpers: true,
+			ranges: {
+				// xs: [12, 16],
+				// sm: [14, 18],
+				// md: [18, 24],
+				// lg: [22, 30],
+				...ranges,
+			},
+		}),
 	],
 	// transformers: [transformerDirectives(), transformerVariantGroup()],
 	layers: {
@@ -129,17 +163,17 @@ export default defineConfig({
 				dark: "hsla(4, 21%, 44%, 1)",
 			},
 		}, // backgroundColor, borderColor, textColor, ...
-		fontSize: {
-			"fluid--2": "var(--fluid--2)",
-			"fluid--1": "var(--fluid--1)",
-			"fluid-0": "var(--fluid-0)",
-			"fluid-1": "var(--fluid-1)",
-			"fluid-2": "var(--fluid-2)",
-			"fluid-3": "var(--fluid-3)",
-			"fluid-4": "var(--fluid-4)",
-			"fluid-5": "var(--fluid-5)",
-			"fluid-6": "var(--fluid-6)",
-		},
+		// fontSize: {
+		// 	"fluid--2": "var(--fluid--2)",
+		// 	"fluid--1": "var(--fluid--1)",
+		// 	"fluid-0": "var(--fluid-0)",
+		// 	"fluid-1": "var(--fluid-1)",
+		// 	"fluid-2": "var(--fluid-2)",
+		// 	"fluid-3": "var(--fluid-3)",
+		// 	"fluid-4": "var(--fluid-4)",
+		// 	"fluid-5": "var(--fluid-5)",
+		// 	"fluid-6": "var(--fluid-6)",
+		// },
 		lineHeight: {
 			"neg-10": "0.90",
 			"neg-20": "0.80",
@@ -157,66 +191,74 @@ export default defineConfig({
 			900: "900",
 		},
 		// Sizing
-		...applyValsToKeys(
-			[
-				"width",
-				"height",
-				"maxWidth",
-				"maxHeight",
-				"minWidth",
-				"minHeight",
-				"inlineSize",
-				"blockSize",
-				"maxInlineSize",
-				"maxBlockSize",
-				"minInlineSize",
-				"minBlockSize",
-			],
-			{
-				"fluid--2": "var(--fluid--2)",
-				"fluid--1": "var(--fluid--1)",
-				"fluid-0": "var(--fluid-0)",
-				"fluid-1": "var(--fluid-1)",
-				"fluid-2": "var(--fluid-2)",
-				"fluid-3": "var(--fluid-3)",
-				"fluid-4": "var(--fluid-4)",
-				"fluid-5": "var(--fluid-5)",
-				"fluid-6": "var(--fluid-6)",
-			}
-		),
-		spacing: {
-			// Custom via Type scale
-			"fluid--2": "var(--fluid--2)",
-			"fluid--1": "var(--fluid--1)",
-			"fluid-0": "var(--fluid-0)",
-			"fluid-1": "var(--fluid-1)",
-			"fluid-2": "var(--fluid-2)",
-			"fluid-3": "var(--fluid-3)",
-			"fluid-4": "var(--fluid-4)",
-			"fluid-5": "var(--fluid-5)",
-			"fluid-6": "var(--fluid-6)",
-			// Custom via Space scale
-			"fluid-3xs": "var(--fluid-3xs)",
-			"fluid-2xs": "var(--fluid-2xs)",
-			"fluid-xs": "var(--fluid-xs)",
-			"fluid-s": "var(--fluid-s)",
-			"fluid-m": "var(--fluid-m)",
-			"fluid-l": "var(--fluid-l)",
-			"fluid-xl": "var(--fluid-xl)",
-			"fluid-2xl": "var(--fluid-2xl)",
-			"fluid-3xl": "var(--fluid-3xl)",
-			/* One-up pairs */
-			"fluid-3xs-2xs": "var(--fluid-3xs-2xs)",
-			"fluid-2xs-xs": "var(--fluid-2xs-xs)",
-			"fluid-xs-s": "var(--fluid-xs-s)",
-			"fluid-s-m": "var(--fluid-s-m)",
-			"fluid-m-l": "var(--fluid-m-l)",
-			"fluid-l-xl": "var(--fluid-l-xl)",
-			"fluid-xl-2xl": "var(--fluid-xl-2xl)",
-			"fluid-2xl-3xl": "var(--fluid-2xl-3xl)",
-			/* Custom pairs */
-			"fluid-s-l": "var(--fluid-s-l)",
-		}, // p-*, m-*, w-*, h-*, max-h-*, basis-*, gap-*, inset-*, space-*, translate-x-*, scroll-m-*, scroll-p-*, indent-*
+		// ...applyValsToKeys(
+		// 	[
+		// 		"width",
+		// 		"height",
+		// 		"maxWidth",
+		// 		"maxHeight",
+		// 		"minWidth",
+		// 		"minHeight",
+		// 		"inlineSize",
+		// 		"blockSize",
+		// 		"maxInlineSize",
+		// 		"maxBlockSize",
+		// 		"minInlineSize",
+		// 		"minBlockSize",
+		// 	],
+		// 	{
+		// 		"fluid--2": "var(--fluid--2)",
+		// 		"fluid--1": "var(--fluid--1)",
+		// 		"fluid-0": "var(--fluid-0)",
+		// 		"fluid-1": "var(--fluid-1)",
+		// 		"fluid-2": "var(--fluid-2)",
+		// 		"fluid-3": "var(--fluid-3)",
+		// 		"fluid-4": "var(--fluid-4)",
+		// 		"fluid-5": "var(--fluid-5)",
+		// 		"fluid-6": "var(--fluid-6)",
+		// 	}
+		// ),
+		height: {
+			"1": "initial",
+			"2": "initial",
+			"3": "initial",
+			"4": "initial",
+			"5": "initial",
+			"6": "initial",
+		},
+		// spacing: {
+		// 	// Custom via Type scale
+		// 	"fluid--2": "var(--fluid--2)",
+		// 	"fluid--1": "var(--fluid--1)",
+		// 	"fluid-0": "var(--fluid-0)",
+		// 	"fluid-1": "var(--fluid-1)",
+		// 	"fluid-2": "var(--fluid-2)",
+		// 	"fluid-3": "var(--fluid-3)",
+		// 	"fluid-4": "var(--fluid-4)",
+		// 	"fluid-5": "var(--fluid-5)",
+		// 	"fluid-6": "var(--fluid-6)",
+		// 	// Custom via Space scale
+		// 	"fluid-3xs": "var(--fluid-3xs)",
+		// 	"fluid-2xs": "var(--fluid-2xs)",
+		// 	"fluid-xs": "var(--fluid-xs)",
+		// 	"fluid-s": "var(--fluid-s)",
+		// 	"fluid-m": "var(--fluid-m)",
+		// 	"fluid-l": "var(--fluid-l)",
+		// 	"fluid-xl": "var(--fluid-xl)",
+		// 	"fluid-2xl": "var(--fluid-2xl)",
+		// 	"fluid-3xl": "var(--fluid-3xl)",
+		// 	/* One-up pairs */
+		// 	"fluid-3xs-2xs": "var(--fluid-3xs-2xs)",
+		// 	"fluid-2xs-xs": "var(--fluid-2xs-xs)",
+		// 	"fluid-xs-s": "var(--fluid-xs-s)",
+		// 	"fluid-s-m": "var(--fluid-s-m)",
+		// 	"fluid-m-l": "var(--fluid-m-l)",
+		// 	"fluid-l-xl": "var(--fluid-l-xl)",
+		// 	"fluid-xl-2xl": "var(--fluid-xl-2xl)",
+		// 	"fluid-2xl-3xl": "var(--fluid-2xl-3xl)",
+		// 	/* Custom pairs */
+		// 	"fluid-s-l": "var(--fluid-s-l)",
+		// }, // p-*, m-*, w-*, h-*, max-h-*, basis-*, gap-*, inset-*, space-*, translate-x-*, scroll-m-*, scroll-p-*, indent-*
 		borderRadius: {
 			pill: "100vw",
 		}, // .rounded-*

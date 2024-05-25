@@ -35,8 +35,5 @@
 @import "./uno-imports/default.css";
 @import "./uno-imports/utilities.css";
 
-/* TODO: Should not have anything here */
+/* NOTE: Should not have anything below */
 /* Cutom CSS goes into project.css */
-p {
-	color: theme("colors.fuchsia.800");
-}

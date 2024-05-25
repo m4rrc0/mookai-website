@@ -44,6 +44,7 @@
 		"prettier-plugin-tailwindcss": "^0.5.14",
 		"tailwind-utopia": "github:cwsdigital/tailwind-utopia",
 		"tailwindcss": "^3.4.3",
-		"unocss": "^0.60.3"
+		"unocss": "^0.60.3",
+		"unocss-preset-fluid": "^1.0.2"
 	}
 }
