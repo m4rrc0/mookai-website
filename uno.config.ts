@@ -8,6 +8,7 @@ import {
 	presetWebFonts,
 	transformerDirectives,
 	transformerVariantGroup,
+	toEscapedSelector as e,
 } from "unocss";
 import defaultTheme from "tailwindcss/defaultTheme";
 // import { presetFluid } from "unocss-preset-fluid";
@@ -27,7 +28,7 @@ const fluidConfig = {
 	maxFontSize: 20,
 	minTypeScale: 1.25,
 	maxTypeScale: 1.333,
-	positiveSteps: 10,
+	positiveSteps: 15,
 	negativeSteps: 10,
 	// prefix: "fluid",
 	relativeTo: "viewport",
@@ -35,7 +36,7 @@ const fluidConfig = {
 	rounding: 2,
 };
 const ranges = computeRanges(fluidConfig);
-console.log(ranges);
+// console.log(ranges);
 
 export default defineConfig({
 	content: {
@@ -266,6 +267,23 @@ export default defineConfig({
 	rules: [
 		["pop", { color: "red" }],
 		[/^pop-(\w+)$/, ([, word]) => ({ color: word }), { layer: "colors" }],
+		// [
+		// 	"sideways-lr",
+		// 	{
+		// 		"writing-mode": "sideways-lr",
+		// 		"@supports (not (writing-mode: sideways-lr))": {
+		// 			"writing-mode": "vertical-rl",
+		// 			transform: "rotate(-180deg)",
+		// 		},
+		// 	},
+		// ],
+		[
+			"sideways-lr",
+			{
+				"writing-mode": "vertical-rl",
+				transform: "rotate(-180deg)",
+			},
+		],
 	],
 	// variants: [
 	// 	// hover:

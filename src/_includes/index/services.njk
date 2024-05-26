@@ -1,11 +1,11 @@
-<section>
-	<h2>Services</h2>
-	<div class="services stack md:gap-fluid-0 [&_summary::marker]:text-[0px]">
+<section class="ctxs-massive f-py-s3+2 f-gap-s3 flex flex-col items-start text-coral lg:flex-row">
+	<h2 class="lg:sideways-lr uppercase">Services</h2>
+	<accordeon-details class="ctxs-default services-accordeon stack [&_summary::marker]:text-[0px]">
 		<details open>
-			<summary class="uppercase">
-				<h3 class="inline">Développement web</h3>
+			<summary class="flex uppercase lg:items-end lg:justify-end">
+				<h3 class="f-text-s2 text-coral-dark">Développement web</h3>
 			</summary>
-			<div class="details-text">
+			<div class="details-text oooooverflow-y-auto">
 				<p>
 					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus iure, temporibus
 					similique reprehenderit culpa architecto quasi ea minima. Laborum dolores saepe quisquam
@@ -34,8 +34,8 @@
 			</div>
 		</details>
 		<details>
-			<summary class="uppercase">
-				<h3>Graphisme</h3>
+			<summary class="flex uppercase lg:items-end lg:justify-end">
+				<h3 class="f-text-s2 text-coral-dark">Graphisme</h3>
 			</summary>
 			<div class="details-text">
 				<p>
@@ -46,8 +46,8 @@
 			</div>
 		</details>
 		<details>
-			<summary class="uppercase">
-				<h3>Analytics</h3>
+			<summary class="flex uppercase lg:items-end lg:justify-end">
+				<h3 class="f-text-s2 text-coral-dark">Analytics</h3>
 			</summary>
 			<div class="details-text">
 				<p>
@@ -58,8 +58,8 @@
 			</div>
 		</details>
 		<details>
-			<summary class="uppercase">
-				<h3>SEO</h3>
+			<summary class="flex uppercase lg:items-end lg:justify-end">
+				<h3 class="f-text-s2 text-coral-dark">SEO</h3>
 			</summary>
 			<div class="details-text">
 				<p>
@@ -70,8 +70,8 @@
 			</div>
 		</details>
 		<details>
-			<summary class="uppercase">
-				<h3>Digitalisation</h3>
+			<summary class="flex uppercase lg:items-end lg:justify-end">
+				<h3 class="f-text-s2 text-coral-dark">Digitalisation</h3>
 			</summary>
 			<div class="details-text">
 				<p>
@@ -82,8 +82,8 @@
 			</div>
 		</details>
 		<details>
-			<summary class="uppercase">
-				<h3>Formations</h3>
+			<summary class="flex uppercase lg:items-end lg:justify-end">
+				<h3 class="f-text-s2 text-coral-dark">Formations</h3>
 			</summary>
 			<div class="details-text">
 				<p>
@@ -94,8 +94,8 @@
 			</div>
 		</details>
 		<details>
-			<summary class="uppercase">
-				<h3>Conférences</h3>
+			<summary class="flex uppercase lg:items-end lg:justify-end">
+				<h3 class="f-text-s2 text-coral-dark">Conférences</h3>
 			</summary>
 			<div class="details-text">
 				<p>
@@ -105,5 +105,34 @@
 				</p>
 			</div>
 		</details>
-	</div>
+	</accordeon-details>
 </section>
+
+<script defer>
+	customElements.define(
+		"accordeon-details",
+		class extends HTMLElement {
+			constructor() {
+				super();
+				this.detailsElems = this.querySelectorAll("details");
+				this.lastClicked = undefined;
+				const self = this;
+
+				this.addEventListener("click", this);
+
+				this.detailsElems.forEach(function (elem) {
+					elem.addEventListener("click", function (event) {
+						self.lastClicked = this;
+					});
+				});
+			}
+			handleEvent(event) {
+				this.detailsElems.forEach((elem) => {
+					if (elem.open && elem !== this.lastClicked) {
+						elem.open = false;
+					}
+				});
+			}
+		}
+	);
+</script>

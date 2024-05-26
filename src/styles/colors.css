@@ -55,7 +55,7 @@
 	& :--mark {
 		@apply bg-transparent;
 		position: relative;
-		&::after {
+		&::before {
 			position: absolute;
 			content: "";
 			z-index: -1;

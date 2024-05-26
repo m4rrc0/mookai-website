@@ -50,6 +50,9 @@ const fluidUtilities = {
 	"f-inset": "inset",
 	"f-inset-x": ["left", "right"],
 	"f-inset-y": ["top", "bottom"],
+	// Added by me
+	"f-grid-auto-rows": "grid-auto-rows",
+	"f-var": "--_f",
 };
 
 const REGEX_PATTERNS_NUMERIC_VALUES = "(?:--)?(-?\\d+)?(?:--)?(-?\\d+)?$";
@@ -187,6 +190,15 @@ function getClampComment(match, config) {
 function buildSinglePropertyRule(match, config, property) {
 	if (!validateUtilityName(match, config)) return "";
 	const { min, max } = extractRemBoundsFromMatch(match, config);
+	// ME: CUSTOM
+	// Add val name to variable name to be able to produce multiple
+	if (property.startsWith("--")) {
+		const valName = match[match.length - 1];
+		return {
+			[`${property}`]: getClamp(min, max, config) + getClampComment(match, config),
+			[`${property}-${valName}`]: getClamp(min, max, config) + getClampComment(match, config),
+		};
+	}
 	return {
 		[`${property}`]: getClamp(min, max, config) + getClampComment(match, config),
 	};

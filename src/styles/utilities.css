@@ -151,3 +151,13 @@ a.external::after {
   background-size: contain;
   display: inline-block; */
 }
+
+.sideways-lr {
+	writing-mode: sideways-lr;
+}
+@supports (not (writing-mode: sideways-lr)) {
+	.sideways-lr {
+		writing-mode: vertical-rl;
+		transform: rotate(-180deg);
+	}
+}

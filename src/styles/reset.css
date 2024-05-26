@@ -53,8 +53,7 @@ a {
 	text-decoration-skip-ink: auto;
 }
 /* Make images easier to work with */
-img,
-svg {
+img {
 	max-width: 100%;
 	height: auto; /* Keep aspect ratio */
 	display: block;
@@ -110,11 +109,14 @@ a.reset *,
 }
 
 p svg {
+	/* display: inline-block; */
 	height: 1em;
 	vertical-align: middle;
-	/* display: inline-block; */
 }
 
+summary {
+	cursor: pointer;
+}
 summary > * {
 	display: inline; /* Prevent summary from jumping under the summary::marker (arrow) */
 }
