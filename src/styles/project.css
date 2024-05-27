@@ -8,7 +8,7 @@
 	accordeon-details:defined {
 		@apply f-var-s4;
 		@apply f-var-s0;
-		--_gap-width: var(--_f-s0);
+		--_gap-width: var(--_f-s2);
 		--_line-width: 3px;
 		/* --_line-color: theme(colors.coral.mid); */
 		--_line-color: currentcolor;
@@ -68,6 +68,7 @@
 					&::before {
 						position: absolute;
 						content: "";
+						z-index: -1;
 						/* Need to grow the box or the vertical and horizontal lines does not align */
 						inset: var(--_line-width) 0 0 calc(-1 / 2 * var(--_gap-width));
 						box-shadow: 0 calc(-1 * var(--_line-width)) 0 var(--_line-color);
@@ -93,6 +94,10 @@
 			/* display: block; */
 			/* grid-area: text; */
 			grid-row: 2 / span 7;
+			padding-top: calc((var(--_gap-width) / 2) - 0.2em);
+			padding-bottom: calc((var(--_gap-width) / 2) - 0.2em);
+
+
 			/* TODO: Find a way to accomodate content in .details-text. ? Scroll overflow ? */
 		}
 		/* details:not([open]) .details-text {
