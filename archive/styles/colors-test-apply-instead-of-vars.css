@@ -1,0 +1,170 @@
+/* nuds color system */
+/* --------------------------------------- */
+/* TODO: Chose strategy: */
+/* ? -> 1. Have globally available variables and pick among them to create ctx */
+/* 2. Variables are defined for each ctx with property name directly */
+:root,
+.ctxc-reset,
+.ctxc-default {
+	/* Define available global color variables */
+	/* Might not be needed because this is defined in tailwind config */
+}
+/* Default */
+:root,
+.ctxc-reset,
+.ctxc-default,
+.ctxc-light {
+	@apply border-current
+		bg-white
+		fill-current
+		stroke-transparent
+		text-black
+		decoration-current
+		caret-current
+		outline-current;
+
+	/* TODO: Does it work or should we abstract with local variables to be reused inside each color ctx by default */
+	/* + Easier to setup multiple themes */
+	/* Might depend on the project */
+	/* Could be done with
+		:root,
+		[class*="ctxc"] {
+			& :--mark {
+				@apply bg-transparent;
+				box-shadow: inset 0 -0.5em 0 var(--_color-accent);
+			}
+		}
+		:root,
+		.ctxc-reset,
+		.ctxc-default {
+			--_color-text: ...
+			--_color-accent: theme(colors.curcuma.light)
+		}
+	*/
+
+	/* More variable names definitions and fallback values for css selectors */
+	&:--focus,
+	& *:--focus {
+		@apply outline-curcuma-dark;
+	}
+	&:--selection,
+	& *::selection,
+	& :--selection {
+		@apply bg-curcuma-dark text-white;
+	}
+	& :--mark {
+		@apply bg-transparent;
+		position: relative;
+		&::before {
+			position: absolute;
+			content: "";
+			z-index: -1;
+			inset: 0 -5px 0 5px;
+			box-shadow: inset 0 -0.5em 0 theme(colors.curcuma.light);
+		}
+	}
+	& a {
+		@apply text-current;
+	}
+	& a:--hover {
+		@apply text-curcuma-dark;
+	}
+	& :--button {
+		/* color: var(--color-text__button);
+		background-color: var(--color-bg__button);
+		border-color: var(--color-border__button, currentcolor); */
+	}
+	& :--button:--hover {
+		/* color: var(--color-text__button--hover);
+		background-color: var(--color-bg__button--hover);
+		border-color: var(--color-border__button--hover, currentcolor); */
+	}
+	& :--button:--disabled {
+		/* color: var(--color-text__button--disabled);
+		background-color: var(--color-bg__button--disabled);
+		border-color: var(--color-border__button--disabled, currentcolor); */
+	}
+	& :--code {
+		/* color: var(--color-text__code);
+		background-color: var(--color-bg__code);
+		border-color: var(--color-border__code); */
+	}
+	/* --- SCROLLBAR --- */
+	/* TODO: this is for the Reel Layout Component */
+	/* --track-color */
+	/* --thumb-color */
+	/*  */
+}
+.ctxc-light-reverse,
+.ctxc-dark {
+	/* prettier-ignore */
+}
+.ctxc-graybg {
+	/* prettier-ignore */
+	@apply bg-mouse
+		text-black;
+	/* & a {
+		@apply text-current;
+	}
+	& a:--hover {
+		@apply text-curcuma-dark;
+	} */
+}
+
+/* NOTE: System Colors are as follows */
+/* AccentColor (not widely supported yet)
+Background of accented user interface controls
+
+AccentColorText (not widely supported yet)
+Text of accented user interface controls
+
+ActiveText
+Text of active links
+
+ButtonBorder
+Base border color of controls
+
+ButtonFace
+Background color of controls
+
+ButtonText
+Text color of controls
+
+Canvas
+Background of application content or documents
+
+CanvasText
+Text color in application content or documents
+
+Field
+Background of input fields
+
+FieldText
+Text in input fields
+
+GrayText
+Text color for disabled items (e.g. a disabled control)
+
+Highlight
+Background of selected items
+
+HighlightText
+Text color of selected items
+
+LinkText
+Text of non-active, non-visited links
+
+Mark
+Background of text that has been specially marked (such as by the HTML mark element)
+
+MarkText
+Text that has been specially marked (such as by the HTML mark element)
+
+SelectedItem
+Background of selected items, for example, a selected checkbox
+
+SelectedItemText
+Text of selected items
+
+VisitedText
+Text of visited links */

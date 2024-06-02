@@ -4,8 +4,7 @@
 /* ? -> 1. Have globally available variables and pick among them to create ctx */
 /* 2. Variables are defined for each ctx with property name directly (recompute scale on each ctx */
 
-/* Define available global font-sizes variables (with utopia) */
-/* NOTE: not useful if we use the tailwind plugin */
+/* Define available global font-sizes variables */
 :root {
 	@apply f-var-s-10;
 	@apply f-var-s-9;

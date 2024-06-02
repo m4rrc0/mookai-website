@@ -193,7 +193,9 @@ function buildSinglePropertyRule(match, config, property) {
 	// ME: CUSTOM
 	// Add val name to variable name to be able to produce multiple
 	if (property.startsWith("--")) {
-		const valName = match[match.length - 1];
+		let valName = match[match.length - 1];
+		valName = valName.replace(".", `\\.`).replace("+", `\\+`);
+
 		return {
 			[`${property}`]: getClamp(min, max, config) + getClampComment(match, config),
 			[`${property}-${valName}`]: getClamp(min, max, config) + getClampComment(match, config),

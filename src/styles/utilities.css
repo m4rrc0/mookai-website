@@ -87,13 +87,14 @@
 .full-bleed-before,
 .full-bleed-after {
 	position: relative;
+	isolation: isolate;
 
 	&::before,
 	&::after {
-		display: block;
-		content: "";
-		background: inherit;
 		position: absolute;
+		content: "";
+		display: block;
+		background: inherit;
 		inset: 0;
 		z-index: -1;
 	}
@@ -152,12 +153,11 @@ a.external::after {
   display: inline-block; */
 }
 
-.sideways-lr {
+/* .sideways-lr {
 	writing-mode: sideways-lr;
-}
-@supports (not (writing-mode: sideways-lr)) {
-	.sideways-lr {
+
+	@supports (not (writing-mode: sideways-lr)) {
 		writing-mode: vertical-rl;
 		transform: rotate(-180deg);
 	}
-}
+} */

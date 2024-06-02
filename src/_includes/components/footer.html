@@ -1,33 +1,24 @@
-<!-- Container global -->
-
-<!-- Contenu -->
-
-<footer class="mt-auto w-full flex-shrink-0 bg-piedpage">
-	<div class="mx-auto mt-14 flex max-w-xl flex-row justify-between p-4 md:py-10 lg:max-w-7xl">
-		<div class="flex flex-col text-arriereplan">
-			{% include "svg/logo_asbl.njk" %}
-			<p class="text-arriereplan">hello@mookaï.be</p>
-
-			<div class="mt-2 flex flex-row">
-				<a href="#"> {% include "svg/facebook_icon.njk" %} </a>
-
-				<a href="#" class="mx-4"> {% include "svg/youtube_icon.njk" %} </a>
-
-				<a href="#"> {% include "svg/instagram_icon.njk" %} </a>
+<footer class="ctxc-alt-contrast full-bleed-before stack f-gap-s0 f-pt-s3 f-pb-s2">
+	<div class="cluster f-gap-s1 justify-between">
+		<div class="stack">
+			<div class="f-h-s2">
+				<a href="#accueil" class="block h-full w-full">{% include "svg/logo_asbl.njk" %}</a>
+			</div>
+			<!-- TODO: protect email address -->
+			<!-- <a href="" class="email">hello@mookai.be</a> -->
+			<div class="cluster f-gap-s-1 justify-between">
+				<a href="#" class="inline-block">{% include "svg/facebook_icon.njk" %}</a>
+				<a href="#" class="">{% include "svg/youtube_icon.njk" %}</a>
+				<a href="#">{% include "svg/instagram_icon.njk" %}</a>
 			</div>
 		</div>
-
-		<div class="flex flex-row">
-			<div class="barreVerticale me-5 self-center"></div>
-			<address class="self-center not-italic leading-tight text-arriereplan">
-				Mookaï asbl<br />
-				BE 1003.532.405<br />
-				47/2, avenue Armand Husmans<br />
-				1050 Bruxelles<br />
-				Belgique
-			</address>
-		</div>
+		<address class="f-pl-s1 leading-tight">
+			mookaï asbl<br />
+			BE 1003.532.405<br />
+			Avenue Armand Husmans 47/2,<br />
+			1050 Bruxelles,<br />
+			Belgique
+		</address>
 	</div>
-
-	<p class="mb-12 mt-4 text-center text-base text-arriereplan md:mt-0">&copy; Mookaï asbl</p>
+	<p class="center">&copy; mookaï asbl</p>
 </footer>

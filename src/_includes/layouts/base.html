@@ -3,30 +3,22 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script>
-			document.documentElement.className = document.documentElement.className.replace(
-				/\bno-js\b/g,
-				"js"
-			);
-		</script>
+		<!-- prettier-ignore -->
+		<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
 		<title>{{ title }}</title>
-		{#
-		<link rel="stylesheet" href="/assets/css/styles.css" />
-		#}
 		<link rel="stylesheet" href="/assets/css/main.css" />
 
+		<!-- Head injection -->
 		{% block head %}{% endblock %}
 	</head>
 	<body class="{{class.body}}">
+		<!-- Nav -->
 		{% include "components/navbar.html" %}
 
 		<!-- Contenu de la page -->
 		{% block content %} {{ content | safe }} {% endblock %}
 
-		<p class="fluid-text-3xl fluid-m-s leading-neg-25">HELLO WORLD</p>
-
+		<!-- Footer -->
 		{% include "components/footer.html" %}
-
-		<script src="/assets/js/toggleMenu.js"></script>
 	</body>
 </html>

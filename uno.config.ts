@@ -124,6 +124,14 @@ export default defineConfig({
 			sans: ['"Roboto Condensed"', ...defaultTheme.fontFamily.sans].join(","),
 			chantal: ["chantal", ...defaultTheme.fontFamily.sans].join(","),
 		},
+		breakpoints: {
+			xs: "480px",
+			sm: "640px",
+			md: "768px",
+			lg: "1024px",
+			xl: "1280px",
+			"2xl": "1536px",
+		},
 		colors: {
 			// TODO: delete these
 			deums: "#D9933D",
@@ -144,6 +152,7 @@ export default defineConfig({
 				dark: "hsla(36, 95%, 42%, 1)",
 			},
 			coral: {
+				"light-hsla": "11, 67%, 55%",
 				light: "hsla(11, 67%, 55%, 1)",
 				mid: "hsla(11, 72%, 49%, 1)",
 				DEFAULT: "hsla(11, 72%, 49%, 1)",
@@ -164,17 +173,18 @@ export default defineConfig({
 				dark: "hsla(4, 21%, 44%, 1)",
 			},
 		}, // backgroundColor, borderColor, textColor, ...
-		// fontSize: {
-		// 	"fluid--2": "var(--fluid--2)",
-		// 	"fluid--1": "var(--fluid--1)",
-		// 	"fluid-0": "var(--fluid-0)",
-		// 	"fluid-1": "var(--fluid-1)",
-		// 	"fluid-2": "var(--fluid-2)",
-		// 	"fluid-3": "var(--fluid-3)",
-		// 	"fluid-4": "var(--fluid-4)",
-		// 	"fluid-5": "var(--fluid-5)",
-		// 	"fluid-6": "var(--fluid-6)",
-		// },
+		fontSize: {
+			test: "5rem",
+			// "fluid--2": "var(--fluid--2)",
+			// "fluid--1": "var(--fluid--1)",
+			// "fluid-0": "var(--fluid-0)",
+			// "fluid-1": "var(--fluid-1)",
+			// "fluid-2": "var(--fluid-2)",
+			// "fluid-3": "var(--fluid-3)",
+			// "fluid-4": "var(--fluid-4)",
+			// "fluid-5": "var(--fluid-5)",
+			// "fluid-6": "var(--fluid-6)",
+		},
 		lineHeight: {
 			"neg-10": "0.90",
 			"neg-20": "0.80",
@@ -267,35 +277,90 @@ export default defineConfig({
 	rules: [
 		["pop", { color: "red" }],
 		[/^pop-(\w+)$/, ([, word]) => ({ color: word }), { layer: "colors" }],
-		// [
-		// 	"sideways-lr",
-		// 	{
-		// 		"writing-mode": "sideways-lr",
-		// 		"@supports (not (writing-mode: sideways-lr))": {
-		// 			"writing-mode": "vertical-rl",
-		// 			transform: "rotate(-180deg)",
-		// 		},
-		// 	},
-		// ],
 		[
-			"sideways-lr",
-			{
-				"writing-mode": "vertical-rl",
-				transform: "rotate(-180deg)",
+			/^sideways-lr$/,
+			(match) => {
+				return [
+					// { "writing-mode": "sideways-lr" },
+					{
+						"writing-mode": "vertical-rl",
+						transform: "rotate(-180deg)",
+					},
+					// [
+					// 	// `@supports (not (writing-mode: sideways-lr))`,
+					// 	{ "writing-mode": "vertical-rl", transform: "rotate(-180deg)" },
+					// 	// All following elements should be strings corresponding to the wrapping rule / query
+					// ],
+					// {
+					// 	"\n@supports (not ( writing-mode: sideways-lr))": `{
+					// 		writing-mode: vertical-rl;
+					// 		transform: rotate(-180deg)
+					// 	}`,
+					// },
+					// 					{
+					// 						"": `\n@supports (not (writing-mode: sideways-lr)) {
+					// writing-mode: vertical-rl;
+					// transform: rotate(-180deg);
+					// }`,
+					// 					},
+				];
 			},
 		],
+		// [
+		// 	/^sideways-lr$/,
+		// 	() => {
+		// 		return [
+		// 			{ "writing-mode": "sideways-lr" },
+		// 			{
+		// 				"@supports(not(writing-mode:sideways-lr))": {
+		// 					"writing-mode": "vertical-rl",
+		// 					transform: "rotate(-180deg)",
+		// 				},
+		// 			},
+		// 		];
+		// 	},
+		// ],
+		// 		[
+		// 			/^sideways-lr$/,
+		// 			([, name], { rawSelector, currentSelector, variantHandlers, theme }) => {
+		// 				const selector = e(rawSelector);
+
+		// 				let rule = `
+		// ${selector} { writing-mode: sideways-lr; }
+		// @supports (not (writing-mode: sideways-lr)) {
+		// 		${selector} {
+		// 			writing-mode: vertical-rl;
+		// 			transform: rotate(-180deg);
+		// 		}
+		// }`;
+
+		// 				// if you want, you can disable the variants for this rule
+		// 				if (variantHandlers.length) {
+		// 					console.log({ currentSelector, variantHandlers });
+		// 					console.log(variantHandlers[0]);
+		// 					// rule = variantHandlers[0].handle(rule, null);
+		// 				}
+
+		// 				console.log(rule);
+
+		// 				// return a string instead of an object
+		// 				return `
+		// ${selector} { writing-mode: sideways-lr; }
+		// `;
+		// 			},
+		// 		],
 	],
-	// variants: [
-	// 	// hover:
-	// 	(matcher) => {
-	// 		if (!matcher.startsWith("hover:")) return matcher;
-	// 		return {
-	// 			// slice `hover:` prefix and passed to the next variants and rules
-	// 			matcher: matcher.slice(6),
-	// 			selector: (s) => `${s}:hover`,
-	// 		};
-	// 	},
-	// ],
+	variants: [
+		// hover:
+		// (matcher) => {
+		// 	if (!matcher.startsWith("hover:")) return matcher;
+		// 	return {
+		// 		// slice `hover:` prefix and passed to the next variants and rules
+		// 		matcher: matcher.slice(6),
+		// 		selector: (s) => `${s}:hover`,
+		// 	};
+		// },
+	],
 	shortcuts: {
 		// shortcuts to multiple utilities
 		// btn: "py-2 px-4 font-semibold rounded-lg shadow-md",
@@ -303,4 +368,7 @@ export default defineConfig({
 		// single utility alias
 		// red: "text-red-100",
 	},
+	// postprocess(util) {
+	// 	console.log(util);
+	// },
 });

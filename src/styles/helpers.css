@@ -26,3 +26,4 @@
 @custom-selector :--selection ::selection, .selection;
 @custom-selector :--hover :hover, .hover;
 @custom-selector :--disabled :disabled, .disabled;
+@custom-selector :--hover-focus :--hover, :--focus;

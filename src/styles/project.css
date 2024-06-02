@@ -4,6 +4,34 @@
 /* https://github.com/tailwindlabs/tailwindcss/discussions/6075 */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-color?retiredLocale=nl */
 
+/* GLOBAL */
+html {
+	@media (prefers-reduced-motion: no-preference) {
+		scroll-behavior: smooth;
+	}
+	@apply f-var-s1+1;
+	/* height of the nav logo + nav y padding * 2 */ /* prettier-ignore */
+	scroll-padding-top: calc(var(--_f-s2) + var(--_f-s1\+1) * 2);
+}
+
+:--button {
+	@apply f-text-s0 f-px-s0 f-py-s-2 border-style-solid decoration-none border-3 inline-block;
+}
+
+& :--mark {
+	@apply bg-transparent;
+	position: relative;
+	&::before {
+		position: absolute;
+		content: "";
+		z-index: -1;
+		inset: 0 -5px 0 5px;
+		box-shadow: inset 0 -0.5em 0 var(--color-bg__mark);
+		/* box-shadow: inset 0 -0.5em 0 theme(colors.curcuma.light); */
+	}
+}
+
+/* SECTIONS */
 @screen lg {
 	accordeon-details:defined {
 		@apply f-var-s4;
@@ -25,12 +53,13 @@
 		& > details {
 			display: contents;
 			& > summary {
+				@apply items-end justify-end;
 				/* Setup a ::before on every summary to apply the box-shadow. It aligns to the middle of the gutter */
 				position: relative;
 				&::before {
 					position: absolute;
 					content: "";
-					inset: 0 calc(-1 / 2 * var(--_gap-width)) 0 0;
+					inset: 0 calc(var(--_gap-width) / 2 * -1) 0 0;
 				}
 			}
 			/* Every title (except the first one) gets a right side vertical line */
@@ -70,7 +99,7 @@
 						content: "";
 						z-index: -1;
 						/* Need to grow the box or the vertical and horizontal lines does not align */
-						inset: var(--_line-width) 0 0 calc(-1 / 2 * var(--_gap-width));
+						inset: calc(var(--_line-width) + 0.5px) 0 0 calc(-1 / 2 * var(--_gap-width));
 						box-shadow: 0 calc(-1 * var(--_line-width)) 0 var(--_line-color);
 					}
 				}
@@ -92,17 +121,16 @@
 
 		& .details-text {
 			/* display: block; */
-			/* grid-area: text; */
+			grid-area: text;
 			grid-row: 2 / span 7;
 			padding-top: calc((var(--_gap-width) / 2) - 0.2em);
 			padding-bottom: calc((var(--_gap-width) / 2) - 0.2em);
 
-
 			/* TODO: Find a way to accomodate content in .details-text. ? Scroll overflow ? */
 		}
-		/* details:not([open]) .details-text {
+		details:not([open]) .details-text {
 			display: none;
-		} */
+		}
 		/* TODO: if details closed: text should be visibly hidden or even display none */
 	}
 	/* .services {} */
@@ -110,7 +138,7 @@
 
 .boxes-values {
 	@apply f-var-s9.5;
-	@apply gap-col-0 columns-[15rem] [&>div]:break-inside-avoid;
+	@apply gap-col-0 xs:columns-2 md:columns-3 [&>div]:break-inside-avoid;
 	/* GRID */
 	/* display: grid;
 	grid-auto-flow: column;
@@ -135,7 +163,7 @@
 		content: "";
 		position: absolute;
 		z-index: -1;
-		inset: 0 0 0 -9999px;
+		inset: 0 0 0 calc(-1 * (var(--_fs-h2)));
 		background-color: inherit;
 	}
 }
@@ -165,6 +193,31 @@
 	/* @apply f-w-s9; */
 }
 
+form {
+	appearance: none;
+}
+input {
+	border: none;
+	border-bottom: solid 1px;
+}
+input[type="submit"] {
+	border: solid 1px;
+}
+
+body > footer address {
+	position: relative;
+	isolation: isolate;
+	&::before {
+		position: absolute;
+		content: "";
+		z-index: -1;
+		inset: 0.75em 0;
+		box-shadow: inset 1px 0 0 var(--color-front-alt);
+	}
+}
+
+/* ======== OLD =========== */
+
 .barreVerticale {
 	height: 85px;
 	border: 1px solid #d9933d;
@@ -173,18 +226,6 @@
 .cls-1 {
 	fill: var(--color-logo, currentcolor);
 	stroke-width: 0px;
-}
-
-@screen lg {
-	.sideways-lr {
-		writing-mode: sideways-lr;
-	}
-	@supports (not (writing-mode: sideways-lr)) {
-		.sideways-lr {
-			writing-mode: vertical-rl;
-			transform: rotate(-180deg);
-		}
-	}
 }
 
 /* Full Bleed: break out of a reduced width */
