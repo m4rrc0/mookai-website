@@ -1,7 +1,6 @@
 // Exporte une fonction qui configure Eleventy
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
-  eleventyConfig.addPassthroughCopy({ "src/styles": "assets/css"});
   // eleventyConfig.addPassthroughCopy("src/css/");
   eleventyConfig.addWatchTarget("src/styles/main.css");
   eleventyConfig.setWatchThrottleWaitTime(2000); // in milliseconds
