@@ -5,16 +5,14 @@ class:
   body: "max-w-5xl m-auto f-px-s0 font-sans"
 sectionList:
   [
-    { href: "#accueil", txt: "accueil" },
-    { href: "#valeurs", txt: "valeurs" },
-    { href: "#apropos", txt: "à propos" },
+    { href: "#values", txt: "valeurs" },
     { href: "#services", txt: "services" },
-    { href: "#temoignages", txt: "témoignages" },
+    { href: "#contact", txt: "contact" },
   ]
 ---
 
 <main>
 	{% include "index/heading-group.html" %} {% include "index/hero-img.njk" %} {% include
 	"index/values.njk" %} {% include "index/services.njk" %} {# {% include "index/blob.html" %} #} {#
-	{% include "index/testimonialsQ.html" %} #} {% include "index/form.html" %}
+	{% include "index/testimonialsQ.html" %} #} {% include "index/contact.html" %}
 </main>

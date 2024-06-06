@@ -146,6 +146,7 @@ export default defineConfig({
 			white: "hsla(0, 0%, 100%, 1)",
 			black: "hsla(0, 0%, 15%, 1)",
 			curcuma: {
+				"light-hsla": "36, 80%, 50%",
 				light: "hsla(36, 80%, 50%, 1)",
 				mid: "hsla(33, 67%, 55%, 1)",
 				DEFAULT: "hsla(33, 67%, 55%, 1)",
@@ -167,6 +168,7 @@ export default defineConfig({
 				DEFAULT: "hsla(270, 10%, 55%, 1)",
 			},
 			sand: {
+				"light-hsla": "18, 14%, 53%",
 				light: "hsla(18, 14%, 53%, 1)",
 				mid: "hsla(26, 35%, 47%, 1)",
 				DEFAULT: "hsla(26, 35%, 47%, 1)",

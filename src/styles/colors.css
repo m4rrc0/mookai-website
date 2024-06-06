@@ -3,7 +3,7 @@
 @custom-selector :--palette-match [class*="ctxc-"], :--color-palette-match;
 @custom-selector :--palette-alt-default .ctxc-alt-default, :--color-palette-alt-default;
 @custom-selector :--palette-alt .ctxc-alt, :--color-palette-alt;
-@custom-selector :--palette-alt-contrast .ctxc-alt-contrast, :--color-palette-alt-contrast;
+@custom-selector :--palette-alt-contrast .ctxc-contrast, :--color-palette-alt-contrast;
 
 :root {
 	/* Bare minimum default in case nothing is defined */
@@ -56,6 +56,42 @@
 	--color-back-warning: theme(colors.curcuma.light);
 	--color-front-error: theme(colors.coral.mid);
 	--color-back-error: theme(colors.coral.light);
+}
+
+.ctxc-curcuma {
+	--color-front: theme(colors.curcuma.dark);
+	--color-back: theme(colors.white);
+	--color-front-alt: theme(colors.black);
+	--color-back-alt: theme(colors.white);
+	--color-front-accent: theme(colors.coral.dark);
+	--color-back-accent: hsla(theme(colors.curcuma.light-hsla), 0.5);
+	/* --color-back-accent: theme(colors.curcuma.light-hsla); */
+	--color-front-muted: theme(colors.sand.mid);
+	--color-back-muted: theme(colors.mouse.light);
+	--color-front-success: theme(colors.curcuma.dark);
+	--color-back-success: theme(colors.curcuma.light);
+	--color-front-warning: theme(colors.curcuma.dark);
+	--color-back-warning: theme(colors.curcuma.light);
+	--color-front-error: theme(colors.curcuma.mid);
+	--color-back-error: theme(colors.curcuma.light);
+}
+
+.ctxc-sand {
+	--color-front: theme(colors.sand.dark);
+	--color-back: theme(colors.white);
+	--color-front-alt: theme(colors.black);
+	--color-back-alt: theme(colors.white);
+	--color-front-accent: theme(colors.coral.dark);
+	--color-back-accent: hsla(theme(colors.sand.light-hsla), 0.5);
+	/* --color-back-accent: theme(colors.sand.light-hsla); */
+	--color-front-muted: theme(colors.sand.mid);
+	--color-back-muted: theme(colors.mouse.light);
+	--color-front-success: theme(colors.curcuma.dark);
+	--color-back-success: theme(colors.curcuma.light);
+	--color-front-warning: theme(colors.sand.dark);
+	--color-back-warning: theme(colors.sand.light);
+	--color-front-error: theme(colors.curcuma.mid);
+	--color-back-error: theme(colors.curcuma.light);
 }
 
 .ctxc-red {

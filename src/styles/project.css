@@ -32,6 +32,22 @@ html {
 }
 
 /* SECTIONS */
+/* Nav */
+.sticky-nav::before {
+	/* box-shadow: 0 0 0.5rem hsl(0 0% 0% / 0.3); */
+	animation: navShadow linear forwards;
+	animation-timeline: view(block);
+	/* animation-timeline: view(); */
+	animation-range-start: 100vh;
+	animation-range-end: 200vh;
+}
+@keyframes navShadow {
+	100% {
+		box-shadow: 0 0 0.5rem hsl(0 0% 0% / 0.3);
+		/* border-bottom: solid 5px red; */
+	}
+}
+/* Services */
 @screen lg {
 	accordeon-details:defined {
 		@apply f-var-s4;
@@ -158,13 +174,18 @@ html {
 }
 .box-eco {
 	/* @apply f-w-s9.5; */
-	position: relative;
-	&::before {
-		content: "";
-		position: absolute;
-		z-index: -1;
-		inset: 0 0 0 calc(-1 * (var(--_fs-h2)));
-		background-color: inherit;
+	/* @apply !f-pr-s0; */
+	@screen sm {
+		padding-inline: 0 !important;
+		position: relative;
+		isolation: isolate;
+		&::before {
+			content: "";
+			position: absolute;
+			z-index: -1;
+			inset: 0 0 0 calc(-1 * (var(--_fs-h2)));
+			background-color: inherit;
+		}
 	}
 }
 .box-quality {
@@ -205,6 +226,7 @@ input[type="submit"] {
 }
 
 body > footer address {
+	@apply f-pl-s-1 leading-tight;
 	position: relative;
 	isolation: isolate;
 	&::before {
@@ -212,7 +234,7 @@ body > footer address {
 		content: "";
 		z-index: -1;
 		inset: 0.75em 0;
-		box-shadow: inset 1px 0 0 var(--color-front-alt);
+		box-shadow: inset 1px 0 0 theme(colors.curcuma.mid);
 	}
 }
 
