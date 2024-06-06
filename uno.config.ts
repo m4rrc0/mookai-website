@@ -91,6 +91,12 @@ export default defineConfig({
 				...ranges,
 			},
 		}),
+		presetIcons({
+			prefix: "i-",
+			// extraProperties: {
+			// 	display: "inline-block",
+			// },
+		}),
 	],
 	// transformers: [transformerDirectives(), transformerVariantGroup()],
 	layers: {
@@ -104,21 +110,28 @@ export default defineConfig({
 		utilities: 10,
 		utils: 10,
 	},
-	// preflights: [
-	// 	{
-	// 		layer: "my-layer",
-	// 		getCSS: async () => (await fetch("my-style.css")).text(),
-	// 	},
-	// 	{
-	// 		getCSS: ({ theme }) => `
-	// * {
-	// 	color: ${theme.colors?.gray?.[700] ?? "#333"};
-	// 	padding: 0;
-	// 	margin: 0;
-	// }
-	//     `,
-	// 	},
-	// ],
+	preflights: [
+		{
+			layer: "preflight",
+			getCSS: () => `
+a[href^="mailto:"] b {
+	display: none;
+}`,
+		},
+		// {
+		// 	layer: "my-layer",
+		// 	getCSS: async () => (await fetch("my-style.css")).text(),
+		// },
+		// 		{
+		// 			getCSS: ({ theme }) => `
+		// * {
+		// 	color: ${theme.colors?.gray?.[700] ?? "#333"};
+		// 	padding: 0;
+		// 	margin: 0;
+		// }
+		// 	    `,
+		// 		},
+	],
 	theme: {
 		fontFamily: {
 			sans: ['"Roboto Condensed"', ...defaultTheme.fontFamily.sans].join(","),

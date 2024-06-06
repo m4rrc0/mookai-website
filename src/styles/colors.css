@@ -28,10 +28,12 @@
 	--color-front-alt: theme(colors.coral.dark);
 	--color-back-alt: theme(colors.white);
 	--color-front-accent: theme(colors.coral.mid);
-	--color-back-accent: hsla(theme(colors.coral.light-hsla), 0.5);
-	/* --color-back-accent: theme(colors.coral.light-hsla); */
+	/* --color-back-accent: hsla(theme(colors.coral.light-hsla), 0.5); */
+	--color-back-accent: theme(colors.coral.light);
 	--color-front-muted: theme(colors.sand.mid);
-	--color-back-muted: theme(colors.aubergine.DEFAULT);
+	/* --color-back-muted: theme(colors.aubergine.DEFAULT); */
+	--color-back-muted: hsla(theme(colors.coral.light-hsla), 0.5);
+
 	--color-front-success: theme(colors.curcuma.dark);
 	--color-back-success: theme(colors.curcuma.light);
 	--color-front-warning: theme(colors.curcuma.dark);
@@ -302,7 +304,7 @@ body,
 
 	/* --- MARK --- */
 	/* --color-text__mark: var(--color-bg); */
-	--color-bg__mark: var(--color-back-accent-theme);
+	--color-bg__mark: var(--color-back-muted-theme);
 	/* --color-border__mark: var(--color-front-theme); */
 
 	/* --- SCROLLBAR --- */

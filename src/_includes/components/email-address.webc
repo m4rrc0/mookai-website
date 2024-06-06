@@ -1,0 +1,9 @@
+<script webc:type="js" webc:raw>
+	const email = this.slots?.text?.default;
+	// TODO: check for email being a real email
+	// if (!email) return "";
+
+	const { element } = this.obfuscateEmail(email);
+
+	`${element}`;
+</script>

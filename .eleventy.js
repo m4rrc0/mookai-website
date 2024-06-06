@@ -1,8 +1,40 @@
+import pluginWebc from "@11ty/eleventy-plugin-webc";
+import he from "he";
+import obfuscateEmail from "./src/utils/emailObfuscate.js";
+
+// console.log(he.encode);
+
 /**
  * @typedef { import("@11ty/eleventy").UserConfig } UserConfig
  */
 
-export default function (eleventyConfig) {
+export const config = {
+	dir: {
+		input: "src/templates",
+		includes: "../_includes",
+		// data: "_data", // Directory for global data files. Default: "_data"
+		output: "dist",
+	},
+	templateFormats: ["md", "njk", "html", "11ty.js"],
+	markdownTemplateEngine: "njk",
+	htmlTemplateEngine: "njk",
+};
+
+export default async function (eleventyConfig) {
+	const { RenderPlugin } = await import("@11ty/eleventy");
+
+	// --- PLUGINS ---
+	eleventyConfig.addPlugin(pluginWebc, {
+		// This path is relative to the project-root!
+		components: [
+			"src/_includes/**/*.webc",
+			// "npm:@11ty/is-land/*.webc",
+			// "npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc",
+		],
+	});
+	eleventyConfig.addPlugin(RenderPlugin);
+
+	// --- CONFIG ---
 	// Copy `src/assets/` to `dist/assets`
 	eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
 
@@ -12,30 +44,28 @@ export default function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("*.config.{js,ts}");
 	// eleventyConfig.addWatchTarget("tailwind.config.js");
 
+	// --- fILTERS ---
+	// Encodes to html entities
+	eleventyConfig.addFilter("encode", he.encode);
+	// Call the obfuscate function from a webC component for example
+	eleventyConfig.addFilter("obfuscateEmail", obfuscateEmail);
+	// Produce obfuscated email link
+	eleventyConfig.addFilter("emailLink", function (email) {
+		const { element } = obfuscateEmail(email);
+		// return element;
+		return this.env.filters.safe(element);
+	});
 	// A Nunjucks filter to log variables in the console (and in the terminal)
-	// Use it like so: {{ variable | log | safe }}
-	eleventyConfig.addFilter("log", (value) => {
+	// Use it like so: {{ variable | log }}
+	eleventyConfig.addFilter("log", function (value) {
 		if (process.env.NODE_ENV === "production") {
 			return "";
 		}
 		console.log(value);
-		return `<script>console.log(${JSON.stringify(value)})</script>`;
+
+		return this.env.filters.safe(`<script>console.log(${JSON.stringify(value)})</script>`);
 	});
 
-	// Retourne un objet contenant les options de configuration pour Eleventy
-	return {
-		// Répertoires d'entrée, d'inclusions et de sortie
-		dir: {
-			input: "src/templates", // Répertoire contenant les fichiers source
-			includes: "../_includes", // Répertoire contenant les fragments de code réutilisables. Default: "_includes"
-			// data: "_data", // Directory for global data files. Default: "_data"
-			output: "dist", // Répertoire où seront générés les fichiers HTML
-		},
-		// Formats de fichier de modèle pris en charge
-		templateFormats: ["md", "njk", "html", "11ty.js"],
-		// Moteur de modèle Markdown
-		markdownTemplateEngine: "njk",
-		// Moteur de modèle HTML
-		htmlTemplateEngine: "njk",
-	};
+	// --- SHORTCODES ---
+	// eleventyConfig.addShortcode("email", function (email) {});
 }
