@@ -10,9 +10,9 @@
 	"scripts": {
 		"clean": "rm -rf dist",
 		"npm:build": "npx @11ty/eleventy",
-		"build": "bunx --bun @11ty/eleventy",
+		"build": "bun --bun eleventy",
 		"npm:serve": "npx @11ty/eleventy --serve",
-		"serve": "bunx --bun @11ty/eleventy --serve",
+		"serve": "bun --bun eleventy --serve",
 		"npm:start": "npm run serve",
 		"start": "bun run serve"
 	},
