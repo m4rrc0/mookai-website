@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="fr" class="no-js {{class.html or 'h-full'}}">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<!-- prettier-ignore -->
+		<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+		<!-- Icons -->
+		<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/assets/images/icons/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/assets/images/icons/favicon-16x16.png" />
+		<link rel="manifest" href="/assets/images/icons/site.webmanifest" />
+		<link rel="mask-icon" href="/assets/images/icons/safari-pinned-tab.svg" color="#731e16" />
+		<link rel="shortcut icon" href="/assets/images/icons/favicon.ico" />
+		<meta name="msapplication-TileColor" content="#ffffff" />
+		<meta name="msapplication-config" content="/assets/images/icons/browserconfig.xml" />
+		<meta name="theme-color" content="#ffffff" />
+		<!-- CSS -->
+		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!-- TODO: metadata -->
+		<title>{{ title }}</title>
+
+		{# Not working with eleventy layouts #}
+		<!-- Head injection -->
+		{% block head %}{% endblock %}
+		<!--  -->
+		{{ head | safe }}
+	</head>
+	<body class="{{class.body}}">
+		<!-- Nav -->
+		{% include "components/header-nav.html" %}
+
+		<!-- Contenu de la page -->
+		{% block content %} {{ content | safe }} {% endblock %}
+
+		<!-- Footer -->
+		{% include "components/footer.html" %}
+	</body>
+</html>

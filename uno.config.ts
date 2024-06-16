@@ -36,7 +36,6 @@ const fluidConfig = {
 	rounding: 2,
 };
 const ranges = computeRanges(fluidConfig);
-// console.log(ranges);
 
 export default defineConfig({
 	content: {
@@ -114,9 +113,10 @@ export default defineConfig({
 		{
 			layer: "preflight",
 			getCSS: () => `
-a[href^="mailto:"] b {
-	display: none;
-}`,
+a[href^="mailto:"] b { display: none; }
+form p[role="status"]:empty { display: none; }
+form .hp { position: absolute; left: -99999px; }
+`,
 		},
 		// {
 		// 	layer: "my-layer",
@@ -139,11 +139,11 @@ a[href^="mailto:"] b {
 		},
 		breakpoints: {
 			xs: "480px",
-			sm: "640px",
-			md: "768px",
-			lg: "1024px",
-			xl: "1280px",
-			"2xl": "1536px",
+			sm: "640px", // Default
+			md: "768px", // Default
+			lg: "1024px", // Default
+			xl: "1280px", // Default
+			"2xl": "1536px", // Default
 		},
 		colors: {
 			// TODO: delete these
@@ -290,80 +290,21 @@ a[href^="mailto:"] b {
 		}, // .rounded-*
 	},
 	rules: [
-		["pop", { color: "red" }],
-		[/^pop-(\w+)$/, ([, word]) => ({ color: word }), { layer: "colors" }],
+		// ["pop", { color: "red" }],
+		// [/^pop-(\w+)$/, ([, word]) => ({ color: word }), { layer: "colors" }],
 		[
 			/^sideways-lr$/,
-			(match) => {
+			(match, { symbols }) => {
 				return [
-					// { "writing-mode": "sideways-lr" },
+					{ "writing-mode": "sideways-lr" },
 					{
+						[symbols.parent]: "@supports (not (writing-mode: sideways-lr))",
 						"writing-mode": "vertical-rl",
 						transform: "rotate(-180deg)",
 					},
-					// [
-					// 	// `@supports (not (writing-mode: sideways-lr))`,
-					// 	{ "writing-mode": "vertical-rl", transform: "rotate(-180deg)" },
-					// 	// All following elements should be strings corresponding to the wrapping rule / query
-					// ],
-					// {
-					// 	"\n@supports (not ( writing-mode: sideways-lr))": `{
-					// 		writing-mode: vertical-rl;
-					// 		transform: rotate(-180deg)
-					// 	}`,
-					// },
-					// 					{
-					// 						"": `\n@supports (not (writing-mode: sideways-lr)) {
-					// writing-mode: vertical-rl;
-					// transform: rotate(-180deg);
-					// }`,
-					// 					},
 				];
 			},
 		],
-		// [
-		// 	/^sideways-lr$/,
-		// 	() => {
-		// 		return [
-		// 			{ "writing-mode": "sideways-lr" },
-		// 			{
-		// 				"@supports(not(writing-mode:sideways-lr))": {
-		// 					"writing-mode": "vertical-rl",
-		// 					transform: "rotate(-180deg)",
-		// 				},
-		// 			},
-		// 		];
-		// 	},
-		// ],
-		// 		[
-		// 			/^sideways-lr$/,
-		// 			([, name], { rawSelector, currentSelector, variantHandlers, theme }) => {
-		// 				const selector = e(rawSelector);
-
-		// 				let rule = `
-		// ${selector} { writing-mode: sideways-lr; }
-		// @supports (not (writing-mode: sideways-lr)) {
-		// 		${selector} {
-		// 			writing-mode: vertical-rl;
-		// 			transform: rotate(-180deg);
-		// 		}
-		// }`;
-
-		// 				// if you want, you can disable the variants for this rule
-		// 				if (variantHandlers.length) {
-		// 					console.log({ currentSelector, variantHandlers });
-		// 					console.log(variantHandlers[0]);
-		// 					// rule = variantHandlers[0].handle(rule, null);
-		// 				}
-
-		// 				console.log(rule);
-
-		// 				// return a string instead of an object
-		// 				return `
-		// ${selector} { writing-mode: sideways-lr; }
-		// `;
-		// 			},
-		// 		],
 	],
 	variants: [
 		// hover:

@@ -44,6 +44,7 @@ function computeRanges(fluidConfig) {
 		const stepPlus1 = rangesMaxs[i + 4];
 		const stepPlus2 = rangesMaxs[i + 8];
 		const stepPlus3 = rangesMaxs[i + 12];
+		const stepPlus4 = rangesMaxs[i + 16];
 
 		const key = `${rangePrefix}${stepQuadStr}`;
 		// console.log({ key });
@@ -62,6 +63,10 @@ function computeRanges(fluidConfig) {
 
 				...(isRoundStep && stepPlus3
 					? { [key + rangePlusfix + "3"]: [rangesMins[i], stepPlus3] }
+					: {}),
+
+				...(isRoundStep && stepPlus4
+					? { [key + rangePlusfix + "4"]: [rangesMins[i], stepPlus4] }
 					: {}),
 			},
 		};

@@ -4,20 +4,125 @@
 >
 	<h2 class="ctxs-massive md:sideways-lr uppercase md:-mr-[1em]">Contact</h2>
 	<div class="m-auto w-full max-w-sm">
-		<form action="https://m4rrc0-mookai_contact.web.val.run" method="POST" class="stack f-gap-s0">
+		<dialog class="">
+			<form method="dialog">
+				<button>OK</button>
+			</form>
+		</dialog>
+		<form action="https://m4rrc0-mookaicontact.web.val.run" method="POST" class="stack f-gap-s0">
 			<div class="form-group flex flex-col">
 				<label for="firstname">Prénom</label>
 				<input id="firstname" name="firstname" type="text" class="" />
 			</div>
 			<div class="form-group flex flex-col">
 				<label for="email">E-mail</label>
-				<input id="email" name="email" type="email" class="" />
+				<input
+					id="email"
+					name="email"
+					type="email"
+					required
+					pattern="[^@\s]+@[^@\s]+\.[^@\s]+"
+					title="Invalid email address"
+					class=""
+				/>
 			</div>
 			<div class="form-group flex flex-col">
 				<label for="message">Message</label>
-				<textarea name="message" id="message" rows="10"></textarea>
+				<textarea name="message" id="message" rows="10" required></textarea>
 			</div>
+			<div class="form-group hp">
+				<label for="username">Username</label>
+				<input
+					id="username"
+					name="username"
+					type="text"
+					class=""
+					tabindex="-1"
+					autocomplete="new-password"
+				/>
+			</div>
+			<div class="form-group hidden">
+				<label for="formname">Form Name</label>
+				<input id="formname" name="formname" type="text" class="" value="mookai-contact" />
+			</div>
+			<!-- <altcha-widget
+				challengeurl="https://eu.altcha.org/api/v1/challenge?apiKey=ckey_0168ac4504ccffed01c6e3b23661"
+				spamfilter
+			></altcha-widget> -->
 			<input type="submit" value="Envoyer" class="ctxc-contrast uppercase" />
+			<p role="status"></p>
 		</form>
 	</div>
 </section>
+
+<script type="module" async defer>
+	// import "/assets/js/altcha.js";
+	import "/assets/js/formbouncer.js";
+	const disableSubmit = typeof fetch === "function" ? true : false;
+	const validate = new Bouncer("form[method='POST']", { disableSubmit });
+	if (disableSubmit) {
+		document.addEventListener(
+			"bouncerFormValid",
+			function (event) {
+				// The successfully validated form
+				const form = event.target;
+				const modal = form.previousElementSibling;
+				const status = form.querySelector('[role="status"]');
+
+				// Ignore forms that are actively being submitted
+				if (form.classList.contains("submitting")) return;
+
+				// Show submitting message
+				status.textContent = "Envoi en cours...";
+
+				// Add form .submitting state class for styling
+				form.classList.add("submitting");
+
+				// Extract form data
+				const formData = new FormData(form);
+
+				fetch(form.action, {
+					method: "POST",
+					// headers: { "Content-Type": "application/x-www-form-urlencoded" },
+					body: formData,
+				})
+					.then((res) => {
+						if (res.ok) {
+							console.log("Request successfull! response:", res);
+							// Reset form
+							form.reset();
+							// Insert content in modal
+							modal.innerHTML = `<div class="stack">
+	<p>Message bien reçu. Merci.</p>
+	<form method="dialog">
+		<button>OK</button>
+	</form>
+</div>`;
+						} else {
+							throw new Error("Something went wrong");
+						}
+					})
+					.catch((error) => {
+						console.error(error);
+
+						modal.innerHTML = `<div class="stack">
+	<p>Il y a un problème avec le formulaire.</p>
+	<p>Contactez-nous par e-mail svp.</p>
+	<form method="dialog">
+		<button>OK</button>
+	</form>
+</div>`;
+					})
+					.finally(() => {
+						// Remove the .submitting state class
+						form.classList.remove("submitting");
+						// Show a success message
+						status.textContent = "Réussi!";
+						// Open modal for response
+						modal.showModal();
+					});
+			},
+			false
+		);
+	}
+</script>

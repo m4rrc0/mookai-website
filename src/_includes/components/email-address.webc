@@ -3,7 +3,7 @@
 	// TODO: check for email being a real email
 	// if (!email) return "";
 
-	const { element } = this.obfuscateEmail(email);
+	const { element } = this.obfuscateEmail(email, subject, body, cc, bcc);
 
 	`${element}`;
 </script>

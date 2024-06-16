@@ -154,7 +154,7 @@ html {
 
 .boxes-values {
 	@apply f-var-s9.5;
-	@apply gap-col-0 xs:columns-2 md:columns-3 [&>div]:break-inside-avoid;
+	@apply gap-col-0 w-100% sm:columns-2 md:columns-3 [&>div]:break-inside-avoid;
 	/* GRID */
 	/* display: grid;
 	grid-auto-flow: column;
@@ -205,7 +205,7 @@ html {
 	/* @apply f-w-s9; */
 }
 .box-empty {
-	@apply f-h-s4;
+	/* @apply f-h-s4; */
 }
 .box-bs {
 	/* @apply f-mt-s4; */
@@ -219,10 +219,11 @@ form {
 }
 input {
 	border: none;
-	border-bottom: solid 1px;
+	border-bottom: solid 3px;
 }
-input[type="submit"] {
-	border: solid 1px;
+input[type="submit"],
+textarea {
+	border: solid 3px;
 }
 
 body > footer address {
@@ -236,18 +237,6 @@ body > footer address {
 		inset: 0.75em 0;
 		box-shadow: inset 1px 0 0 theme(colors.curcuma.mid);
 	}
-}
-
-/* ======== OLD =========== */
-
-.barreVerticale {
-	height: 85px;
-	border: 1px solid #d9933d;
-}
-
-.cls-1 {
-	fill: var(--color-logo, currentcolor);
-	stroke-width: 0px;
 }
 
 /* Full Bleed: break out of a reduced width */

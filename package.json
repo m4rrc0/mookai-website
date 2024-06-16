@@ -9,9 +9,12 @@
 	},
 	"scripts": {
 		"clean": "rm -rf dist",
-		"build": "npx @11ty/eleventy",
-		"serve": "npx @11ty/eleventy --serve",
-		"start": "npm run serve"
+		"npm:build": "npx @11ty/eleventy",
+		"build": "bunx --bun @11ty/eleventy",
+		"npm:serve": "npx @11ty/eleventy --serve",
+		"serve": "bunx --bun @11ty/eleventy --serve",
+		"npm:start": "npm run serve",
+		"start": "bun run serve"
 	},
 	"keywords": [],
 	"repository": {
@@ -33,7 +36,7 @@
 		"@eslint/js": "^9.3.0",
 		"@iconify/json": "^2.2.217",
 		"@unocss/eslint-config": "^0.60.3",
-		"@unocss/postcss": "^0.60.3",
+		"@unocss/postcss": "^0.61.0",
 		"cssesc": "^3.0.0",
 		"cssnano": "^7.0.1",
 		"eslint-config-prettier": "^9.1.0",
@@ -48,7 +51,11 @@
 		"prettier-plugin-tailwindcss": "^0.5.14",
 		"tailwind-utopia": "github:cwsdigital/tailwind-utopia",
 		"tailwindcss": "^3.4.3",
-		"unocss": "^0.60.3",
+		"unocss": "^0.61.0",
 		"unocss-preset-fluid": "^1.0.2"
+	},
+	"dependencies": {
+		"altcha": "^0.5.0",
+		"formbouncerjs": "^1.4.6"
 	}
 }

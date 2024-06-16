@@ -1,6 +1,6 @@
 ---
-layout: layouts/base.html
-title: "Mookai ASBL: coopération créative et digitale"
+layout: layouts/base.njk
+title: "Associatif humain créatif engagé | mookai ASBL"
 class:
   body: "max-w-5xl m-auto f-px-s0 font-sans"
 sectionList:
@@ -9,10 +9,23 @@ sectionList:
     { href: "#services", txt: "services" },
     { href: "#contact", txt: "contact" },
   ]
+head: |
+  <meta name="description" content="" />
 ---
 
 <main>
-	{% include "index/heading-group.html" %} {% include "index/hero-img.njk" %} {% include
-	"index/values.njk" %} {% include "index/services.njk" %} {# {% include "index/blob.html" %} #} {#
-	{% include "index/testimonialsQ.html" %} #} {% include "index/contact.html" %}
+	<!-- Heading Group -->
+	{% include "index/heading-group.html" %}
+	<!-- Hero -->
+	{% include "index/hero-img.njk" %}
+	<!-- Values -->
+	{% include "index/values.njk" %}
+	<!-- Services -->
+	{% include "index/services.njk" %}
+	<!--  -->
+	{# {% include "index/blob.html" %} #}
+	<!--  -->
+	{# {% include "index/testimonialsQ.html" %} #}
+	<!-- Contact -->
+	{% include "index/contact.html" %}
 </main>

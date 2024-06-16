@@ -1,8 +1,7 @@
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 import he from "he";
-import obfuscateEmail from "./src/utils/emailObfuscate.js";
-
-// console.log(he.encode);
+import obfuscateEmail, { href } from "./src/utils/emailObfuscate.js";
+// const formbouncerjs = import.meta.resolve("formbouncerjs/dist/bouncer.polyfills.min.js");
 
 /**
  * @typedef { import("@11ty/eleventy").UserConfig } UserConfig
@@ -36,7 +35,12 @@ export default async function (eleventyConfig) {
 
 	// --- CONFIG ---
 	// Copy `src/assets/` to `dist/assets`
-	eleventyConfig.addPassthroughCopy({ "src/assets": "assets" });
+	eleventyConfig.addPassthroughCopy({
+		"src/assets": "assets",
+		// [formbouncerjs]: "assets/js/formbouncer.js",
+		"node_modules/formbouncerjs/dist/bouncer.polyfills.min.js": "assets/js/formbouncer.js",
+		"node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
+	});
 
 	// eleventyConfig.addWatchTarget("src/input.css");
 	// eleventyConfig.setWatchThrottleWaitTime(2000); // in milliseconds
@@ -49,8 +53,9 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addFilter("encode", he.encode);
 	// Call the obfuscate function from a webC component for example
 	eleventyConfig.addFilter("obfuscateEmail", obfuscateEmail);
-	// Produce obfuscated email link
+	// Produce obfuscated email link (when we don't need subject, body, etc...)
 	eleventyConfig.addFilter("emailLink", function (email) {
+		// Use it like so: {{ "hello@mookai.be" | emailLink }}
 		const { element } = obfuscateEmail(email);
 		// return element;
 		return this.env.filters.safe(element);
@@ -67,5 +72,10 @@ export default async function (eleventyConfig) {
 	});
 
 	// --- SHORTCODES ---
-	// eleventyConfig.addShortcode("email", function (email) {});
+	// Produce obfuscated email link (when we do need subject, body, etc...)
+	eleventyConfig.addShortcode("emailLink", function (email, subject, body, cc, bcc) {
+		// Use it like so: {% emailLink "hello@email.com", "<subject>", "<body>", "<cc>", "<bcc>" %}
+		const { element } = obfuscateEmail(email, subject, body, cc, bcc);
+		return element;
+	});
 }

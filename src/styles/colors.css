@@ -3,7 +3,16 @@
 @custom-selector :--palette-match [class*="ctxc-"], :--color-palette-match;
 @custom-selector :--palette-alt-default .ctxc-alt-default, :--color-palette-alt-default;
 @custom-selector :--palette-alt .ctxc-alt, :--color-palette-alt;
-@custom-selector :--palette-alt-contrast .ctxc-contrast, :--color-palette-alt-contrast;
+@custom-selector :--palette-contrast .ctxc-contrast, :--color-palette-contrast;
+@custom-selector :--palette-alt-contrast
+	.ctxc-alt.ctxc-contrast,
+	.ctxc-alt-contrast,
+	:--color-palette-alt-contrast;
+@custom-selector :--palette-accent .ctxc-accent, :--color-palette-accent;
+@custom-selector :--palette-accent-contrast
+	.ctxc-accent.ctxc-contrast,
+	.ctxc-accent-contrast,
+	:--color-palette-accent-contrast;
 
 :root {
 	/* Bare minimum default in case nothing is defined */
@@ -47,8 +56,9 @@
 	--color-back: theme(colors.white);
 	--color-front-alt: theme(colors.black);
 	--color-back-alt: theme(colors.white);
-	--color-front-accent: theme(colors.curcuma.dark);
-	--color-back-accent: hsla(theme(colors.coral.light-hsla), 0.5);
+	--color-front-accent: theme(colors.coral.mid);
+	--color-back-accent: theme(colors.white);
+	/* --color-back-accent: hsla(theme(colors.coral.light-hsla), 0.5); */
 	/* --color-back-accent: theme(colors.coral.light-hsla); */
 	--color-front-muted: theme(colors.sand.mid);
 	--color-back-muted: theme(colors.mouse.light);
@@ -181,7 +191,9 @@ body,
 
 /* color palette ALTernate assignments */
 :--palette-alt-default,
-:--palette-match {
+:--palette-match,
+:--palette-alt,
+:--palette-accent {
 	--color-front-theme: var(--color-front); /* prettier-ignore */
 	--color-front-alt-theme: var(--color-front-alt); /* prettier-ignore */
 	--color-front-accent-theme: var(--color-front-accent); /* prettier-ignore */
@@ -200,20 +212,18 @@ body,
 :--palette-alt {
 	--color-front-theme: var(--color-front-alt); /* prettier-ignore */
 	--color-front-alt-theme: var(--color-front); /* prettier-ignore */
-	--color-front-accent-theme: var(--color-front-accent); /* prettier-ignore */
-	--color-front-muted-theme: var(--color-front-muted); /* prettier-ignore */
-	--color-front-success-theme: var(--color-front-success); /* prettier-ignore */
-	--color-front-warning-theme: var(--color-front-warning); /* prettier-ignore */
-	--color-front-error-theme: var(--color-front-error); /* prettier-ignore */
 	--color-back-theme: var(--color-back-alt); /* prettier-ignore */
 	--color-back-alt-theme: var(--color-back); /* prettier-ignore */
-	--color-back-accent-theme: var(--color-back-accent); /* prettier-ignore */
-	--color-back-muted-theme: var(--color-back-muted); /* prettier-ignore */
-	--color-back-success-theme: var(--color-back-success); /* prettier-ignore */
-	--color-back-warning-theme: var(--color-back-warning); /* prettier-ignore */
-	--color-back-error-theme: var(--color-back-error); /* prettier-ignore */
 }
-:--palette-alt-contrast {
+:--palette-accent {
+	--color-front-theme: var(--color-front-accent); /* prettier-ignore */
+	--color-front-accent-theme: var(--color-front); /* prettier-ignore */
+	--color-back-theme: var(--color-back-accent); /* prettier-ignore */
+	--color-back-accent-theme: var(--color-back); /* prettier-ignore */
+}
+:--palette-contrast,
+:--palette-alt-contrast,
+:--palette-accent-contrast {
 	--color-front-theme: var(--color-back); /* prettier-ignore */
 	--color-front-alt-theme: var(--color-back-alt); /* prettier-ignore */
 	--color-front-accent-theme: var(--color-back-accent); /* prettier-ignore */
@@ -228,6 +238,18 @@ body,
 	--color-back-success-theme: var(--color-front-success); /* prettier-ignore */
 	--color-back-warning-theme: var(--color-front-warning); /* prettier-ignore */
 	--color-back-error-theme: var(--color-front-error); /* prettier-ignore */
+}
+:--palette-alt-contrast {
+	--color-front-theme: var(--color-back-alt); /* prettier-ignore */
+	--color-front-alt-theme: var(--color-back); /* prettier-ignore */
+	--color-back-theme: var(--color-front-alt); /* prettier-ignore */
+	--color-back-alt-theme: var(--color-front); /* prettier-ignore */
+}
+:--palette-accent-contrast {
+	--color-front-theme: var(--color-back-accent); /* prettier-ignore */
+	--color-front-accent-theme: var(--color-back); /* prettier-ignore */
+	--color-back-theme: var(--color-front-accent); /* prettier-ignore */
+	--color-back-accent-theme: var(--color-front); /* prettier-ignore */
 }
 
 /* === CUSTOMIZATION === */
@@ -314,7 +336,9 @@ body,
 	/*  */
 }
 
-:--palette-alt-contrast {
+:--palette-contrast,
+:--palette-alt-contrast,
+:--palette-accent-contrast {
 	--color-border__button: var(--color-back-theme);
 	--color-border__button--hover: var(--color-back-theme);
 }
@@ -347,7 +371,10 @@ body,
 }
 *:--selection,
 :--palette-match:--selection,
-:--palette-match *:--selection {
+:--palette-match *:--selection,
+*::selection,
+:--palette-match:-:selection,
+:--palette-match *::selection {
 	color: var(--color-text--selection);
 	background-color: var(--color-bg--selection);
 	border-color: var(--color-border--selection, currentcolor);

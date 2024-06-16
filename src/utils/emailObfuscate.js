@@ -1,5 +1,6 @@
 import he from "he";
 
+// Best techniques from: https://spencermortensen.com/articles/email-obfuscation/
 export function inner(email) {
 	if (!email) {
 		return "";
@@ -14,20 +15,27 @@ export function inner(email) {
 		.join("");
 }
 
-export function href(email) {
+export function href(email, subject, body, cc, bcc) {
 	if (!email) {
 		return "";
 	}
+	const queryParams = { subject, body, cc, bcc };
+	const queryStringArr = Object.entries(queryParams).reduce(
+		(accu, [key, val]) => [...accu, ...(val ? [`${key}=${encodeURIComponent(val)}`] : [])],
+		[]
+	);
+	const queryString = queryStringArr.join("&");
+
 	return (
 		he.encode("mai", { encodeEverything: true }) +
 		"lto" +
-		he.encode(":" + email, { encodeEverything: true })
+		he.encode(":" + email, { encodeEverything: true }) +
+		(queryString ? "?" + queryString : "")
 	);
 }
 
-export default function obfuscateEmail(email) {
-	const hrefVal = href(email);
-	console.log({ hrefVal });
+export default function obfuscateEmail(email, subject, body, cc, bcc) {
+	const hrefVal = href(email, subject, body, cc, bcc);
 	const innerVal = inner(email);
 	return {
 		inner: innerVal,

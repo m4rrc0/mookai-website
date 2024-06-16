@@ -1,8 +1,16 @@
-{% from 'svg/hero-img-svg.njk' import heroImg %}
+{# {% from 'svg/hero-img-svg.njk' import heroImg %} #}
 
-<div class="full-bleed f-py-s2+1 bg-mouse-light">
-	<figure>
-		{{ heroImg(width = '100%', height='auto', class = 'max-w-5xl mx-auto block') }} {# {% include
-		"svg/undraw_engineering_team.njk" %} #}
+<div class="full-bleed">
+	<figure class="">
+		<img
+			src="/assets/images/hero-creative.jpg"
+			alt=""
+			width="2560"
+			height="1374"
+			class="f-max-h-s10 h-100% w-100% object-cover"
+		/>
+		{# {{ heroImg(width = '100%', height='auto', class = 'max-w-5xl mx-auto block') }} #}
+		<!-- -->
+		{# {% include "svg/undraw_engineering_team.njk" %} #}
 	</figure>
 </div>
