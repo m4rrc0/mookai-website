@@ -17,6 +17,10 @@
 		<meta name="theme-color" content="#ffffff" />
 		<!-- CSS -->
 		<link rel="stylesheet" href="/assets/css/main.css" />
+		<!-- Indexing -->
+		{% if status == "noindex" %}
+		<meta name="robots" content="noindex" />
+		{% endif %}
 		<!-- TODO: metadata -->
 		<title>{{ title }}</title>
 
