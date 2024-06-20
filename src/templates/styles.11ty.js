@@ -22,6 +22,7 @@ export async function data() {
 	const inputFileData = fs.readFileSync(inputCssFileUrl, "utf-8");
 
 	return {
+		eleventyExcludeFromCollections: true,
 		permalink: destPath,
 		destPath,
 		inputPathFull,
@@ -42,7 +43,10 @@ export async function render(data) {
 		// // tailwindcss,
 		postcssPresetEnv({
 			stage: 1,
-			// features: { "nesting-rules": false }, // Need to exclude if using 'postcss-nesting' (or 'tailwindcss/nesting')
+			features: {
+				// "nesting-rules": false, // Need to exclude if using 'postcss-nesting' (or 'tailwindcss/nesting')
+				// "custom-selectors": { preserve: false },
+			},
 		}), // OPTIONS: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#options
 		...(PROD ? [cssNano] : []),
 	])

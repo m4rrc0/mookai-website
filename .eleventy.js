@@ -2,11 +2,13 @@ import pluginWebc from "@11ty/eleventy-plugin-webc";
 import he from "he";
 import obfuscateEmail, { href } from "./src/utils/emailObfuscate.js";
 // const formbouncerjs = import.meta.resolve("formbouncerjs/dist/bouncer.polyfills.min.js");
+import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+// import Image from "@11ty/eleventy-img";
+import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 
 /**
  * @typedef { import("@11ty/eleventy").UserConfig } UserConfig
  */
-
 export const config = {
 	dir: {
 		input: "src/templates",
@@ -20,18 +22,51 @@ export const config = {
 };
 
 export default async function (eleventyConfig) {
+	// let src = "https://images.unsplash.com/photo-1608178398319-48f814d0750c";
+	// let src = "./src/assets/images/hero-creative.jpg";
+	// let stats = await Image(src, {
+	// 	widths: [300],
+	// });
+
+	// console.log(stats);
+
 	const { RenderPlugin } = await import("@11ty/eleventy");
 
-	// --- PLUGINS ---
+	eleventyConfig.setQuietMode(true);
+	eleventyConfig.addPlugin(directoryOutputPlugin);
+	// --- PLUGINS --- //
 	eleventyConfig.addPlugin(pluginWebc, {
 		// This path is relative to the project-root!
 		components: [
 			"src/_includes/**/*.webc",
 			// "npm:@11ty/is-land/*.webc",
 			// "npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc",
+			// "npm:@11ty/eleventy-img/*.webc",
 		],
 	});
 	eleventyConfig.addPlugin(RenderPlugin);
+	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
+		// which file extensions to process
+		extensions: "html",
+
+		// Output path relative to the site root
+		urlPath: "/assets/images/",
+
+		// optional, output image formats
+		// formats: ["webp", "jpeg"],
+		// formats: ["auto"],
+
+		// optional, output image widths
+		// widths: ["auto"],
+		widths: [480, 768, 1280, "auto"],
+
+		// optional, attributes assigned on <img> override these values.
+		defaultAttributes: {
+			loading: "lazy",
+			decoding: "async",
+			sizes: "100vw",
+		},
+	});
 
 	// --- CONFIG ---
 	// Copy `src/assets/` to `dist/assets`
@@ -39,7 +74,7 @@ export default async function (eleventyConfig) {
 		"src/assets": "assets",
 		// [formbouncerjs]: "assets/js/formbouncer.js",
 		"node_modules/formbouncerjs/dist/bouncer.polyfills.min.js": "assets/js/formbouncer.js",
-		"node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
+		// "node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
 	});
 
 	// eleventyConfig.addWatchTarget("src/input.css");
@@ -47,6 +82,11 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("src/");
 	eleventyConfig.addWatchTarget("*.config.{js,ts}");
 	// eleventyConfig.addWatchTarget("tailwind.config.js");
+
+	// --- DATA ---
+	eleventyConfig.addGlobalData("site", {
+		url: "https://www.mookai.be",
+	});
 
 	// --- fILTERS ---
 	// Encodes to html entities
@@ -68,7 +108,20 @@ export default async function (eleventyConfig) {
 		}
 		console.log(value);
 
-		return this.env.filters.safe(`<script>console.log(${JSON.stringify(value)})</script>`);
+		let seen = [];
+
+		const str = JSON.stringify(value, function (key, val) {
+			if (val != null && typeof val == "object") {
+				if (seen.indexOf(val) >= 0) {
+					return;
+				}
+				seen.push(val);
+			}
+			return val;
+		});
+		// return this.env.filters.safe(`<script>console.table(${value})</script>`);
+		// return this.env.filters.safe(`<script>console.log(${JSON.stringify(value)})</script>`);
+		return this.env.filters.safe(`<script>console.log(${str})</script>`);
 	});
 
 	// --- SHORTCODES ---

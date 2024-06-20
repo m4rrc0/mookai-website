@@ -11,7 +11,7 @@ html {
 	}
 	@apply f-var-s1+1;
 	/* height of the nav logo + nav y padding * 2 */ /* prettier-ignore */
-	scroll-padding-top: calc(var(--_f-s2) + var(--_f-s1\+1) * 2);
+	scroll-padding-top: calc(var(--_f-s2) + var(--_f-s1\+1) * 2 + var(--_f-s0));
 }
 
 :--button {
@@ -214,6 +214,7 @@ html {
 	/* @apply f-w-s9; */
 }
 
+/* FORM */
 form {
 	appearance: none;
 }
@@ -224,6 +225,9 @@ input {
 input[type="submit"],
 textarea {
 	border: solid 3px;
+}
+.submitting :--button {
+	opacity: 0.7;
 }
 
 body > footer address {

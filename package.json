@@ -1,61 +1,72 @@
 {
-	"name": "mookai-website",
-	"version": "1.0.0",
-	"description": "",
-	"main": "index.js",
-	"type": "module",
-	"engines": {
-		"bun": ">=1.1.13"
-	},
-	"scripts": {
-		"clean": "rm -rf dist",
-		"npm:build": "npx @11ty/eleventy",
-		"build": "bun --bun eleventy",
-		"npm:serve": "npx @11ty/eleventy --serve",
-		"serve": "bun --bun eleventy --serve",
-		"npm:start": "npm run serve",
-		"start": "bun run serve"
-	},
-	"keywords": [],
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/m4rrc0/mookai-website.git"
-	},
-	"author": {
-		"name": "m4rrc0",
-		"url": "https://www.m4rr.co/"
-	},
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/m4rrc0/mookai-website/issues"
-	},
-	"homepage": "https://github.com/m4rrc0/mookai-website#readme",
-	"devDependencies": {
-		"@11ty/eleventy": "^3.0.0-alpha.10",
-		"@11ty/eleventy-plugin-webc": "^0.11.2",
-		"@eslint/js": "^9.3.0",
-		"@iconify/json": "^2.2.217",
-		"@unocss/eslint-config": "^0.60.3",
-		"@unocss/postcss": "^0.61.0",
-		"cssesc": "^3.0.0",
-		"cssnano": "^7.0.1",
-		"eslint-config-prettier": "^9.1.0",
-		"he": "^1.2.0",
-		"lodash": "^4.17.21",
-		"postcss": "^8.4.38",
-		"postcss-import": "^16.1.0",
-		"postcss-preset-env": "^9.5.13",
-		"postcss-utopia": "^1.0.3",
-		"prettier": "^3.2.5",
-		"prettier-plugin-jinja-template": "^1.4.0",
-		"prettier-plugin-tailwindcss": "^0.5.14",
-		"tailwind-utopia": "github:cwsdigital/tailwind-utopia",
-		"tailwindcss": "^3.4.3",
-		"unocss": "^0.61.0",
-		"unocss-preset-fluid": "^1.0.2"
-	},
-	"dependencies": {
-		"altcha": "^0.5.0",
-		"formbouncerjs": "^1.4.6"
-	}
+  "name": "mookai-website",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "engines": {
+    "bun": ">=1.1.13"
+  },
+  "scripts": {
+    "clean": "rm -rf dist",
+    "npm:build": "npx @11ty/eleventy",
+    "build": "bun --bun eleventy",
+    "build:debug": "DEBUG=Eleventy* bun --bun eleventy",
+    "npm:serve": "npx @11ty/eleventy --serve",
+    "serve": "bun --bun eleventy --serve",
+    "serve:debug": "DEBUG=Eleventy* bun --bun eleventy --serve",
+    "npm:start": "npm run serve",
+    "watch": "bun --bun eleventy --watch",
+    "preview": "bun --bun eleventy-dev-server --dir=dist",
+    "start": "bun run serve"
+  },
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/m4rrc0/mookai-website.git"
+  },
+  "author": {
+    "name": "m4rrc0",
+    "url": "https://www.m4rr.co/"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/m4rrc0/mookai-website/issues"
+  },
+  "homepage": "https://github.com/m4rrc0/mookai-website#readme",
+  "trustedDependencies": [
+    "esbuild",
+    "sharp"
+  ],
+  "devDependencies": {
+    "@11ty/eleventy": "^3.0.0-alpha.10",
+    "@11ty/eleventy-img": "^5.0.0-beta.4",
+    "@11ty/eleventy-plugin-directory-output": "^1.0.1",
+    "@11ty/eleventy-plugin-webc": "^0.11.2",
+    "@eslint/js": "^9.3.0",
+    "@iconify/json": "^2.2.217",
+    "@unocss/eslint-config": "^0.60.3",
+    "@unocss/postcss": "^0.61.0",
+    "cssesc": "^3.0.0",
+    "cssnano": "^7.0.1",
+    "eslint-config-prettier": "^9.1.0",
+    "he": "^1.2.0",
+    "lodash": "^4.17.21",
+    "postcss": "^8.4.38",
+    "postcss-import": "^16.1.0",
+    "postcss-preset-env": "^9.5.13",
+    "postcss-utopia": "^1.0.3",
+    "prettier": "^3.2.5",
+    "prettier-plugin-jinja-template": "^1.4.0",
+    "prettier-plugin-tailwindcss": "^0.5.14",
+    "sharp": "^0.33.4",
+    "tailwind-utopia": "github:cwsdigital/tailwind-utopia",
+    "tailwindcss": "^3.4.3",
+    "unocss": "^0.61.0",
+    "unocss-preset-fluid": "^1.0.2"
+  },
+  "dependencies": {
+    "altcha": "^0.5.0",
+    "formbouncerjs": "^1.4.6"
+  }
 }

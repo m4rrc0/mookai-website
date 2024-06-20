@@ -1,18 +1,12 @@
 /* nuds color system - user defined values */
 /* --------------------------------------- */
-@custom-selector :--palette-match [class*="ctxc-"], :--color-palette-match;
-@custom-selector :--palette-alt-default .ctxc-alt-default, :--color-palette-alt-default;
-@custom-selector :--palette-alt .ctxc-alt, :--color-palette-alt;
-@custom-selector :--palette-contrast .ctxc-contrast, :--color-palette-contrast;
-@custom-selector :--palette-alt-contrast
-	.ctxc-alt.ctxc-contrast,
-	.ctxc-alt-contrast,
-	:--color-palette-alt-contrast;
-@custom-selector :--palette-accent .ctxc-accent, :--color-palette-accent;
-@custom-selector :--palette-accent-contrast
-	.ctxc-accent.ctxc-contrast,
-	.ctxc-accent-contrast,
-	:--color-palette-accent-contrast;
+@custom-selector :--palette-match [class*="ctxc-"];
+@custom-selector :--palette-alt-default .ctxc-alt-default;
+@custom-selector :--palette-alt .ctxc-alt;
+@custom-selector :--palette-contrast .ctxc-contrast;
+@custom-selector :--palette-alt-contrast .ctxc-alt.ctxc-contrast, .ctxc-alt-contrast;
+@custom-selector :--palette-accent .ctxc-accent;
+@custom-selector :--palette-accent-contrast .ctxc-accent.ctxc-contrast, .ctxc-accent-contrast;
 
 :root {
 	/* Bare minimum default in case nothing is defined */
