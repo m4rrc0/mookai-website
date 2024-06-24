@@ -147,14 +147,14 @@ form .hp { position: absolute; left: -99999px; }
 		},
 		colors: {
 			// TODO: delete these
-			deums: "#D9933D",
-			arriereplan: "#F7F7F7",
-			piedpage: "#262626",
-			orange: "#D9933D",
-			sanguine: "#D94423",
-			brun: "#A2724E",
-			temoin: "#CFCFCF",
-			blob: "#8d8298",
+			// deums: "#D9933D",
+			// arriereplan: "#F7F7F7",
+			// piedpage: "#262626",
+			// orange: "#D9933D",
+			// sanguine: "#D94423",
+			// brun: "#A2724E",
+			// temoin: "#CFCFCF",
+			// blob: "#8d8298",
 			//
 			white: "hsla(0, 0%, 100%, 1)",
 			black: "hsla(0, 0%, 15%, 1)",
@@ -168,8 +168,9 @@ form .hp { position: absolute; left: -99999px; }
 			coral: {
 				"light-hsla": "11, 67%, 55%",
 				light: "hsla(11, 67%, 55%, 1)",
-				mid: "hsla(11, 72%, 49%, 1)",
-				DEFAULT: "hsla(11, 72%, 49%, 1)",
+				// mid: "hsla(11, 72%, 49%, 1)",
+				mid: "hsla(11, 72%, 48%, 1)",
+				DEFAULT: "hsla(11, 72%, 48%, 1)",
 				dark: "hsla(5, 68%, 27%, 1)",
 			},
 			mouse: {
