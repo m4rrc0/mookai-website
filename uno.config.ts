@@ -164,6 +164,7 @@ form .hp { position: absolute; left: -99999px; }
 				mid: "hsla(33, 67%, 55%, 1)",
 				DEFAULT: "hsla(33, 67%, 55%, 1)",
 				dark: "hsla(36, 95%, 42%, 1)",
+				darker: "hsla(36,95%,34%,1)",
 			},
 			coral: {
 				"light-hsla": "11, 67%, 55%",
