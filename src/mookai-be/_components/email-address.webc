@@ -2,8 +2,9 @@
 	const email = this.slots?.text?.default;
 	// TODO: check for email being a real email
 	// if (!email) return "";
+	console.log({ self: this });
 
-	const { element } = this.obfuscateEmail(email, subject, body, cc, bcc);
+	const { element } = this.obfuscateEmail(email, (subject = ""), body, cc, bcc);
 
 	`${element}`;
 </script>

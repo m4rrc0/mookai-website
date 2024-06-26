@@ -8,22 +8,25 @@ import twNesting from "tailwindcss/nesting/index.js";
 import UnoCSS from "@unocss/postcss";
 import cssNano from "cssnano";
 import utopia from "postcss-utopia";
-import { PROD } from "../env.js";
+import { PROD, srcDir } from "../../env.js";
 
 // console.log({ tailwindcss });
 
 export async function data() {
+	const configFilePath = `src/${srcDir}/uno.config.ts`;
 	const destFileName = "main.css";
 	const destPath = `assets/css/${destFileName}`;
 	const inputFileName = "main.css";
-	const inputCssFileUrl = new URL(`../styles/${inputFileName}`, import.meta.url);
+	const inputCssFileUrl = new URL(`../${srcDir}/styles/${inputFileName}`, import.meta.url);
 	const inputPathFull = url.fileURLToPath(inputCssFileUrl);
-	const inputPath = `styles/${inputFileName}`;
+	const inputPath = `${srcDir}/styles/${inputFileName}`;
 	const inputFileData = fs.readFileSync(inputCssFileUrl, "utf-8");
 
 	return {
 		eleventyExcludeFromCollections: true,
 		permalink: destPath,
+		// permalink: false,
+		configFilePath,
 		destPath,
 		inputPathFull,
 		inputPath,
@@ -32,12 +35,15 @@ export async function data() {
 }
 
 export async function render(data) {
-	const { destPath, inputPath, inputPathFull, rawCss } = data;
+	const { configFilePath, destPath, inputPath, inputPathFull, rawCss } = data;
 
 	// TODO: look at postcss config or other usefull plugins
 	return await postcss([
 		atImport(), // has to be first I believe
-		UnoCSS(),
+		UnoCSS({
+			configFile: configFilePath,
+			configOrPath: configFilePath,
+		}),
 		// utopia({ minWidth: 320, maxWidth: 1240 }),
 		// // twNesting,
 		// // tailwindcss,

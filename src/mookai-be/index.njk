@@ -1,0 +1,33 @@
+---
+layout: mookai-be/_layouts/base.njk
+title: "Associatif humain créatif engagé | mookai ASBL"
+class:
+  body: "max-w-5xl m-auto f-px-s0 font-sans"
+sectionList:
+  [
+    { href: "#values", txt: "valeurs" },
+    { href: "#services", txt: "services" },
+    { href: "#contact", txt: "contact" },
+  ]
+head: |
+  <meta name="description" content="" />
+---
+
+{# {% extends "./_layouts/base.njk" %} {% block content %} #}
+<main>
+	<!-- Heading Group -->
+	{% include "./_partials/index/heading-group.html" %}
+	<!-- Hero -->
+	{% include "./_partials/index/hero-img.njk" %}
+	<!-- Values -->
+	{% include "./_partials/index/values.njk" %}
+	<!-- Services -->
+	{% include "./_partials/index/services.njk" %}
+	<!--  -->
+	{# {% include "./_partials/index/blob.html" %} #}
+	<!--  -->
+	{# {% include "./_partials/index/testimonialsQ.html" %} #}
+	<!-- Contact -->
+	{% include "./_partials/index/contact.html" %}
+</main>
+{# {% endblock %} #}

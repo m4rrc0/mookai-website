@@ -1,18 +1,22 @@
 import pluginWebc from "@11ty/eleventy-plugin-webc";
 import he from "he";
 import obfuscateEmail, { href } from "./src/utils/emailObfuscate.js";
+import inlineCss from "./src/utils/inlineCss.js";
 // const formbouncerjs = import.meta.resolve("formbouncerjs/dist/bouncer.polyfills.min.js");
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 // import Image from "@11ty/eleventy-img";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
+import { site, srcDir } from "./env.js";
 
 /**
  * @typedef { import("@11ty/eleventy").UserConfig } UserConfig
  */
 export const config = {
 	dir: {
-		input: "src/templates",
-		includes: "../_includes",
+		// input: "src/templates",
+		input: "src",
+		// includes: "../_includes",
+		includes: "",
 		// data: "_data", // Directory for global data files. Default: "_data"
 		output: "dist",
 	},
@@ -38,7 +42,7 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginWebc, {
 		// This path is relative to the project-root!
 		components: [
-			"src/_includes/**/*.webc",
+			"src/**/*.webc",
 			// "npm:@11ty/is-land/*.webc",
 			// "npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc",
 			// "npm:@11ty/eleventy-img/*.webc",
@@ -84,9 +88,7 @@ export default async function (eleventyConfig) {
 	// eleventyConfig.addWatchTarget("tailwind.config.js");
 
 	// --- DATA ---
-	eleventyConfig.addGlobalData("site", {
-		url: "https://www.mookai.be",
-	});
+	eleventyConfig.addGlobalData("site", site);
 
 	// --- fILTERS ---
 	// Encodes to html entities
@@ -131,4 +133,7 @@ export default async function (eleventyConfig) {
 		const { element } = obfuscateEmail(email, subject, body, cc, bcc);
 		return element;
 	});
+
+	// --- TRANSFORMS ---
+	// eleventyConfig.addTransform("inlineCss", inlineCss);
 }

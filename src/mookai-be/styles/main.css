@@ -1,0 +1,39 @@
+/* ---LAYERS --- */
+/* LAYER PRE (just in case)  */
+@import "../../styles/helpers.css";
+@import "../../styles/uno-imports/pre.css";
+
+/* LAYER PREFLIGHTS (VARIABLES)  */
+@import "../../styles/uno-imports/preflights.css";
+
+/* LAYER RESET  */
+@import "../../styles/reset.css";
+@import "../../styles/uno-imports/reset.css";
+
+/* LAYER BASE  */
+@import "./fonts.css";
+@import "./typography.css";
+/* @import "../../styles/spaces.css"; */
+@import "../../styles/uno-imports/base.css";
+
+/* LAYER LAYOUTS  */
+@import "../../styles/layouts.css";
+@import "../../styles/uno-imports/layouts.css";
+
+/* LAYER COLORS  */
+@import "./colors.css";
+@import "../../styles/uno-imports/colors.css";
+
+/* LAYER COMPONENTS  */
+@import "../../styles/utilities.css"; /* complex utilities are more like components */
+@import "../../styles/uno-imports/components.css";
+
+/* LAYER PROJECT (custom project's css  */
+@import "./project.css";
+
+/* LAYER UTILITIES  */
+@import "../../styles/uno-imports/default.css";
+@import "../../styles/uno-imports/utilities.css";
+
+/* NOTE: Should not have anything below */
+/* Cutom CSS goes into project.css */

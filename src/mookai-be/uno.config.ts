@@ -12,8 +12,9 @@ import {
 } from "unocss";
 import defaultTheme from "tailwindcss/defaultTheme";
 // import { presetFluid } from "unocss-preset-fluid";
-import { presetFluid } from "./src/utils/unocss/preset-fluid/index.js";
-import computeRanges from "./src/utils/unocss/preset-fluid/computeRanges.js";
+import { presetFluid } from "../utils/unocss/preset-fluid/index.js";
+import computeRanges from "../utils/unocss/preset-fluid/computeRanges.js";
+import { srcDir } from "../../env.js";
 
 const applyValsToKeys = (keysArr, valuesObj) => {
 	const result = {};
@@ -39,7 +40,16 @@ const ranges = computeRanges(fluidConfig);
 
 export default defineConfig({
 	content: {
-		filesystem: ["./src/_includes/**/*.{html,js,njk}", "./src/templates/**/*.{html,js,njk}"],
+		filesystem: [
+			// "./src/_includes/**/*.{html,js,njk}",
+			// "./src/templates/**/*.{html,js,njk}"
+			// `./**/*.{html,js,njk,webc}`,
+			`src/${srcDir}/**/*.{html,js,njk,webc}`,
+			// `./_components/**/*.{html,js,njk,webc}`,
+			// `./_layouts/**/*.{html,js,njk,webc}`,
+			// `./_partials/**/*.{html,js,njk,webc}`,
+			// `./_svg/**/*.{html,js,njk,webc}`,
+		],
 	},
 	// NOTE: cli config not tested
 	// cli: {

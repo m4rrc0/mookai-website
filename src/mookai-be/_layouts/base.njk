@@ -40,15 +40,16 @@
 		{% block head %}{% endblock %}
 		<!--  -->
 		{{ head | safe }}
+		<!-- inlineCss -->
 	</head>
 	<body class="{{class.body}}">
 		<!-- Nav -->
-		{% include "components/header-nav.html" %}
+		{% include "../_components/header-nav.html" %}
 
 		<!-- Contenu de la page -->
 		{% block content %} {{ content | safe }} {% endblock %}
 
 		<!-- Footer -->
-		{% include "components/footer.html" %}
+		{% include "../_components/footer.html" %}
 	</body>
 </html>
