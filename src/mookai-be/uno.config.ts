@@ -10,21 +10,14 @@ import {
 	transformerVariantGroup,
 	toEscapedSelector as e,
 } from "unocss";
-import defaultTheme from "tailwindcss/defaultTheme";
+import { theme as defaultTheme } from "@unocss/preset-mini";
 // import { presetFluid } from "unocss-preset-fluid";
 import { presetFluid } from "../utils/unocss/preset-fluid/index.js";
-import presetCtx from "../utils/unocss/preset-ctx-styles/index.js";
+import presetCtxStyles from "../utils/unocss/preset-ctx-styles/index.ts";
 import computeRanges from "../utils/unocss/preset-fluid/computeRanges.js";
 import { srcDir } from "../../env.js";
 
-const tempRules = [];
-const applyValsToKeys = (keysArr, valuesObj) => {
-	const result = {};
-	for (let i = 0; i < keysArr.length; i++) {
-		result[keysArr[i]] = valuesObj;
-	}
-	return result;
-};
+import defaultConfig from "../utils/unocss/preset-default-config.ts";
 
 const fluidConfig = {
 	minFontSize: 18,
@@ -53,39 +46,8 @@ export default defineConfig({
 			// `./_svg/**/*.{html,js,njk,webc}`,
 		],
 	},
-	// NOTE: cli config not tested
-	// cli: {
-	// 	entry: {
-	// 		patterns: ["src/styles/main.css"], // Glob patterns to match files
-	// 		outFile: "dist/test.css", // The output filename for the generated UnoCSS file
-	// 	},
-	// },
 	presets: [
-		presetUno({
-			// dark: {light: '.light', dark: '.dark'}, // Custom DarkModeSelectors
-			// preflight: false,
-		}),
-		// presetWebFonts({
-		// 	provider: "google", // default provider
-		// 	fonts: {
-		// 		// these will extend the default theme
-		// 		sans: "Roboto",
-		// 		mono: ["Fira Code", "Fira Mono:400,700"],
-		// 		// custom ones
-		// 		lobster: "Lobster",
-		// 		lato: [
-		// 			{
-		// 				name: "Lato",
-		// 				weights: ["400", "700"],
-		// 				italic: true,
-		// 			},
-		// 			{
-		// 				name: "sans-serif",
-		// 				provider: "none",
-		// 			},
-		// 		],
-		// 	},
-		// }),
+		defaultConfig(),
 		presetFluid({
 			minWidth: 320,
 			maxWidth: 1240,
@@ -102,61 +64,11 @@ export default defineConfig({
 				...ranges,
 			},
 		}),
-		presetIcons({
-			prefix: "i-",
-			// extraProperties: {
-			// 	display: "inline-block",
-			// },
-		}),
-		presetCtx(),
-	],
-	// transformers: [transformerDirectives(), transformerVariantGroup()],
-	layers: {
-		pre: -1,
-		preflights: 0,
-		reset: 1,
-		base: 2,
-		layouts: 3,
-		components: 5,
-		default: 9, // defaults are probably always utilities
-		utilities: 10,
-		utils: 10,
-	},
-	preflights: [
-		{
-			layer: "preflight",
-			getCSS: () => `
-a[href^="mailto:"] b { display: none; }
-form p[role="status"]:empty { display: none; }
-form .hp { position: absolute; left: -99999px; }
-`,
-		},
-		// {
-		// 	layer: "my-layer",
-		// 	getCSS: async () => (await fetch("my-style.css")).text(),
-		// },
-		// 		{
-		// 			getCSS: ({ theme }) => `
-		// * {
-		// 	color: ${theme.colors?.gray?.[700] ?? "#333"};
-		// 	padding: 0;
-		// 	margin: 0;
-		// }
-		// 	    `,
-		// 		},
 	],
 	theme: {
 		fontFamily: {
-			sans: ['"Roboto Condensed"', ...defaultTheme.fontFamily.sans].join(","),
-			chantal: ["chantal", ...defaultTheme.fontFamily.sans].join(","),
-		},
-		breakpoints: {
-			xs: "480px",
-			sm: "640px", // Default
-			md: "768px", // Default
-			lg: "1024px", // Default
-			xl: "1280px", // Default
-			"2xl": "1536px", // Default
+			sans: '"Roboto Condensed",' + defaultTheme.fontFamily.sans,
+			chantal: "chantal," + defaultTheme.fontFamily.sans,
 		},
 		colors: {
 			// TODO: delete these
@@ -203,144 +115,5 @@ form .hp { position: absolute; left: -99999px; }
 				dark: "hsla(4, 21%, 44%, 1)",
 			},
 		}, // backgroundColor, borderColor, textColor, ...
-		fontSize: {
-			test: "5rem",
-			// "fluid--2": "var(--fluid--2)",
-			// "fluid--1": "var(--fluid--1)",
-			// "fluid-0": "var(--fluid-0)",
-			// "fluid-1": "var(--fluid-1)",
-			// "fluid-2": "var(--fluid-2)",
-			// "fluid-3": "var(--fluid-3)",
-			// "fluid-4": "var(--fluid-4)",
-			// "fluid-5": "var(--fluid-5)",
-			// "fluid-6": "var(--fluid-6)",
-		},
-		lineHeight: {
-			"neg-10": "0.90",
-			"neg-20": "0.80",
-			"neg-25": "0.75",
-		},
-		fontWeight: {
-			100: "100",
-			200: "200",
-			300: "300",
-			400: "400",
-			500: "500",
-			600: "600",
-			700: "700",
-			800: "800",
-			900: "900",
-		},
-		// Sizing
-		// ...applyValsToKeys(
-		// 	[
-		// 		"width",
-		// 		"height",
-		// 		"maxWidth",
-		// 		"maxHeight",
-		// 		"minWidth",
-		// 		"minHeight",
-		// 		"inlineSize",
-		// 		"blockSize",
-		// 		"maxInlineSize",
-		// 		"maxBlockSize",
-		// 		"minInlineSize",
-		// 		"minBlockSize",
-		// 	],
-		// 	{
-		// 		"fluid--2": "var(--fluid--2)",
-		// 		"fluid--1": "var(--fluid--1)",
-		// 		"fluid-0": "var(--fluid-0)",
-		// 		"fluid-1": "var(--fluid-1)",
-		// 		"fluid-2": "var(--fluid-2)",
-		// 		"fluid-3": "var(--fluid-3)",
-		// 		"fluid-4": "var(--fluid-4)",
-		// 		"fluid-5": "var(--fluid-5)",
-		// 		"fluid-6": "var(--fluid-6)",
-		// 	}
-		// ),
-		height: {
-			"1": "initial",
-			"2": "initial",
-			"3": "initial",
-			"4": "initial",
-			"5": "initial",
-			"6": "initial",
-		},
-		// spacing: {
-		// 	// Custom via Type scale
-		// 	"fluid--2": "var(--fluid--2)",
-		// 	"fluid--1": "var(--fluid--1)",
-		// 	"fluid-0": "var(--fluid-0)",
-		// 	"fluid-1": "var(--fluid-1)",
-		// 	"fluid-2": "var(--fluid-2)",
-		// 	"fluid-3": "var(--fluid-3)",
-		// 	"fluid-4": "var(--fluid-4)",
-		// 	"fluid-5": "var(--fluid-5)",
-		// 	"fluid-6": "var(--fluid-6)",
-		// 	// Custom via Space scale
-		// 	"fluid-3xs": "var(--fluid-3xs)",
-		// 	"fluid-2xs": "var(--fluid-2xs)",
-		// 	"fluid-xs": "var(--fluid-xs)",
-		// 	"fluid-s": "var(--fluid-s)",
-		// 	"fluid-m": "var(--fluid-m)",
-		// 	"fluid-l": "var(--fluid-l)",
-		// 	"fluid-xl": "var(--fluid-xl)",
-		// 	"fluid-2xl": "var(--fluid-2xl)",
-		// 	"fluid-3xl": "var(--fluid-3xl)",
-		// 	/* One-up pairs */
-		// 	"fluid-3xs-2xs": "var(--fluid-3xs-2xs)",
-		// 	"fluid-2xs-xs": "var(--fluid-2xs-xs)",
-		// 	"fluid-xs-s": "var(--fluid-xs-s)",
-		// 	"fluid-s-m": "var(--fluid-s-m)",
-		// 	"fluid-m-l": "var(--fluid-m-l)",
-		// 	"fluid-l-xl": "var(--fluid-l-xl)",
-		// 	"fluid-xl-2xl": "var(--fluid-xl-2xl)",
-		// 	"fluid-2xl-3xl": "var(--fluid-2xl-3xl)",
-		// 	/* Custom pairs */
-		// 	"fluid-s-l": "var(--fluid-s-l)",
-		// }, // p-*, m-*, w-*, h-*, max-h-*, basis-*, gap-*, inset-*, space-*, translate-x-*, scroll-m-*, scroll-p-*, indent-*
-		borderRadius: {
-			pill: "100vw",
-		}, // .rounded-*
 	},
-	rules: [
-		// ["pop", { color: "red" }],
-		// [/^pop-(\w+)$/, ([, word]) => ({ color: word }), { layer: "colors" }],
-		...tempRules,
-		[
-			/^sideways-lr$/,
-			(match, { symbols }) => {
-				return [
-					{ "writing-mode": "sideways-lr" },
-					{
-						[symbols.parent]: "@supports (not (writing-mode: sideways-lr))",
-						"writing-mode": "vertical-rl",
-						transform: "rotate(-180deg)",
-					},
-				];
-			},
-		],
-	],
-	variants: [
-		// hover:
-		// (matcher) => {
-		// 	if (!matcher.startsWith("hover:")) return matcher;
-		// 	return {
-		// 		// slice `hover:` prefix and passed to the next variants and rules
-		// 		matcher: matcher.slice(6),
-		// 		selector: (s) => `${s}:hover`,
-		// 	};
-		// },
-	],
-	shortcuts: {
-		// shortcuts to multiple utilities
-		// btn: "py-2 px-4 font-semibold rounded-lg shadow-md",
-		// "btn-green": "text-white bg-green-500 hover:bg-green-700",
-		// single utility alias
-		// red: "text-red-100",
-	},
-	// postprocess(util) {
-	// 	console.log(util);
-	// },
 });

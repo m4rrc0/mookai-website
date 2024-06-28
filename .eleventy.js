@@ -81,9 +81,16 @@ export default async function (eleventyConfig) {
 		// "node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
 	});
 
+	eleventyConfig.ignores.add("**/_components/**/*");
+	eleventyConfig.ignores.add("**/_layouts/**/*");
+	eleventyConfig.ignores.add("**/_assets/**/*");
+	eleventyConfig.ignores.add("**/_partials/**/*");
+	eleventyConfig.ignores.add("**/_svg/**/*");
 	// eleventyConfig.addWatchTarget("src/input.css");
 	// eleventyConfig.setWatchThrottleWaitTime(2000); // in milliseconds
 	eleventyConfig.addWatchTarget("src/");
+	// eleventyConfig.addWatchTarget("**/_partials/**/*");
+
 	// eleventyConfig.addWatchTarget("src/utils/**/*.{js,ts}");
 	eleventyConfig.addWatchTarget("*.config.{js,ts}");
 	// eleventyConfig.addWatchTarget("tailwind.config.js");

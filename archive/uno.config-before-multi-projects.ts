@@ -10,13 +10,16 @@ import {
 	transformerVariantGroup,
 	toEscapedSelector as e,
 } from "unocss";
-// import defaultTheme from "tailwindcss/defaultTheme";
-import defaultTheme from "../utils/unocss/defaultTheme.js";
+import { theme as defaultTheme } from "@unocss/preset-mini";
 // import { presetFluid } from "unocss-preset-fluid";
 import { presetFluid } from "../utils/unocss/preset-fluid/index.js";
+import presetCtx from "../utils/unocss/preset-ctx-styles/index.js";
 import computeRanges from "../utils/unocss/preset-fluid/computeRanges.js";
 import { srcDir } from "../../env.js";
 
+import defaultconfig from "../utils/unocss/preset-default-config.js";
+
+const tempRules = [];
 const applyValsToKeys = (keysArr, valuesObj) => {
 	const result = {};
 	for (let i = 0; i < keysArr.length; i++) {
@@ -35,7 +38,7 @@ const fluidConfig = {
 	// prefix: "fluid",
 	relativeTo: "viewport",
 	usePx: false,
-	rounding: 2,
+	rounding: 4,
 };
 const ranges = computeRanges(fluidConfig);
 
@@ -107,6 +110,8 @@ export default defineConfig({
 			// 	display: "inline-block",
 			// },
 		}),
+		presetCtx(),
+		defaultconfig(),
 	],
 	// transformers: [transformerDirectives(), transformerVariantGroup()],
 	layers: {
@@ -145,8 +150,8 @@ form .hp { position: absolute; left: -99999px; }
 	],
 	theme: {
 		fontFamily: {
-			sans: ['"Roboto Condensed"', ...defaultTheme.fontFamily.sans].join(","),
-			chantal: ["chantal", ...defaultTheme.fontFamily.sans].join(","),
+			sans: '"Roboto Condensed",' + defaultTheme.fontFamily.sans,
+			chantal: "chantal," + defaultTheme.fontFamily.sans,
 		},
 		breakpoints: {
 			xs: "480px",
@@ -305,6 +310,7 @@ form .hp { position: absolute; left: -99999px; }
 	rules: [
 		// ["pop", { color: "red" }],
 		// [/^pop-(\w+)$/, ([, word]) => ({ color: word }), { layer: "colors" }],
+		...tempRules,
 		[
 			/^sideways-lr$/,
 			(match, { symbols }) => {

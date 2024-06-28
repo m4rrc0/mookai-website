@@ -1,12 +1,14 @@
 <section id="services" class="f-py-s3+2 text-coral">
 	<div class="f-gap-s-1 flex flex-col items-start lg:flex-row">
 		<h2 class="ctxs-massive lg:sideways-lr uppercase">Services</h2>
-		<accordeon-details class="services-accordeon stack [&_summary::marker]:text-[0px]">
+		<accordeon-details
+			class="services-accordeon stack [--gap-stack:1rem] [&_summary::marker]:text-[0px]"
+		>
 			<details open>
 				<summary class="flex uppercase">
 					<h3 class="f-text-s2 text-coral-dark">Développement web</h3>
 				</summary>
-				<div class="details-text stack [&>p]:f-text-s-0.5" style="--gap-stack: 0.3em">
+				<div class="details-text stack [&>p]:f-text-s-0.5 [--gap-stack:0.3em]">
 					<p>
 						On fait des sites web et applications en éco-conception pour
 						<strong>diminuer l'impact écologique de vos outils digitaux</strong>. Ce qui est cool,
@@ -31,7 +33,7 @@
 				<summary class="flex uppercase">
 					<h3 class="f-text-s2 text-coral-dark">Graphisme</h3>
 				</summary>
-				<div class="details-text stack [&>p]:f-text-s-0.5" style="--gap-stack: 0.3em">
+				<div class="details-text stack [&>p]:f-text-s-0.5 [--gap-stack:0.3em]">
 					<p>
 						Le graphisme, c'est la partie de votre comm' qui saute aux yeux !
 						<strong> Autant faire en sorte que ça en jette, non?! </strong>
@@ -67,7 +69,7 @@
 				<summary class="flex uppercase">
 					<h3 class="f-text-s2 text-coral-dark">SEO</h3>
 				</summary>
-				<div class="details-text stack [&>p]:f-text-s-0.5" style="--gap-stack: 0.3em">
+				<div class="details-text stack [&>p]:f-text-s-0.5 [--gap-stack:0.3em]">
 					<p>Le <strong>référencement dans les moteurs de recherche</strong>… Quel bazar !!</p>
 					<p>
 						On peut vous aider à y voir plus clair et vous
@@ -86,7 +88,7 @@
 				<summary class="flex uppercase">
 					<h3 class="f-text-s2 text-coral-dark">Copywriting</h3>
 				</summary>
-				<div class="details-text stack [&>p]:f-text-s-0.5" style="--gap-stack: 0.3em">
+				<div class="details-text stack [&>p]:f-text-s-0.5 [--gap-stack:0.3em]">
 					<p>
 						<strong>La rédaction de contenu</strong>, c'est pas pour tout le monde. Et parfois,
 						quand on baigne dans son domaine d'activité jusqu'au cou, on est pas le mieux placé pour
@@ -100,7 +102,7 @@
 				<summary class="flex uppercase">
 					<h3 class="f-text-s2 text-coral-dark">Digitalisation</h3>
 				</summary>
-				<div class="details-text stack [&>p]:f-text-s-0.5" style="--gap-stack: 0.3em">
+				<div class="details-text stack [&>p]:f-text-s-0.5 [--gap-stack:0.3em]">
 					<p><em>“Tu as rangé où le PV de la dernière AG?”</em></p>
 					<p><em>“C'est quelle version du document Excel que je dois ouvrir?”</em></p>
 					<p><em>“C'est quand la prochaine réunion?”</em></p>
@@ -120,7 +122,7 @@
 				<summary class="flex uppercase">
 					<h3 class="f-text-s2 text-coral-dark">Formations</h3>
 				</summary>
-				<div class="details-text stack [&>p]:f-text-s-0.5" style="--gap-stack: 0.3em">
+				<div class="details-text stack [&>p]:f-text-s-0.5 [--gap-stack:0.3em]">
 					<p class="text-curcuma-darker">On est passionnés.</p>
 					<p class="text-black">On est engagés.</p>
 					<p class="text-coral-dark">On cherche sans cesse à s'améliorer.</p>
@@ -140,7 +142,7 @@
 				<summary class="flex uppercase">
 					<h3 class="f-text-s2 text-coral-dark">Conférences</h3>
 				</summary>
-				<div class="details-text stack [&>p]:f-text-s-0.5" style="--gap-stack: 0.3em">
+				<div class="details-text stack [&>p]:f-text-s-0.5 [--gap-stack:0.3em]">
 					<p>
 						Vous voulez qu'on vienne parler d'un sujet pointu qui nous passionne? Contactez-nous!
 					</p>
@@ -148,8 +150,11 @@
 			</details>
 		</accordeon-details>
 	</div>
-	<div class="stack center box no-border f-p-s-2+4 b-3 f-my-s3" style="--max-width: max-content">
-		<div class="cluster xs:justify-center p-0">
+	<div
+		class="stack center box no-border f-p-s-2+4 b-3 f-my-s3 gap-4"
+		style="--max-width: max-content"
+	>
+		<div class="cluster xs:justify-center gap-4 p-0">
 			<a href="#contact" class="button ctxc-coral ctxc-contrast">Prenez rdv</a>
 			<a href="#contact" class="button ctxc-coral ctxc-accent-contrast">Demandez un devis</a>
 		</div>

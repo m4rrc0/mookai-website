@@ -11,13 +11,14 @@ export const rules = [
 			return [
 				{ display: "block" },
 				{
+					[symbols.selector]: (selector) => `:where(${selector})`,
 					padding: "var(--padding-box, 1rem)",
 					border: "var(--border-width-box, 1px) var(--border-style-box, solid)",
 				},
 				{
 					// For high contrast mode if no border
 					[symbols.selector]: (selector) =>
-						`:where(${selector}.no-border), :where(${selector}.border-0)`,
+						`:where(${selector}.no-border):not(x), :where(${selector}.border-0):not(x)`,
 					border: "none",
 					outline: "var(--border-width-box) solid transparent",
 					"outline-offset": "calc(var(--border-width-box) * -1)",

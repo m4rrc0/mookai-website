@@ -44,7 +44,7 @@ export async function render(data) {
 	return await postcss([
 		atImport(), // has to be first I believe
 		UnoCSS({
-			configFile: configFilePath,
+			// configFile: configFilePath,
 			configOrPath: configFilePath,
 		}),
 		// utopia({ minWidth: 320, maxWidth: 1240 }),
