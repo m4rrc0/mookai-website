@@ -1,0 +1,27 @@
+:root {
+	/* Layout: Box */
+	--padding-box: 1rem;
+	--border-width-box: 1px;
+	--border-style-box: solid;
+	/* Layout: Stack */
+	--gap-stack: 0;
+	/* Layout: Center */
+	--center-max-width: 60ch;
+	--center-gutters: 0;
+	/* Layout Cluster */
+	/* / */
+	/* Layout: With Sidebar */
+	--sidebar-width: unset;
+	--content-min: 50%;
+	/* Layout: Switcher */
+	--switcher-grow: 1; /* Should probably stay at 1 */
+	--switcher-width-wrap: 30rem;
+	/* Layout: Cover */
+	/* --gap-cover: 1em; */ /* For padding. Seem useless with functionnal css */
+	--cover-min-height: 100vh;
+	/* Layout: Grid Auto */
+	--grid-min: 15ch;
+	--gap-grid: 1rem;
+	/* Layout: Frame */
+	--aspect-ratio: 16/9;
+}

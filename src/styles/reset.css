@@ -1,8 +1,8 @@
 /* Credits -> Andy Bell at https://hankchizljaw.com/wrote/a-modern-css-reset/ */
 /* Box sizing rules */
-*,
-*::before,
-*::after {
+:where(*),
+:where(*::before),
+:where(*::after) {
 	box-sizing: border-box;
 	overflow-wrap: break-word;
 	/* margin: 0; */
@@ -10,37 +10,37 @@
 }
 /* ul[class], */
 /* ol[class] { */
-ul.reset,
-ol.reset {
+:where(ul.reset),
+:where(ol.reset) {
 	/* Remove default padding */
 	padding: 0;
 	/* Remove list styles on ul, ol elements with a class attribute */
 	list-style: none;
 }
 /* Remove default margin */
-body,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
+:where(body),
+:where(h1),
+:where(h2),
+:where(h3),
+:where(h4),
+:where(h5),
+:where(h6),
+:where(p),
 /* ul[class], /* [class] can cause specificity issues. For example, it overrides .cluster > * { margin: ... } */
 /* ol[class], */
-ul.reset,
-ol.reset,
-li,
-figure,
-figcaption,
-blockquote,
-dl,
-dd,
-pre {
+:where(ul.reset),
+:where(ol.reset),
+:where(li),
+:where(figure),
+:where(figcaption),
+:where(blockquote),
+:where(dl),
+:where(dd),
+:where(pre) {
 	margin: 0;
 }
 /* Set core body defaults */
-body {
+:where(body) {
 	min-height: 100vh;
 	scroll-behavior: smooth;
 	text-rendering: optimizeSpeed;
@@ -49,11 +49,11 @@ body {
 /* A elements that don't have a class get default styles */
 /* NOTE: IMO should be a default for <a> elems */
 /* a:not([class]) { */
-a {
+:where(a) {
 	text-decoration-skip-ink: auto;
 }
 /* Make images easier to work with */
-img {
+:where(img) {
 	max-width: 100%;
 	height: auto; /* Keep aspect ratio */
 	display: block;
@@ -63,10 +63,10 @@ img {
   margin-top: 1em;
 } */
 /* Inherit fonts for inputs and buttons */
-input,
-button,
-textarea,
-select {
+:where(input),
+:where(button),
+:where(textarea),
+:where(select) {
 	font: inherit;
 }
 /* Remove all animations and transitions for people that prefer not to see them */
@@ -81,42 +81,37 @@ select {
 
 /* ---------- CUSTOM ---------- */
 /* hr should be visible */
-hr {
+:where(hr) {
 	width: 100%;
 }
-pre {
+:where(pre) {
 	overflow-x: scroll;
 }
-a,
-button,
-.button,
-input[type="submit"],
-input[type="button"],
-input[type="reset"],
-summary {
+:where(a),
+:where(button),
+:where(.button),
+:where(input[type="submit"]),
+:where(input[type="button"]),
+:where(input[type="reset"]),
+:where(summary) {
 	cursor: pointer;
 }
 
-a.reset,
-a.reset *,
-.reset-a a,
-.reset-a a *,
-.reset-down-a a,
-.reset-down-a a * {
+:where(a.reset),
+:where(a.reset *),
+:where(.reset-a a),
+:where(.reset-a a *) {
 	/* color: inherit; */
 	text-decoration: inherit;
 	/* border-bottom: none; */
 }
 
-p svg {
+:where(p svg) {
 	/* display: inline-block; */
 	height: 1em;
 	vertical-align: middle;
 }
 
-summary {
-	cursor: pointer;
-}
-summary > * {
+:where(summary > *) {
 	display: inline; /* Prevent summary from jumping under the summary::marker (arrow) */
 }

@@ -75,7 +75,7 @@ export default async function (eleventyConfig) {
 	// --- CONFIG ---
 	// Copy `src/assets/` to `dist/assets`
 	eleventyConfig.addPassthroughCopy({
-		"src/assets": "assets",
+		[`src/${srcDir}/_assets`]: "assets",
 		// [formbouncerjs]: "assets/js/formbouncer.js",
 		"node_modules/formbouncerjs/dist/bouncer.polyfills.min.js": "assets/js/formbouncer.js",
 		// "node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
@@ -84,11 +84,13 @@ export default async function (eleventyConfig) {
 	// eleventyConfig.addWatchTarget("src/input.css");
 	// eleventyConfig.setWatchThrottleWaitTime(2000); // in milliseconds
 	eleventyConfig.addWatchTarget("src/");
+	// eleventyConfig.addWatchTarget("src/utils/**/*.{js,ts}");
 	eleventyConfig.addWatchTarget("*.config.{js,ts}");
 	// eleventyConfig.addWatchTarget("tailwind.config.js");
 
 	// --- DATA ---
 	eleventyConfig.addGlobalData("site", site);
+	eleventyConfig.addGlobalData("srcDir", srcDir);
 
 	// --- fILTERS ---
 	// Encodes to html entities

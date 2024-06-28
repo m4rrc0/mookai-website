@@ -9,6 +9,9 @@ import UnoCSS from "@unocss/postcss";
 import cssNano from "cssnano";
 import utopia from "postcss-utopia";
 import { PROD, srcDir } from "../../env.js";
+// postcss.config.js
+import postcssJitProps from "postcss-jit-props";
+import OpenProps from "open-props";
 
 // console.log({ tailwindcss });
 
@@ -47,6 +50,7 @@ export async function render(data) {
 		// utopia({ minWidth: 320, maxWidth: 1240 }),
 		// // twNesting,
 		// // tailwindcss,
+		postcssJitProps(OpenProps),
 		postcssPresetEnv({
 			stage: 1,
 			features: {

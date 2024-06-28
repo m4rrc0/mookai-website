@@ -17,7 +17,7 @@
 @import "../../styles/uno-imports/base.css";
 
 /* LAYER LAYOUTS  */
-/* @import "../../styles/layouts.css"; */
+@import "../../styles/layouts.css";
 @import "../../styles/uno-imports/layouts.css";
 
 /* LAYER COLORS  */

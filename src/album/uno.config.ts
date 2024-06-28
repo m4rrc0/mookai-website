@@ -13,11 +13,9 @@ import {
 import defaultTheme from "tailwindcss/defaultTheme";
 // import { presetFluid } from "unocss-preset-fluid";
 import { presetFluid } from "../utils/unocss/preset-fluid/index.js";
-import presetCtx from "../utils/unocss/preset-ctx-styles/index.js";
 import computeRanges from "../utils/unocss/preset-fluid/computeRanges.js";
 import { srcDir } from "../../env.js";
 
-const tempRules = [];
 const applyValsToKeys = (keysArr, valuesObj) => {
 	const result = {};
 	for (let i = 0; i < keysArr.length; i++) {
@@ -36,7 +34,7 @@ const fluidConfig = {
 	// prefix: "fluid",
 	relativeTo: "viewport",
 	usePx: false,
-	rounding: 4,
+	rounding: 2,
 };
 const ranges = computeRanges(fluidConfig);
 
@@ -108,7 +106,6 @@ export default defineConfig({
 			// 	display: "inline-block",
 			// },
 		}),
-		presetCtx(),
 	],
 	// transformers: [transformerDirectives(), transformerVariantGroup()],
 	layers: {
@@ -307,7 +304,6 @@ form .hp { position: absolute; left: -99999px; }
 	rules: [
 		// ["pop", { color: "red" }],
 		// [/^pop-(\w+)$/, ([, word]) => ({ color: word }), { layer: "colors" }],
-		...tempRules,
 		[
 			/^sideways-lr$/,
 			(match, { symbols }) => {

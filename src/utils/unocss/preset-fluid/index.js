@@ -52,7 +52,7 @@ const fluidUtilities = {
 	"f-inset-y": ["top", "bottom"],
 	// Added by me
 	"f-grid-auto-rows": "grid-auto-rows",
-	"f-var": "--_f",
+	"f-var": "--f",
 };
 
 const REGEX_PATTERNS_NUMERIC_VALUES = "(?:--)?(-?\\d+)?(?:--)?(-?\\d+)?$";
@@ -172,8 +172,8 @@ function getClamp(min, max, config) {
 	const slope = getSlope(min, max, config);
 	const intersection = getIntersection(min, slope, getRemMinWidth(config));
 	const slopePercentage = getSlopePercentage(min, max, config);
-	const clampMin = Math.min(min, max);
-	const clampMax = Math.max(min, max);
+	const clampMin = Math.min(min, max).toFixed(4); // MOD for rounding
+	const clampMax = Math.max(min, max).toFixed(4); // MOD for rounding
 	return `clamp(${clampMin}rem, ${intersection.toFixed(4)}rem + ${slopePercentage.toFixed(4)}vw, ${clampMax}rem)`;
 }
 function getClampComment(match, config) {

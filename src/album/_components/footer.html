@@ -1,0 +1,30 @@
+{% from '../_svg/logo-mookai-asbl-no-border.njk' import logo %}
+
+<footer class="ctxc-contrast full-bleed-before stack f-gap-s0 f-pt-s3 f-pb-s2">
+	<div class="cluster f-gap-s1 justify-between">
+		<div class="stack">
+			<div class="f-h-s2">
+				{# % include "../_svg/logo_asbl.njk" % #}
+				<!-- <a href="#accueil" class="block h-full w-full"></a> -->
+				{{ logo() }}
+			</div>
+
+			{{ "hello@mookai.be" | emailLink }}
+
+			<!-- TODO: social icons -->
+			<!-- <div class="cluster f-gap-s-1 justify-between">
+				<a href="#" class="inline-block">{% include "../_svg/facebook_icon.njk" %}</a>
+				<a href="#" class="">{% include "../_svg/youtube_icon.njk" %}</a>
+				<a href="#">{% include "../_svg/instagram_icon.njk" %}</a>
+			</div> -->
+		</div>
+		<address class="">
+			mookaï asbl<br />
+			BE 1003.532.405<br />
+			Avenue Armand Husmans 47/2,<br />
+			1050 Bruxelles,<br />
+			Belgique
+		</address>
+	</div>
+	<p class="center">&copy; mookaï asbl</p>
+</footer>

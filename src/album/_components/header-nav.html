@@ -1,0 +1,23 @@
+{% from '../_svg/logo-mookai-asbl-no-border.njk' import logo %}
+
+<header class="sticky-nav ctxc-default full-bleed-before f-py-s1+1 z-1000 sticky top-0">
+	<nav class="cluster f-gap-s2 align-center flex-wrap justify-between">
+		<div class="f-h-s2 ctxc-coral shrink-0">
+			<!-- <a href="#heading-group" class="block h-full w-full">{% include "../_svg/logo.njk" %}</a> -->
+			<a
+				href="#heading-group"
+				class="block h-full w-full"
+				aria-label="Scroll to the top of the page"
+				>{{ logo( class="h-full w-full") }}</a
+			>
+		</div>
+
+		<ul class="reset cluster f-gap-s-2+2 relative top-[0.2em] uppercase leading-none">
+			{% for li in sectionList %}
+			<li class="">
+				<a href="{{ li.href }}" class="reset f-text-s0">{{ li.txt }}</a>
+			</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</header>

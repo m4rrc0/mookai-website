@@ -18,10 +18,10 @@ REMOVED ~~color-dark~~
 }
 :--box-no-border {
 	border: none;
-	/* For high contrast mode if no border */
 	outline: var(--border-width-box) solid transparent;
 	outline-offset: calc(var(--border-width-box) * -1);
 }
+/* For high contrast mode if no border */
 
 /* -------- STACK ------------ */
 /* TODO: custom selectors do not work if we want to assign a main layout AND modifiers.

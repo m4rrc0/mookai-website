@@ -66,38 +66,38 @@ body {
 .ctxs-reset,
 .ctxs-default {
 	/* prettier-ignore */
-	--_fs-h-3: var(--_f-s7); /* prettier-ignore */
-	--_fs-h-2: var(--_f-s6); /* prettier-ignore */
-	--_fs-h-1: var(--_f-s5); /* prettier-ignore */
-	--_fs-h0: var(--_f-s4); /* prettier-ignore */
-	--_fs-h1: var(--_f-s3); /* prettier-ignore */
-	--_fs-h2: var(--_f-s2); /* prettier-ignore */
-	--_fs-h3: var(--_f-s1); /* prettier-ignore */
-	--_fs-h4: var(--_f-s0); /* prettier-ignore */
-	--_fs-p: var(--_f-s0); /* prettier-ignore */
-	--_fs-h5: var(--_f-s-1); /* prettier-ignore */
-	--_fs-small: var(--_f-s-1); /* prettier-ignore */
-	--_fs-h6: var(--_f-s-2); /* prettier-ignore */
-	--_fs-xs: var(--_f-s-2); /* prettier-ignore */
-	--_fs-h7: var(--_f-s-3); /* prettier-ignore */
-	--_fs-h8: var(--_f-s-4); /* prettier-ignore */
-	--_fs-h9: var(--_f-s-5); /* prettier-ignore */
+	--_fs-h-3: var(--f-s7); /* prettier-ignore */
+	--_fs-h-2: var(--f-s6); /* prettier-ignore */
+	--_fs-h-1: var(--f-s5); /* prettier-ignore */
+	--_fs-h0: var(--f-s4); /* prettier-ignore */
+	--_fs-h1: var(--f-s3); /* prettier-ignore */
+	--_fs-h2: var(--f-s2); /* prettier-ignore */
+	--_fs-h3: var(--f-s1); /* prettier-ignore */
+	--_fs-h4: var(--f-s0); /* prettier-ignore */
+	--_fs-p: var(--f-s0); /* prettier-ignore */
+	--_fs-h5: var(--f-s-1); /* prettier-ignore */
+	--_fs-small: var(--f-s-1); /* prettier-ignore */
+	--_fs-h6: var(--f-s-2); /* prettier-ignore */
+	--_fs-xs: var(--f-s-2); /* prettier-ignore */
+	--_fs-h7: var(--f-s-3); /* prettier-ignore */
+	--_fs-h8: var(--f-s-4); /* prettier-ignore */
+	--_fs-h9: var(--f-s-5); /* prettier-ignore */
 }
 .ctxs-massive {
 	/* prettier-ignore */
-	--_fs-h-2: var(--_f-s9); /* prettier-ignore */
-	--_fs-h-1: var(--_f-s8); /* prettier-ignore */
-	--_fs-h0: var(--_f-s7); /* prettier-ignore */
-	--_fs-h1: var(--_f-s6); /* prettier-ignore */
-	--_fs-h2: var(--_f-s5); /* prettier-ignore */
-	--_fs-h3: var(--_f-s4); /* prettier-ignore */
-	--_fs-h4: var(--_f-s3); /* prettier-ignore */
-	--_fs-p: var(--_f-s2); /* prettier-ignore */
-	--_fs-h5: var(--_f-s1); /* prettier-ignore */
-	--_fs-small: var(--_f-s0); /* prettier-ignore */
-	--_fs-h6: var(--_f-s-1); /* prettier-ignore */
-	--_fs-xs: var(--_f-s-2); /* prettier-ignore */
-	--_fs-h7: var(--_f-s-2); /* prettier-ignore */
-	--_fs-h8: var(--_f-s-3); /* prettier-ignore */
-	--_fs-h9: var(--_f-s-4); /* prettier-ignore */
+	--_fs-h-2: var(--f-s9); /* prettier-ignore */
+	--_fs-h-1: var(--f-s8); /* prettier-ignore */
+	--_fs-h0: var(--f-s7); /* prettier-ignore */
+	--_fs-h1: var(--f-s6); /* prettier-ignore */
+	--_fs-h2: var(--f-s5); /* prettier-ignore */
+	--_fs-h3: var(--f-s4); /* prettier-ignore */
+	--_fs-h4: var(--f-s3); /* prettier-ignore */
+	--_fs-p: var(--f-s2); /* prettier-ignore */
+	--_fs-h5: var(--f-s1); /* prettier-ignore */
+	--_fs-small: var(--f-s0); /* prettier-ignore */
+	--_fs-h6: var(--f-s-1); /* prettier-ignore */
+	--_fs-xs: var(--f-s-2); /* prettier-ignore */
+	--_fs-h7: var(--f-s-2); /* prettier-ignore */
+	--_fs-h8: var(--f-s-3); /* prettier-ignore */
+	--_fs-h9: var(--f-s-4); /* prettier-ignore */
 }

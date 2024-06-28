@@ -1,0 +1,83 @@
+---
+layout: mookai-be/_layouts/base.njk
+title: "Associatif humain créatif engagé | mookai ASBL"
+class:
+  body: "max-w-5xl m-auto f-px-s0 font-sans"
+sectionList:
+  [
+    { href: "#values", txt: "valeurs" },
+    { href: "#services", txt: "services" },
+    { href: "#contact", txt: "contact" },
+  ]
+head: |
+  <meta name="description" content="" />
+---
+
+{# {% extends "./_layouts/base.njk" %} {% block content %} #}
+<main>
+	<div class="stack">
+		<div>Hello Alone</div>
+	</div>
+	<div class="stack>horizontal>split-after-1">
+		<div class="md:box">Hello</div>
+		<div class="box border-0">Hello</div>
+	</div>
+	<div class="stack center>intrinsic">
+		<div class="box">Hello</div>
+		<div class="box border-0">Hello</div>
+	</div>
+	<div class="cluster items-center justify-evenly">
+		<div class="box">Hello</div>
+		<div class="box>no-border p0">Hello</div>
+	</div>
+	<div class="with-sidebar>right">
+		<div class="">Hello</div>
+		<div class="f-w-s10 bg-coral-light/50">Hello</div>
+	</div>
+	<div class="switcher>limit-5 f-gap-s-1 [--switcher-width-wrap:300px]">
+		<div class="box">Switcher</div>
+		<div class="f-w-s5 bg-sand-light/50">Switcher</div>
+		<div class="box">Switcher</div>
+		<div class="f-w-s5 bg-sand-light/50">Switcher</div>
+		<div class="box">Switcher</div>
+		<div class="f-w-s5 bg-sand-light/50">Switcher</div>
+	</div>
+	<div class="cover>center-.here f-gap-s-2 [--cover-min-height:65vh]">
+		<p>
+			Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et excepturi nihil placeat aliquam
+			eos obcaecati rem tempora sed explicabo iure, fugiat sit laboriosam ipsum non enim tenetur.
+			Dolorem, ad non.
+		</p>
+		<h2 class="here">Lorem ipsum dolor sit amet</h2>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio modi earum non aliquam et,
+			adipisci delectus eius quaerat omnis officia dicta possimus iste nulla vel, quasi perspiciatis
+			quia magnam fuga!
+		</p>
+		<p>
+			Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempora architecto iure enim dolore
+			facilis provident cupiditate illo. Consequuntur mollitia totam, quisquam, modi assumenda aut
+			pariatur voluptatibus aliquid, natus vero ducimus!
+		</p>
+	</div>
+
+	<figure class="frame>child-img [--aspect-ratio:5/1]">
+		<img src="/mookai-be/_assets/images/hero-creative.jpg" alt="" class="" loading="eager" />
+	</figure>
+
+	<!-- Heading Group -->
+	{% include "./_partials/index/heading-group.html" %}
+	<!-- Hero -->
+	{% include "./_partials/index/hero-img.njk" %}
+	<!-- Values -->
+	{% include "./_partials/index/values.njk" %}
+	<!-- Services -->
+	{% include "./_partials/index/services.njk" %}
+	<!--  -->
+	{# {% include "./_partials/index/blob.html" %} #}
+	<!--  -->
+	{# {% include "./_partials/index/testimonialsQ.html" %} #}
+	<!-- Contact -->
+	{% include "./_partials/index/contact.html" %}
+</main>
+{# {% endblock %} #}
