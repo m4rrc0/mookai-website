@@ -53,7 +53,8 @@
 	text-decoration-skip-ink: auto;
 }
 /* Make images easier to work with */
-:where(img) {
+:where(img),
+:where(video) {
 	max-width: 100%;
 	height: auto; /* Keep aspect ratio */
 	display: block;

@@ -1,19 +1,19 @@
-import {
-	defineConfig,
-	presetMini,
-	presetUno, // Equivalet to presetWind. Includes presetMini.
-	presetAttributify,
-	presetIcons,
-	presetTypography,
-	presetWebFonts,
-	transformerDirectives,
-	transformerVariantGroup,
-	toEscapedSelector as e,
-} from "unocss";
+// import {
+// 	defineConfig,
+// 	presetMini,
+// 	presetUno, // Equivalet to presetWind. Includes presetMini.
+// 	presetAttributify,
+// 	presetIcons,
+// 	presetTypography,
+// 	presetWebFonts,
+// 	transformerDirectives,
+// 	transformerVariantGroup,
+// 	toEscapedSelector as e,
+// } from "unocss";
 import { theme as defaultTheme } from "@unocss/preset-mini";
 // import { presetFluid } from "unocss-preset-fluid";
 import { presetFluid } from "./preset-fluid/index.js";
-import presetCtxStyles from "./preset-ctx-styles/index.ts";
+// import presetCtxStyles from "./preset-ctx-styles/index.ts";
 import computeRanges from "./preset-fluid/computeRanges.js";
 import { srcDir } from "../../../env.js";
 
@@ -72,56 +72,6 @@ export const presetDefaultConfig = (options?: Object | undefined) => {
 		// 		outFile: "dist/test.css", // The output filename for the generated UnoCSS file
 		// 	},
 		// },
-		presets: [
-			presetUno({
-				// dark: {light: '.light', dark: '.dark'}, // Custom DarkModeSelectors
-				// preflight: false,
-			}),
-			// presetWebFonts({
-			// 	provider: "google", // default provider
-			// 	fonts: {
-			// 		// these will extend the default theme
-			// 		sans: "Roboto",
-			// 		mono: ["Fira Code", "Fira Mono:400,700"],
-			// 		// custom ones
-			// 		lobster: "Lobster",
-			// 		lato: [
-			// 			{
-			// 				name: "Lato",
-			// 				weights: ["400", "700"],
-			// 				italic: true,
-			// 			},
-			// 			{
-			// 				name: "sans-serif",
-			// 				provider: "none",
-			// 			},
-			// 		],
-			// 	},
-			// }),
-			presetFluid({
-				minWidth: 320,
-				maxWidth: 1240,
-				extendMinWidth: 200,
-				extendMaxWidth: 1920,
-				remBase: 16,
-				useRemByDefault: false,
-				commentHelpers: true,
-				ranges: {
-					// xs: [12, 16],
-					// sm: [14, 18],
-					// md: [18, 24],
-					// lg: [22, 30],
-					...ranges,
-				},
-			}),
-			presetIcons({
-				prefix: "i-",
-				// extraProperties: {
-				// 	display: "inline-block",
-				// },
-			}),
-			presetCtxStyles({}),
-		],
 		// transformers: [transformerDirectives(), transformerVariantGroup()],
 		layers: {
 			pre: -1,
@@ -175,6 +125,7 @@ form .hp { position: absolute; left: -99999px; }
 			},
 			// Overwrite to be able to use .h1, .h2, etc
 			height: {
+				"0": "initial",
 				"1": "initial",
 				"2": "initial",
 				"3": "initial",

@@ -13,8 +13,6 @@ import { PROD, srcDir } from "../../env.js";
 import postcssJitProps from "postcss-jit-props";
 import OpenProps from "open-props";
 
-// console.log({ tailwindcss });
-
 export async function data() {
 	const configFilePath = `src/${srcDir}/uno.config.ts`;
 	const destFileName = "main.css";
@@ -50,7 +48,6 @@ export async function render(data) {
 		// utopia({ minWidth: 320, maxWidth: 1240 }),
 		// // twNesting,
 		// // tailwindcss,
-		postcssJitProps(OpenProps),
 		postcssPresetEnv({
 			stage: 1,
 			features: {
@@ -58,6 +55,7 @@ export async function render(data) {
 				// "custom-selectors": { preserve: false },
 			},
 		}), // OPTIONS: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#options
+		postcssJitProps(OpenProps),
 		...(PROD ? [cssNano] : []),
 	])
 		.process(rawCss, { from: inputPathFull, to: destPath })

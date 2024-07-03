@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" class="no-js {{class.html or 'h-full'}}">
+<html lang="{{lang or 'fr'}}" class="no-js {{class.html or 'h-full'}}">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -44,12 +44,12 @@
 	</head>
 	<body class="{{class.body}}">
 		<!-- Nav -->
-		{# {% include "../_components/header-nav.html" %} #}
+		{% include "../_components/header-nav.html" %}
 
 		<!-- Contenu de la page -->
 		{% block content %} {{ content | safe }} {% endblock %}
 
 		<!-- Footer -->
-		{# {% include "../_components/footer.html" %} #}
+		{% include "../_components/footer.html" %}
 	</body>
 </html>

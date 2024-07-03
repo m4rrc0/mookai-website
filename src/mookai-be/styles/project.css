@@ -181,7 +181,7 @@ html {
 			content: "";
 			position: absolute;
 			z-index: -1;
-			inset: 0 0 0 calc(-1 * (var(--_fs-h2)));
+			inset: 0 0 0 calc(-1 * (var(--fs-h2)));
 			background-color: inherit;
 		}
 	}

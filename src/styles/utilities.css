@@ -81,8 +81,11 @@
 .full-bleed,
 .full-bleed-before::before,
 .full-bleed-after::after {
+	/* --full-bleed-max-width: 2000px; */
 	width: 100vw;
+	width: min(100vw, var(--full-bleed-max-width, 100vw));
 	margin-left: calc(50% - 50vw);
+	margin-left: calc(50% - min(100vw, var(--full-bleed-max-width, 100vw)) / 2);
 }
 .full-bleed-before,
 .full-bleed-after {

@@ -8,6 +8,8 @@ import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import { site, srcDir } from "./env.js";
 
+// console.log({ site, srcDir });
+
 /**
  * @typedef { import("@11ty/eleventy").UserConfig } UserConfig
  */
@@ -52,6 +54,8 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
 		// which file extensions to process
 		extensions: "html",
+		//
+		transformOnRequest: false,
 
 		// Output path relative to the site root
 		urlPath: "/assets/images/",
@@ -81,9 +85,10 @@ export default async function (eleventyConfig) {
 		// "node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
 	});
 
-	eleventyConfig.ignores.add("**/_components/**/*");
-	eleventyConfig.ignores.add("**/_layouts/**/*");
 	eleventyConfig.ignores.add("**/_assets/**/*");
+	eleventyConfig.ignores.add("**/_components/**/*");
+	eleventyConfig.ignores.add("**/_images/**/*");
+	eleventyConfig.ignores.add("**/_layouts/**/*");
 	eleventyConfig.ignores.add("**/_partials/**/*");
 	eleventyConfig.ignores.add("**/_svg/**/*");
 	// eleventyConfig.addWatchTarget("src/input.css");

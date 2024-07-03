@@ -1,19 +1,6 @@
-import {
-	defineConfig,
-	presetMini,
-	presetUno, // Equivalet to presetWind. Includes presetMini.
-	presetAttributify,
-	presetIcons,
-	presetTypography,
-	presetWebFonts,
-	transformerDirectives,
-	transformerVariantGroup,
-	toEscapedSelector as e,
-} from "unocss";
+import { defineConfig } from "unocss";
 import { theme as defaultTheme } from "@unocss/preset-mini";
-// import { presetFluid } from "unocss-preset-fluid";
 import { presetFluid } from "../utils/unocss/preset-fluid/index.js";
-import presetCtxStyles from "../utils/unocss/preset-ctx-styles/index.ts";
 import computeRanges from "../utils/unocss/preset-fluid/computeRanges.js";
 import { srcDir } from "../../env.js";
 
@@ -35,16 +22,7 @@ const ranges = computeRanges(fluidConfig);
 
 export default defineConfig({
 	content: {
-		filesystem: [
-			// "./src/_includes/**/*.{html,js,njk}",
-			// "./src/templates/**/*.{html,js,njk}"
-			// `./**/*.{html,js,njk,webc}`,
-			`src/${srcDir}/**/*.{html,js,njk,webc}`,
-			// `./_components/**/*.{html,js,njk,webc}`,
-			// `./_layouts/**/*.{html,js,njk,webc}`,
-			// `./_partials/**/*.{html,js,njk,webc}`,
-			// `./_svg/**/*.{html,js,njk,webc}`,
-		],
+		filesystem: [`src/${srcDir}/**/*.{html,js,njk,webc}`],
 	},
 	presets: [
 		defaultConfig(),

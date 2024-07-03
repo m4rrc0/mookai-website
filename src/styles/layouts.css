@@ -42,7 +42,7 @@ NEW: .horizontal: class bool
 NEW: .stop: class bool -> apply `class="stack recursive stop"` to stop recursion down this path
 */
 :--stack {
-	--gap-stack: var(--gap, 1em);
+	/* --gap-stack: var(--gap, 1em); */
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-start;
@@ -296,7 +296,7 @@ NEW: .centered | place a ".centered" class on the child that needs centering
 /* -------- FRAME ------------ */
 /* TODO HERE */
 @custom-selector :--frame .frame;
-@custom-selector :--frame-inner .frame-inner, img, video;
+@custom-selector :--frame-inner .frame-inner, img, video, svg;
 /*
 --n: var int -> numerator
 --d: var int -> denominator
