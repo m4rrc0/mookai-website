@@ -6,12 +6,18 @@
 
 /* GLOBAL */
 html {
-	@media (prefers-reduced-motion: no-preference) {
-		scroll-behavior: smooth;
-	}
 	/* @apply f-var-s1+1; */
 	/* height of the nav logo + nav y padding * 2 */ /* prettier-ignore */
 	scroll-padding-top: calc(var(--f-s2) + var(--f-s1\+1) * 2 + var(--f-s0));
+}
+/* If Motion = ok */
+@media (prefers-reduced-motion: no-preference) {
+	html {
+		scroll-behavior: smooth;
+	}
+	* {
+		transition: all 0.1s ease;
+	}
 }
 
 body {
@@ -75,9 +81,9 @@ body {
 }
 .polaroid {
 	--polaroid-border-width: 2rem;
-	--bg: var(--sand-3);
+	/* --bg: var(--sand-3); */
 	border: var(--polaroid-border-width) solid;
-	border-image-source: radial-gradient(closest-side, transparent 70%, var(--bg) 70%);
+	border-image-source: radial-gradient(closest-side, transparent 70%, theme(colors.white) 70%);
 	border-image-slice: 49%;
 }
 .wavy {
@@ -114,6 +120,50 @@ body {
 	}
 }
 
+/* TODO: see if i have to keep this. Depends on how I end up defining my palettes. */
+.sticky-nav li {
+	--color-text__a--hover: var(--color-front-theme);
+	--color-bg__a--hover: var(--color-back-theme);
+}
+
+.sticky-nav a {
+	@apply f-px-s-2 f-py-s-3;
+
+	&[aria-current="page"] {
+		font-weight: 700;
+	}
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+		text-underline-position: under;
+	}
+}
+
+.sticky-nav li:first-child a {
+	@apply f-px-s2 f-py-s-1;
+
+	clip-path: polygon(
+		calc(100% - 25px) 0%,
+		100% 50%,
+		calc(100% - 25px) 100%,
+		0% 100%,
+		25px 50%,
+		0% 0%
+	);
+
+	--color-text__a: var(--color-front-theme);
+	--color-bg__a: var(--color-front-muted);
+	--color-text__a--hover: var(--color-back-theme);
+	--color-bg__a--hover: var(--color-front-theme);
+
+	&[aria-current="page"] {
+		font-weight: 400;
+
+		--color-text__a: var(--color-back-theme);
+		--color-bg__a: var(--color-front-theme);
+	}
+}
+
 /* FORMS */
 form {
 	appearance: none;
@@ -139,8 +189,42 @@ body > footer address {
 		content: "";
 		z-index: -1;
 		inset: 0.75em 0;
-		box-shadow: inset 1px 0 0 theme(colors.curcuma.mid);
+		box-shadow: inset 1px 0 0 theme(colors.scarlet.DEFAULT);
 	}
 }
 
 /* SECTIONS */
+.game-description::before {
+	/* @apply bg-gradient-to-b from-white to-blue-500; */
+	bottom: calc(-1 / 2 * var(--f-s6));
+	background: transparent
+		/* linear-gradient(180deg, theme(colors.white) 0%, #ebf6ee 28%, #ebf6ee 68%, #c0e8db 100%) 0% 0% */
+		linear-gradient(
+			180deg,
+			theme(colors.white) 0%,
+			theme(colors.teal.lighter) 28%,
+			theme(colors.teal.lighter) 68%,
+			theme(colors.teal.light) 100%
+		)
+		no-repeat padding-box;
+}
+
+.technical-info::before {
+	top: calc(-1 / 2 * var(--f-s6));
+	bottom: calc(-1 / 2 * var(--f-s6));
+}
+
+.created-by::before {
+	top: calc(-1 / 2 * var(--f-s6));
+	background: transparent
+		linear-gradient(
+			180deg,
+			theme(colors.teal.light) 0%,
+			theme(colors.teal.lighter) 28%,
+			theme(colors.teal.lighter) 68%,
+			theme(colors.white) 100%
+		)
+		no-repeat padding-box;
+}
+
+/* UTILITIES */

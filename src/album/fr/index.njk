@@ -2,29 +2,26 @@
 title: "ALBUM, le jeu du photo-langage !"
 class:
   body: "max-w-5xl m-auto f-px-s0 font-sans"
+redirects:
+  - from: /
 head: |
   <meta name="description" content="" />
 ---
 
 {# {% extends "./_layouts/base.njk" %} {% block content %} #}
-<main class="stack f-py-s3+2 [--gap-stack:var(--f-s4)]">
-	<hgroup class="text-center">
-		{#
-		<h1 class="font-bums h0"><em>Album</em></h1>
-		#} {# LOGO #} {#
-		<div class="frame m-auto max-w-[min(100%,400px)]">
-			<h1>
-				<img
-					src="/album/_images/ALBUM_2024_logo_2000.png"
-					alt="Album"
-					eleventy:formats="auto"
-					eleventy:widths="400"
-					loading="eager"
-					decoding="auto"
-				/>
-			</h1>
-		</div>
-		#} {# Boite 3D #} {#
+<main class="stack f-py-s3+2 f-gap-s6 [--gap-stack:0]">
+	<hgroup class="stack items-center *:[--gap-stack:var(--f-s0)]">
+		<h1 class="">
+			<img
+				src="/album/_images/ALBUM_2024_logo_2000.png"
+				alt="Album"
+				eleventy:formats="auto"
+				eleventy:widths="300"
+				loading="eager"
+				decoding="auto"
+			/>
+		</h1>
+		<p class="h3 font-bums">le jeu du photo-language</p>
 		<img
 			src="/album/_images/ALBUM_BOX3D_droite_2000.png"
 			alt="La boite du jeu Album"
@@ -32,39 +29,38 @@ head: |
 			eleventy:widths="400"
 			loading="eager"
 			decoding="auto"
-			class="m-auto"
+			class="m-auto [--gap-stack:var(--f-s5)]"
 		/>
-		#}
-		<h1 class="font-bums h0 text-green-700"><em>Album</em></h1>
-		<p class="h2 font-bums">le jeu du photo-language</p>
-	</hgroup>
-	<img
-		src="/album/_images/ALBUM_ECLATE_up_2000.png"
-		alt="Album: le jeu. Vue éclatée du matériel."
-	/>
-	<section class="stack *:[--gap-stack:var(--f-s1)]">
-		<h2 class="font-bums">Le pitch</h2>
-		<p>
+		<p class="m-auto max-w-xl text-center">
 			<strong>
 				Parmi 5 photos, une seule doit rester visible en fin de manche. Pour vous aider, des mots
 				sont placés sur une échelle d'intensité, tels de subjectifs indices. Album est un jeu
 				coopératif où l'échange et l'écoute des points de vue sont les clés de la réussite.
 			</strong>
 		</p>
-		<p>
+	</hgroup>
+	<section class="game-description stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
+		<h2 class="font-bums text-center">Description du jeu</h2>
+		<img
+			src="/album/_images/ALBUM_ECLATE_up_2000.png"
+			alt="Album: le jeu. Vue éclatée du matériel."
+			eleventy:widths="500"
+			class="m-auto"
+		/>
+		<p class="m-auto max-w-prose">
 			Vous devez réaliser un Album photo collectif sur base du meilleur consensus. Chaque photo
 			raconte un point de vue (de photographe) qui peut se traduire par de singulière et différentes
 			histoires (selon la personne). Saurez-vous retrouver la photo initiale en ayant pour seuls
 			indices, le regard (subjectif) d'une personne&nbsp;?!
 		</p>
-		<details class="box stack *:[--gap-stack:var(--f-s-2)]">
-			<summary>La règle plus en détail</summary>
+		<details class="box stack [&>p]:f-text-s-0.5 leading-tight *:[--gap-stack:var(--f-s-6)]">
+			<summary class="p">La règle plus en détail</summary>
 			<hr />
 			<img
 				src="/album/_images/ALBUM_BOX_back_2000.jpg"
 				alt="Explication des règles à l'arrière de la boite de jeu"
-				class="f-px-s-1 float-right"
-				eleventy:widths="400"
+				class="xs:f-px-s-1 w-100% xs:w-[min(50%,450px)] float-right"
+				eleventy:widths="450"
 			/>
 
 			<p>
@@ -93,39 +89,23 @@ head: |
 			</p>
 			<p>A chaque tour, une photo est éliminée. Parmi 5 photos, une seule est valable !</p>
 		</details>
+		<div class="cluster justify-center">
+			<a
+				href="/assets/documents/ALBUM_2024_RULES_240424-low.pdf"
+				class="button ctxc-contrast font-bums text-center"
+				target="_blank"
+				>Règles du jeu <small class="h6">(PDF)</small></a
+			>
+			{#
+			<a href="#regles" class="button font-bums text-center"
+				>Fiche pédagogique <small class="block">(un jeu dans ma classe)</small></a
+			>
+			#}
+		</div>
 	</section>
-	<section class="stack *:[--gap-stack:var(--f-s1)]">
-		<h2 class="font-bums">Témoignages et premières impressions</h2>
-		<blockquote>
-			<p>
-				Après le premier tour de jeu, j'ai immédiatement su que ce jeu pouvait être une pépite pour
-				la ligne éditoriale de Act in games. J'avais eu la même conviction immédiate lorsque j'ai
-				joué à Feelings pour la première fois. Ca a été un vrai coup de coeur personnel.”
-			</p>
-			<footer>—Thibaut (Éditeur)</footer>
-		</blockquote>
-		<blockquote>
-			<p>
-				Jouer Album, c'est partager notre perception du monde. Aucune bonne réponse, juste la
-				sienne&nbsp;!
-			</p>
-			<footer>—Karine Minidre (Autrice)</footer>
-		</blockquote>
-		<blockquote>
-			<p>La photo ça change des illustrations, et ça nourrit un autre panel d'artistes.</p>
-			<footer>—Maud Chalmel (Illustratrice)</footer>
-		</blockquote>
-		<blockquote>
-			<p>
-				Quel plaisir d'animer Album et de voir l'interaction qu'il suscite entre les joueurs. Entre
-				rires, stupéfactions, raisonnements logiques ou loufoques, le jeu propose un réel challenge
-				et un moment de partage très intense et convivial.
-			</p>
-			<footer>—Yvan Ciarafoni (Animateur Professionnel)</footer>
-		</blockquote>
-	</section>
-	<section class="stack *:[--gap-stack:var(--f-s1)]">
-		<h2 class="font-bums">Fiche Technique</h2>
+
+	<section class="technical-info stack full-bleed-before ctxc-contrast *:[--gap-stack:var(--f-s1)]">
+		<h2 class="font-bums text-center">Fiche Technique</h2>
 		<div
 			class="box stack w-100% polaroid m-auto max-w-sm [--content-min:180px] [box-shadow:var(--shadow-4)]"
 		>
@@ -178,46 +158,130 @@ head: |
 				<p class="f-text-s-1"><strong>30 minutes</strong></p>
 			</div>
 		</div>
-		<div class="cluster justify-center">
-			<a href="#regles" class="button ctxc-contrast text-center">Télécharger les règles du jeu</a>
-			<a href="#regles" class="button text-center"
-				>Télécharger la fiche pédagogique
-				<small class="inline-block">(un jeu dans ma classe)</small></a
-			>
-		</div>
 	</section>
+	{#
 	<section class="stack *:[--gap-stack:var(--f-s1)]">
-		<h2 class="font-bums">Un jeu créé par…</h2>
+		<h2 class="font-bums text-center">Témoignages et premières impressions</h2>
+		<blockquote>
+			<p>
+				Après le premier tour de jeu, j'ai immédiatement su que ce jeu pouvait être une pépite pour
+				la ligne éditoriale de Act in games. J'avais eu la même conviction immédiate lorsque j'ai
+				joué à Feelings pour la première fois. Ca a été un vrai coup de coeur personnel.”
+			</p>
+			<footer>—Thibaut (Éditeur)</footer>
+		</blockquote>
+		<blockquote>
+			<p>
+				Jouer Album, c'est partager notre perception du monde. Aucune bonne réponse, juste la
+				sienne&nbsp;!
+			</p>
+			<footer>—Karine Minidre (Autrice)</footer>
+		</blockquote>
+		<blockquote>
+			<p>La photo ça change des illustrations, et ça nourrit un autre panel d'artistes.</p>
+			<footer>—Maud Chalmel (Illustratrice)</footer>
+		</blockquote>
+		<blockquote>
+			<p>
+				Quel plaisir d'animer Album et de voir l'interaction qu'il suscite entre les joueurs. Entre
+				rires, stupéfactions, raisonnements logiques ou loufoques, le jeu propose un réel challenge
+				et un moment de partage très intense et convivial.
+			</p>
+			<footer>—Yvan Ciarafoni (Animateur Professionnel)</footer>
+		</blockquote>
+	</section>
+	#}
+	<section class="created-by full-bleed-before stack *:[--gap-stack:var(--f-s1)]">
+		<h2 class="font-bums text-center">Un jeu créé par…</h2>
+		<article class="with-sidebar items-start [--content-min:55ch]">
+			<div>
+				<div class="ctxc-default f-p-s-4 w-[min(100%,200px+var(--f-s-4)*2)] text-center">
+					<div class="frame w-[fit-content] [--aspect-ratio:1]">
+						<img
+							src="/album/_images/people/Karine-Minidre.png"
+							alt="Karine Minidré"
+							eleventy:widths="200"
+							class="grayscale"
+						/>
+					</div>
+					<h3 class="h4 font-bums f-pt-s-4">Karine Minidré</h3>
+				</div>
+			</div>
+			<div class="stack *:[--gap-stack:var(--f-s-2)]">
+				<p>
+					Indécrottable idéaliste, je rêve de voir les humains s'épanouir pleinement, développer
+					leur potentiel et vivre ensemble dans la paix, la joie et la bonne humeur. C'est pas gagné
+					en effet mais tant qu'il y a des jeux, il y a de l'espoir ! Passionnée par les enjeux de
+					la Relation (à soi, à l'autre) j'utilise le jeu dans mes pratiques professionnelles pour
+					créer du lien, faciliter les échanges, faire émerger les compétences et offrir d'intenses
+					moments de partage et de rigolade. Je crée à l'occasion des jeux de communication et des
+					expériences ludiques relationnelles.
+				</p>
+				<p><span class="font-bums ctxc-contrast py-3xs px-xs rounded-sm">Autrice</span></p>
+			</div>
+		</article>
+		<article class="with-sidebar items-start [--content-min:55ch]">
+			<div>
+				<div class="ctxc-default f-p-s-4 w-[min(100%,200px+var(--f-s-4)*2)] text-center">
+					<div class="frame w-[fit-content] [--aspect-ratio:1]">
+						<img
+							src="/album/_images/people/Maud-Chalmel.jpg"
+							alt="Maud Chalmel"
+							eleventy:widths="200"
+							class="grayscale"
+						/>
+					</div>
+					<h3 class="h4 font-bums f-pt-s-4">Maud Chalmel</h3>
+				</div>
+			</div>
+			<div class="stack *:[--gap-stack:var(--f-s-2)]">
+				<p>
+					Depuis 2005, Maud Chalmel oeuvre dans la communication visuelle et l'évènementiel. Puis
+					elle fait ses premiers pas dans l'illustration de jeux de société en 2014 avec Siggil et
+					depuis, les jeux se multiplient. Co-fondatrice de la Charte des Illustrateurices Ludiques
+					en 2022 pour fédérer le milieu, elle crée un pictogramme «illustré à la main» pour
+					encourager l'objet culturel à rester humain avant tout.
+				</p>
+				<p><span class="font-bums ctxc-contrast py-3xs px-xs rounded-sm">illustratrice</span></p>
+			</div>
+		</article>
+		<article class="with-sidebar items-start [--content-min:55ch]">
+			<div>
+				<div class="ctxc-default f-p-s-4 w-[min(100%,200px+var(--f-s-4)*2)] text-center">
+					<div class="frame w-[fit-content] [--aspect-ratio:1]">
+						<img
+							src="/album/_images/people/thibaut-NB-square.jpg"
+							alt="Thibaut Quintens"
+							eleventy:widths="200"
+							class="grayscale"
+						/>
+					</div>
+					<h3 class="h4 font-bums f-pt-s-4">
+						Thibaut Quintens <small class="block font-sans">Act in Games</small>
+					</h3>
+				</div>
+			</div>
+			<div class="stack *:[--gap-stack:var(--f-s-2)]">
+				<p>
+					<a href="https://www.actingames.com" target="_blank" rel="noopener">Act in Games</a> est
+					une maison de création et d'édition de jeux de société. Elle est ludiquement née d'une
+					conviction de la puissance du jeu comme moyen de rencontres passionnées, de partage
+					d'émotions enjouées et d'interactions fortes et passionnantes, autour d'une table. Les
+					créations internes et les éditions originales que propose
+					<a href="https://www.actingames.com" target="_blank" rel="noopener">Act in Games</a>
+					forment un subtil mélange entre interaction directe, simultanéité d'actions et immersion
+					thématique.
+				</p>
+				<p><span class="font-bums ctxc-contrast py-3xs px-xs rounded-sm">Éditeur</span></p>
+			</div>
+		</article>
+		{#
 		<article>
 			<img
-				src="/album/_images/people/Karine-Minidre.png"
-				alt="Karine Minidré"
+				src="/album/_images/people/thibaut-NB-square.jpg"
+				alt="Thibaut Quintens"
 				eleventy:widths="200"
 			/>
-			<h3>Karine Minidré <small>✒ Autrice</small></h3>
-			<p>
-				Indécrottable idéaliste, je rêve de voir les humains s'épanouir pleinement, développer leur
-				potentiel et vivre ensemble dans la paix, la joie et la bonne humeur. C'est pas gagné en
-				effet mais tant qu'il y a des jeux, il y a de l'espoir ! Passionnée par les enjeux de la
-				Relation (à soi, à l'autre) j'utilise le jeu dans mes pratiques professionnelles pour créer
-				du lien, faciliter les échanges, faire émerger les compétences et offrir d'intenses moments
-				de partage et de rigolade. Je crée à l'occasion des jeux de communication et des expériences
-				ludiques relationnelles.
-			</p>
-		</article>
-		<article>
-			<img src="/album/_images/people/Maud-Chalmel.jpg" alt="Maud Chalmel" eleventy:widths="200" />
-			<h3>Maud Chalmel <small>🖌 illustratrice</small></h3>
-			<p>
-				Depuis 2005, Maud Chalmel oeuvre dans la communication visuelle et l'évènementiel. Puis elle
-				fait ses premiers pas dans l'illustration de jeux de société en 2014 avec Siggil et depuis,
-				les jeux se multiplient. Co-fondatrice de la Charte des Illustrateurices Ludiques en 2022
-				pour fédérer le milieu, elle crée un pictogramme «illustré à la main» pour encourager
-				l'objet culturel à rester humain avant tout.
-			</p>
-		</article>
-		<article>
-			<img src="/album/_images/people/Maud-Chalmel.jpg" alt="Maud Chalmel" eleventy:widths="200" />
 			<h3>Thibaut Quintens - Act in Games <small>🧭 Éditeur</small></h3>
 			<p>
 				<a href="https://www.actingames.com" target="_blank" rel="noopener">Act in Games</a> est une
@@ -229,6 +293,7 @@ head: |
 				un subtil mélange entre interaction directe, simultanéité d'actions et immersion thématique.
 			</p>
 		</article>
+		#}
 	</section>
 </main>
 {# {% endblock %} #}

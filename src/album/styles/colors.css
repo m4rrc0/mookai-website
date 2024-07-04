@@ -19,99 +19,26 @@
 /* ---------------------- */
 :root,
 /* body, */
-.ctxc-defaul,
-.ctxc-red,
-.ctxc-coral {
+.ctxc-default {
 	/* --color-front: var(--color-blue);
 	--color-front-alt: var(--color-purple);
 	... */
 
-	--color-front: theme(colors.black);
+	--color-front: theme(colors.teal.DEFAULT);
 	--color-back: theme(colors.white);
-	--color-front-alt: theme(colors.coral.dark);
-	--color-back-alt: theme(colors.white);
-	--color-front-accent: theme(colors.coral.mid);
-	/* --color-back-accent: hsla(theme(colors.coral.light-hsla), 0.5); */
-	--color-back-accent: theme(colors.coral.light);
-	--color-front-muted: theme(colors.sand.mid);
-	/* --color-back-muted: theme(colors.aubergine.DEFAULT); */
-	--color-back-muted: hsla(theme(colors.coral.light-hsla), 0.5);
-
-	--color-front-success: theme(colors.curcuma.dark);
-	--color-back-success: theme(colors.curcuma.light);
-	--color-front-warning: theme(colors.curcuma.dark);
-	--color-back-warning: theme(colors.curcuma.light);
-	--color-front-error: theme(colors.coral.mid);
-	--color-back-error: theme(colors.coral.light);
-}
-
-.ctxc-coral {
-	--color-front: theme(colors.coral.dark);
-	--color-back: theme(colors.white);
-	--color-front-alt: theme(colors.black);
-	--color-back-alt: theme(colors.white);
-	--color-front-accent: theme(colors.coral.mid);
+	--color-front-alt: theme(colors.scarlet.DEFAULT);
+	--color-back-alt: theme(colors.teal.lighter);
+	--color-front-accent: theme(colors.scarlet.DEFAULT);
 	--color-back-accent: theme(colors.white);
-	/* --color-back-accent: hsla(theme(colors.coral.light-hsla), 0.5); */
-	/* --color-back-accent: theme(colors.coral.light-hsla); */
-	--color-front-muted: theme(colors.sand.mid);
-	--color-back-muted: theme(colors.mouse.light);
-	--color-front-success: theme(colors.curcuma.dark);
-	--color-back-success: theme(colors.curcuma.light);
-	--color-front-warning: theme(colors.curcuma.dark);
-	--color-back-warning: theme(colors.curcuma.light);
-	--color-front-error: theme(colors.coral.mid);
-	--color-back-error: theme(colors.coral.light);
-}
+	--color-front-muted: theme(colors.teal.light);
+	--color-back-muted: theme(colors.white);
 
-.ctxc-curcuma {
-	--color-front: theme(colors.curcuma.dark);
-	--color-back: theme(colors.white);
-	--color-front-alt: theme(colors.black);
-	--color-back-alt: theme(colors.white);
-	--color-front-accent: theme(colors.coral.dark);
-	--color-back-accent: hsla(theme(colors.curcuma.light-hsla), 0.5);
-	/* --color-back-accent: theme(colors.curcuma.light-hsla); */
-	--color-front-muted: theme(colors.sand.mid);
-	--color-back-muted: theme(colors.mouse.light);
-	--color-front-success: theme(colors.curcuma.dark);
-	--color-back-success: theme(colors.curcuma.light);
-	--color-front-warning: theme(colors.curcuma.dark);
-	--color-back-warning: theme(colors.curcuma.light);
-	--color-front-error: theme(colors.curcuma.mid);
-	--color-back-error: theme(colors.curcuma.light);
-}
-
-.ctxc-sand {
-	--color-front: theme(colors.sand.dark);
-	--color-back: theme(colors.white);
-	--color-front-alt: theme(colors.black);
-	--color-back-alt: theme(colors.white);
-	--color-front-accent: theme(colors.coral.dark);
-	--color-back-accent: hsla(theme(colors.sand.light-hsla), 0.5);
-	/* --color-back-accent: theme(colors.sand.light-hsla); */
-	--color-front-muted: theme(colors.sand.mid);
-	--color-back-muted: theme(colors.mouse.light);
-	--color-front-success: theme(colors.curcuma.dark);
-	--color-back-success: theme(colors.curcuma.light);
-	--color-front-warning: theme(colors.sand.dark);
-	--color-back-warning: theme(colors.sand.light);
-	--color-front-error: theme(colors.curcuma.mid);
-	--color-back-error: theme(colors.curcuma.light);
-}
-
-.ctxc-red {
-	--color-front: theme(colors.coral.mid);
-	--color-front-accent: theme(colors.aubergine.DEFAULT);
-	--color-front-muted: theme(colors.curcuma.mid);
-	/* TODO: ? keeping what is down ? */
-	--color-back-muted: theme(colors.aubergine.DEFAULT);
-	--color-front-success: theme(colors.curcuma.dark);
-	--color-back-success: theme(colors.curcuma.light);
-	--color-front-warning: theme(colors.curcuma.dark);
-	--color-back-warning: theme(colors.curcuma.light);
-	--color-front-error: theme(colors.coral.mid);
-	--color-back-error: theme(colors.coral.light);
+	--color-front-success: theme(colors.teal.DEFAULT);
+	--color-back-success: theme(colors.white);
+	--color-front-warning: theme(colors.mouse.DEFAULT);
+	--color-back-warning: theme(colors.white);
+	--color-front-error: theme(colors.scarlet.DEFAULT);
+	--color-back-error: theme(colors.white);
 }
 
 /* :root,
@@ -328,6 +255,13 @@ body,
 	/* --track-color */
 	/* --thumb-color */
 	/*  */
+}
+
+/* PALETTE MODIFIERS */
+:root,
+.ctxc-default {
+	--color-text__a--hover: var(--color-front-theme);
+	/* --color-bg__a--hover: var(--color-back-theme); */
 }
 
 :--palette-contrast,

@@ -90,7 +90,7 @@
 .full-bleed-before,
 .full-bleed-after {
 	position: relative;
-	isolation: isolate;
+	/* isolation: isolate; */
 
 	&::before,
 	&::after {
