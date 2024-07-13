@@ -27,7 +27,7 @@ body {
 	justify-content: space-between;
 }
 
-:--button {
+:where(:--button) {
 	@apply f-text-s0 f-px-s0 f-py-s-2 border-style-solid decoration-none border-3 inline-block rounded-md;
 }
 .badge {
@@ -174,7 +174,7 @@ body {
 	}
 } */
 .sticky-nav .menu-control {
-	@apply f-py-s-1 inline-block border-0 px-10 uppercase;
+	@apply f-py-s-1 border-0 px-10 uppercase;
 
 	clip-path: polygon(
 		calc(100% - 25px) 0%,

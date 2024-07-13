@@ -1,6 +1,12 @@
 <header class="sticky-nav ctxc-default full-bleed-before f-py-s1+1 z-1000 sticky top-0">
 	<nav class="cluster f-gap-s2 flex-wrap items-center justify-start">
-		<button disabled class="menu-control ctxc-default" popovertarget="nav-popover">Menu</button>
+		<button
+			disabled
+			class="menu-control ctxc-default hidden sm:inline-block"
+			popovertarget="nav-popover"
+		>
+			Menu
+		</button>
 
 		<ul id="nav-popover" class="reset cluster f-gap-s-2+2 items-center uppercase leading-none">
 			{% for li in mainMenuList %} {% if li.href == page.url %} {% set ariaCurrent = 'page' %} {%
