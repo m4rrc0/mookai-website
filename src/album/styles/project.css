@@ -134,7 +134,7 @@ body {
 }
 
 .sticky-nav a {
-	@apply f-px-s-2 f-py-s-3;
+	/* @apply f-px-s-2 f-py-s-3; */
 
 	&[aria-current="page"] {
 		font-weight: 700;
@@ -146,8 +146,35 @@ body {
 	}
 }
 
-.sticky-nav li:first-child a {
-	@apply f-px-s2 f-py-s-1;
+/* For the static menu */
+/* .sticky-nav li:first-child {
+	& a {
+		@apply f-py-s-1 inline-block px-10;
+
+		clip-path: polygon(
+			calc(100% - 25px) 0%,
+			100% 50%,
+			calc(100% - 25px) 100%,
+			0% 100%,
+			25px 50%,
+			0% 0%
+		);
+
+		--color-text__a: var(--color-front-theme);
+		--color-bg__a: var(--color-front-muted);
+		--color-text__a--hover: var(--color-back-theme);
+		--color-bg__a--hover: var(--color-front-theme);
+
+		&[aria-current="page"] {
+			font-weight: 400;
+
+			--color-text__a: var(--color-back-theme);
+			--color-bg__a: var(--color-front-theme);
+		}
+	}
+} */
+.sticky-nav .menu-control {
+	@apply f-py-s-1 inline-block border-0 px-10 uppercase;
 
 	clip-path: polygon(
 		calc(100% - 25px) 0%,
@@ -158,16 +185,36 @@ body {
 		0% 0%
 	);
 
-	--color-text__a: var(--color-front-theme);
-	--color-bg__a: var(--color-front-muted);
-	--color-text__a--hover: var(--color-back-theme);
-	--color-bg__a--hover: var(--color-front-theme);
+	--color-text__button: var(--color-front-theme);
+	--color-bg__button: var(--color-front-muted);
+	--color-text__button--hover: var(--color-back-theme);
+	--color-bg__button--hover: var(--color-front-theme);
+	--color-text__button--disabled: var(--color-back-theme);
+	--color-bg__button--disabled: var(--color-front-theme);
 
-	&[aria-current="page"] {
-		font-weight: 400;
+	&:disabled {
+		cursor: auto;
+	}
+}
 
-		--color-text__a: var(--color-back-theme);
-		--color-bg__a: var(--color-front-theme);
+#nav-popover {
+	@apply f-var-s1+1 f-var-s-1 f-var-s0;
+	/* @apply border-0 pb-2 pl-10; */
+
+	left: max(var(--f-s0), (100vw - 64rem) / 2 + var(--f-s0));
+	margin: 0;
+	/* NOTE: header padding * 2 + arrow padding * 2 + font-size * line-height */
+	/* prettier-ignore */
+	top: calc(var(--f-s1\+1) * 2 + var(--f-s-1) * 2 + var(--f-s0) * 1.5);
+	background: transparent;
+	/* overflow: hidden; */
+	&::backdrop {
+		background: hsl(0 0% 100% / 0.95);
+	}
+
+	& li + li {
+		/* prettier-ignore */
+		/* margin-top: var(--f-s1\+1); */
 	}
 }
 

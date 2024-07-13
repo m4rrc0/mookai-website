@@ -1,0 +1,19 @@
+<header class="sticky-nav ctxc-default full-bleed-before f-py-s1+1 z-1000 sticky top-0">
+	<nav class="cluster f-gap-s2 align-center flex-wrap justify-between">
+		<ul class="reset cluster relative top-[0.2em] gap-0 uppercase leading-none">
+			{% for li in mainMenuList %}
+			<!--  -->
+			{% if li.href == page.url %} {% set ariaCurrent = 'page' %} {% else %} {% set ariaCurrent =
+			'false' %} {% endif %}
+			<!--  -->
+			<li class="">
+				<a href="{{ li.href }}" aria-current="{{ariaCurrent}}" class="reset f-text-s0 block"
+					>{{ li.txt }}</a
+				>
+			</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</header>
+
+<!-- {{'ctxc-contrast' if ariaCurrent != 'false'}} -->
