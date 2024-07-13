@@ -24,21 +24,21 @@
 	--color-front-alt: var(--color-purple);
 	... */
 
-	--color-front: theme(colors.teal.DEFAULT);
+	--color-front: theme(colors.teal.dark);
 	--color-back: theme(colors.white);
-	--color-front-alt: theme(colors.scarlet.DEFAULT);
+	--color-front-alt: theme(colors.teal.DEFAULT);
 	--color-back-alt: theme(colors.teal.lighter);
 	--color-front-accent: theme(colors.scarlet.DEFAULT);
 	--color-back-accent: theme(colors.white);
 	--color-front-muted: theme(colors.teal.light);
 	--color-back-muted: theme(colors.white);
 
-	--color-front-success: theme(colors.teal.DEFAULT);
+	/* --color-front-success: theme(colors.teal.DEFAULT);
 	--color-back-success: theme(colors.white);
 	--color-front-warning: theme(colors.mouse.DEFAULT);
 	--color-back-warning: theme(colors.white);
 	--color-front-error: theme(colors.scarlet.DEFAULT);
-	--color-back-error: theme(colors.white);
+	--color-back-error: theme(colors.white); */
 }
 
 /* :root,
@@ -359,8 +359,8 @@ a:--palette-match:--hover,
 /* End of variables assignments and fallback values */
 
 /* Every element inherits colors for the closest defined parent */
-:where(body) *,
-:where(:--palette-match) * {
+:where(body *),
+:where(:--palette-match *) {
 	color: inherit;
 	/* ... except for the background that should probably just remain transparent */
 	/* background-color: inherit; */

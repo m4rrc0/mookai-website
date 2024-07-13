@@ -197,7 +197,7 @@ function buildSinglePropertyRule(match, config, property) {
 		valName = valName.replace(".", `\\.`).replace("+", `\\+`);
 
 		return {
-			[`${property}`]: getClamp(min, max, config) + getClampComment(match, config),
+			// [`${property}`]: getClamp(min, max, config) + getClampComment(match, config),
 			[`${property}-${valName}`]: getClamp(min, max, config) + getClampComment(match, config),
 		};
 	}

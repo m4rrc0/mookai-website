@@ -17,6 +17,7 @@ html {
 	}
 	* {
 		transition: all 0.1s ease;
+		transition-behavior: allow-discrete;
 	}
 }
 
@@ -27,7 +28,10 @@ body {
 }
 
 :--button {
-	@apply f-text-s0 f-px-s0 f-py-s-2 border-style-solid decoration-none border-3 inline-block;
+	@apply f-text-s0 f-px-s0 f-py-s-2 border-style-solid decoration-none border-3 inline-block rounded-md;
+}
+.badge {
+	@apply py-3xs px-xs rounded-md;
 }
 
 /* & :--mark {
@@ -95,11 +99,14 @@ body {
 }
 
 .breakout-clickable {
-	box-shadow: var(--shadow-1);
+	/* box-shadow: var(--shadow-1); */
+	box-shadow: none;
 }
 .breakout-clickable:hover,
 .breakout-clickable:focus-within {
-	box-shadow: var(--shadow-2);
+	/* box-shadow: var(--shadow-2); */
+	box-shadow: none;
+
 	/* transform: translateY(-0.2rem); */
 	transform: none;
 }
@@ -180,19 +187,6 @@ textarea {
 	opacity: 0.7;
 }
 
-body > footer address {
-	@apply f-pl-s-1 leading-tight;
-	position: relative;
-	isolation: isolate;
-	&::before {
-		position: absolute;
-		content: "";
-		z-index: -1;
-		inset: 0.75em 0;
-		box-shadow: inset 1px 0 0 theme(colors.scarlet.DEFAULT);
-	}
-}
-
 /* SECTIONS */
 .game-description::before {
 	/* @apply bg-gradient-to-b from-white to-blue-500; */
@@ -207,6 +201,54 @@ body > footer address {
 			theme(colors.teal.light) 100%
 		)
 		no-repeat padding-box;
+}
+
+.game-description details {
+	/* Set a max-height value just enough to show the summary */
+	max-height: 3rem;
+	/* Hide the rest of the content: Useful if we use the checkbox trick */
+	/* overflow: hidden; */
+	/* Animate the change */
+	transition: max-height 800ms ease-out;
+	transition-behavior: allow-discrete;
+
+	&[open] {
+		/* Set a max-height value enough to show all the content */
+		max-height: 200vh;
+		/* Animate the change: does not work */
+		/* transition: max-height 400ms ease-out; */
+	}
+
+	& summary::-webkit-details-marker {
+		display: none;
+	}
+
+	& summary {
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		/* padding: 10px 15px; */
+		/* font-weight: bold; */
+
+		& svg {
+			width: 18px;
+			height: 10px;
+			transition: 0.2s;
+		}
+		/* &::after {
+			content: "";
+			width: 18px;
+			height: 10px;
+			background: url("/assets/images/pictos/simple-arrow-down.svg") no-repeat;
+			background-size: cover;
+			transition: 0.2s;
+		} */
+	}
+
+	&[open] > summary svg {
+		transform: rotate(180deg);
+	}
 }
 
 .technical-info::before {
@@ -225,6 +267,105 @@ body > footer address {
 			theme(colors.white) 100%
 		)
 		no-repeat padding-box;
+}
+
+main.photographs {
+	/* Don't display the form if :has is not supported */ /* prettier-ignore */
+	& form { display: none; } /* prettier-ignore */
+	&:has(form) form { display: block; }
+
+	/* styles */
+	/* inspired by https://moderncss.dev/pure-css-custom-styled-radio-buttons/ */
+	& fieldset {
+		/* border: 0; */
+		/* display: flex; */
+		/* gap: 2rem; */
+		/* width: fit-content; */
+		/* background: #fff; */
+		/* padding: 1rem 3rem; */
+		/* margin-inline: auto; */
+		/* border-radius: 0 0 1rem 1rem; */
+	}
+
+	& label {
+		display: grid;
+		grid-template-columns: 1em auto;
+		gap: 0.5em;
+	}
+
+	& input[type="radio"] {
+		appearance: none;
+		/* For iOS < 15 to remove gradient background */
+		background-color: #fff;
+		/* Not removed via appearance */
+		margin: 0;
+		font: inherit;
+		color: currentColor;
+		width: 1.15em;
+		height: 1.15em;
+		border: 0.15em solid currentColor;
+		border-radius: 50%;
+		transform: translateY(0.08em);
+		/* align the :before to the horizontal and vertical center */
+		display: grid;
+		place-content: center;
+		&::before {
+			content: "";
+			width: 0.65em;
+			height: 0.65em;
+			border-radius: 50%;
+			transform: scale(0);
+			transition: 120ms transform ease-in-out;
+			box-shadow: inset 1em 1em currentColor;
+			background-color: CanvasText;
+		}
+		&:checked::before {
+			transform: scale(1);
+		}
+	}
+
+	/* functionality */
+	&:has(#by-picture-number:checked) {
+		--byPicDisplay: grid;
+		--byPhotographDisplay: none;
+	}
+	&:has(#by-photograph:checked) {
+		--byPicDisplay: none;
+		--byPhotographDisplay: flex;
+	}
+}
+
+.sortedByPicNumber {
+	display: var(--byPicDisplay, flex);
+}
+.sortedByPhotograph {
+	display: var(--byPhotographDisplay, none);
+}
+
+body > footer.full-bleed-before {
+	background: transparent;
+
+	&:before {
+		background: hsl(from theme(colors.scarlet.DEFAULT) h s l / 0.5)
+			url("/assets/images/texture-cover-min.jpg");
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+		background-blend-mode: multiply;
+	}
+
+	& address {
+		@apply f-pl-s-1 leading-tight;
+		position: relative;
+		isolation: isolate;
+		&::before {
+			position: absolute;
+			content: "";
+			z-index: -1;
+			inset: 0.75em 0;
+			box-shadow: inset 1px 0 0 var(--color-front-accent-theme);
+		}
+	}
 }
 
 /* UTILITIES */

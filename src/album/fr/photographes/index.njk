@@ -1,0 +1,48 @@
+---
+title: "Photographes | ALBUM le jeu"
+class:
+  body: "max-w-5xl m-auto f-px-s0 font-sans"
+head: |
+  <meta name="description" content="" />
+---
+
+<main class="photographs stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
+	<h1 class="font-bums text-center">Les photographes</h1>
+	<form class="sort-selection" action="">
+		<fieldset class="cluster m-auto w-[fit-content] border-0">
+			<legend class="p text-center">Trier par...</legend>
+			<label class="p">
+				<input type="radio" name="sorting-criteria" id="by-picture-number" checked />
+				<span class="">Numéro de photo</span>
+			</label>
+			<label class="p">
+				<input type="radio" name="sorting-criteria" id="by-photograph" />
+				<span class="">Photographe</span>
+			</label>
+		</fieldset>
+	</form>
+	<ol class="sortedByPicNumber reset grid-auto f-gap-s0 items-start [--width-column-min:85px]">
+		{% for picture in gamePictures %}
+		<li class="stack *:[--gap-stack:0.2rem]">
+			<p class="leading-none">{{picture.id}}</p>
+			<img src="/album/_images/album-pictures/{{picture.id}}.jpg" alt="" eleventy:widths="100" />
+			<p class="font-bums small w-[min-content] leading-none">{{picture.photograph}}</p>
+		</li>
+		{% endfor %}
+	</ol>
+	<ul class="sortedByPhotograph reset stack *:[--gap-stack:var(--f-s0)]">
+		{% for photograph in photographs %} {% if photograph.pictures.length > 0 %}
+		<li class="">
+			<p class="font-bums">{{photograph.name}}</p>
+			<ul class="reset cluster">
+				{% for pic in photograph.pictures %}
+				<li class="">
+					<img src="/album/_images/album-pictures/{{pic}}.jpg" alt="" eleventy:widths="100" />
+					<p>{{pic}}</p>
+				</li>
+				{% endfor %}
+			</ul>
+		</li>
+		{% endif %} {% endfor %}
+	</ul>
+</main>

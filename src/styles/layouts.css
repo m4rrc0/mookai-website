@@ -269,7 +269,7 @@ NEW: .centered | place a ".centered" class on the child that needs centering
 */
 
 /* -------- GRID ------------ */
-@custom-selector :--grid .grid;
+@custom-selector :--grid .grid-auto;
 /* 
 --gap-grid: var dimension | The space (margin) between the (child) elements (fallback to --gap OR 1em)
 --width-column-min: var dimension -> minimum col width (or flex-basis if in flex mode)

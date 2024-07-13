@@ -62,7 +62,8 @@ export default async function (eleventyConfig) {
 
 		// optional, output image formats
 		// formats: ["webp", "jpeg"],
-		// formats: ["auto"],
+		// Our guess is that we gat either a jpg or png and keep the format with auto but use webp first (as webp supports alphe.)
+		formats: ["webp", "auto"],
 
 		// optional, output image widths
 		// widths: ["auto"],
