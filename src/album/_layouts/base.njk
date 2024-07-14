@@ -1,12 +1,22 @@
 <!doctype html>
 <html lang="{{lang or 'fr'}}" class="no-js {{class.html or 'h-full'}}">
 	<head>
+		{# Handled by metagen #} {#
 		<meta charset="UTF-8" />
+		#} {#
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		#} {#
+		<title>{{ title }}</title>
+		#}
+		<!-- TODO: metadata -->
+		{% metagen metadata %}
+		<!-- Generator -->
+		{#
 		<meta name="generator" content="{{ eleventy.generator }}" />
-
+		#} {#
 		<!-- prettier-ignore -->
 		<script>(function(H){H.className=H.className.replace(/\bno-js\b/,'js')})(document.documentElement)</script>
+		#}
 		<!-- Icons -->
 		{# https://realfavicongenerator.net/favicon_result?file_id=p1i2lmuudnne317fk1nqa1ms625j6 #}
 		<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/icons/apple-touch-icon.png" />
@@ -19,7 +29,7 @@
 		<meta name="msapplication-config" content="/assets/images/icons/browserconfig.xml" />
 		<meta name="theme-color" content="#ffffff" />
 		<!-- Preload Fonts -->
-		{# TODO: move this out to be project specific #}
+		{#
 		<!-- prettier-ignore -->
 		<link rel="preload" href="/assets/fonts/DIN_2014.otf" as="font" type="font/otf" crossorigin>
 		<!-- prettier-ignore -->
@@ -27,13 +37,12 @@
 
 		<!-- CSS -->
 		<link rel="stylesheet" href="/assets/css/main.css" />
+		#}
 		<!-- Indexing -->
-		{% if status == "noindex" %}
+		{# {% if status == "noindex" %}
 		<meta name="robots" content="noindex" />
-		{% endif %}
-		<!-- TODO: metadata -->
-		<title>{{ title }}</title>
-
+		{% endif %} #}
+		<!-- -->
 		{# Not working with eleventy layouts #}
 		<!-- Head injection -->
 		{% block head %}{% endblock %}

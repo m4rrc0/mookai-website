@@ -4,7 +4,7 @@ import obfuscateEmail, { href } from "./src/utils/emailObfuscate.js";
 import inlineCss from "./src/utils/inlineCss.js";
 // const formbouncerjs = import.meta.resolve("formbouncerjs/dist/bouncer.polyfills.min.js");
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
-// import Image from "@11ty/eleventy-img";
+import metagen from "eleventy-plugin-metagen";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 import posthtml from "posthtml";
 import htmlnano from "htmlnano";
@@ -14,6 +14,10 @@ import { noopener } from "posthtml-noopener";
 import { site, srcDir, PROD } from "./env.js";
 
 // console.log({ site, srcDir });
+
+// INSPIRATION
+// TODO: Bundling CSS and JS + Memoization
+// https://chrisburnell.com/article/memoizing-asset-bundles/
 
 /**
  * @typedef { import("@11ty/eleventy").UserConfig } UserConfig
@@ -81,6 +85,7 @@ export default async function (eleventyConfig) {
 			sizes: "100vw",
 		},
 	});
+	eleventyConfig.addPlugin(metagen);
 
 	// --- CONFIG ---
 	// Copy `src/assets/` to `dist/assets`
