@@ -6,7 +6,12 @@ import inlineCss from "./src/utils/inlineCss.js";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 // import Image from "@11ty/eleventy-img";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
-import { site, srcDir } from "./env.js";
+import posthtml from "posthtml";
+import htmlnano from "htmlnano";
+import altAlways from "posthtml-alt-always";
+import { noopener } from "posthtml-noopener";
+// import posthtmlw3c from "posthtml-w3c";
+import { site, srcDir, PROD } from "./env.js";
 
 // console.log({ site, srcDir });
 
@@ -149,6 +154,35 @@ export default async function (eleventyConfig) {
 		return element;
 	});
 
-	// --- TRANSFORMS ---
+	// --- TRANSFORMS --- //
 	// eleventyConfig.addTransform("inlineCss", inlineCss);
+	// POSTHTML
+	eleventyConfig.addTransform("posthtml", async function (content) {
+		if ((this.page.outputPath || "").endsWith(".html")) {
+			const prodPlugins = [
+				htmlnano(/*{
+					// removeComments: false, // Disable the module "removeComments"
+					collapseWhitespace: "conservative", // Pass options to the module "collapseWhitespace"
+				}*/),
+				altAlways(),
+				noopener(),
+				// posthtmlw3c(), // NOTE: does not seem to be working...
+				// TODO: https://github.com/mohsen1/posthtml-favicons
+			];
+			let minified = await posthtml([
+				...(PROD ? prodPlugins : []),
+				// TODO: look at adding https://github.com/Grawl/posthtml-richtypo
+				// TODO: ??? Optioal table of Contents depending on a flag in template ??? https://github.com/posthtml/posthtml-toc
+			]).process(content /*, options */);
+
+			minified?.messages.forEach((msg) => {
+				console.warn(msg);
+			});
+
+			return minified.html;
+		}
+
+		// If not an HTML output, return content as-is
+		return content;
+	});
 }

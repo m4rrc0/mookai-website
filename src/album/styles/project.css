@@ -113,17 +113,19 @@ body {
 
 /* Nav */
 .sticky-nav::before {
-	/* box-shadow: 0 0 0.5rem hsl(0 0% 0% / 0.3); */
 	animation: navShadow linear forwards;
 	animation-timeline: view(block);
 	/* animation-timeline: view(); */
 	animation-range-start: 100vh;
 	animation-range-end: 200vh;
+	box-shadow: var(--shadow-3);
+	@screen sm {
+		box-shadow: none;
+	}
 }
 @keyframes navShadow {
 	100% {
-		box-shadow: 0 0 0.5rem hsl(0 0% 0% / 0.3);
-		/* border-bottom: solid 5px red; */
+		box-shadow: var(--shadow-3);
 	}
 }
 
@@ -173,7 +175,35 @@ body {
 		}
 	}
 } */
-.sticky-nav .menu-control {
+.sticky-nav .menu-label {
+	clip-path: polygon(
+		calc(100% - 25px) 0%,
+		100% 50%,
+		calc(100% - 25px) 100%,
+		0% 100%,
+		25px 50%,
+		0% 0%
+	);
+
+	--color-text: var(--color-front-theme);
+	--color-bg: var(--color-front-muted);
+}
+
+.stychy-nav ul {
+	@apply f-var-s1+1 f-var-s-1 f-var-s0;
+	/* @apply border-0 pb-2 pl-10; */
+
+	left: max(var(--f-s0), (100vw - 64rem) / 2 + var(--f-s0));
+	margin: 0;
+	/* NOTE: header padding * 2 + arrow padding * 2 + font-size * line-height */
+	/* prettier-ignore */
+	top: calc(var(--f-s1\+1) * 2 + var(--f-s-1) * 2 + var(--f-s0) * 1.5);
+	background: transparent;
+	/* overflow: hidden; */
+}
+
+/* TODO: Remove if we never use the popover menu */
+/* .sticky-nav .menu-control {
 	@apply f-py-s-1 border-0 px-10 uppercase;
 
 	clip-path: polygon(
@@ -195,28 +225,27 @@ body {
 	&:disabled {
 		cursor: auto;
 	}
-}
-
-#nav-popover {
+} */
+/* #nav-popover {
 	@apply f-var-s1+1 f-var-s-1 f-var-s0;
-	/* @apply border-0 pb-2 pl-10; */
+	@apply border-0 pb-2 pl-10;
 
 	left: max(var(--f-s0), (100vw - 64rem) / 2 + var(--f-s0));
 	margin: 0;
-	/* NOTE: header padding * 2 + arrow padding * 2 + font-size * line-height */
-	/* prettier-ignore */
+	NOTE: header padding * 2 + arrow padding * 2 + font-size * line-height
+	prettier-ignore
 	top: calc(var(--f-s1\+1) * 2 + var(--f-s-1) * 2 + var(--f-s0) * 1.5);
 	background: transparent;
-	/* overflow: hidden; */
+	overflow: hidden;
 	&::backdrop {
 		background: hsl(0 0% 100% / 0.95);
 	}
 
 	& li + li {
-		/* prettier-ignore */
-		/* margin-top: var(--f-s1\+1); */
+		prettier-ignore
+		margin-top: var(--f-s1\+1);
 	}
-}
+} */
 
 /* FORMS */
 form {

@@ -77,7 +77,10 @@ export default defineConfig({
 			},
 		}),
 	],
-	// rules: [...layoutsRules, ...utilitiesRules],
+	rules: [
+		// ...layoutsRules,
+		...utilitiesRules,
+	],
 	theme: {
 		fontFamily: {
 			sans: '"DIN 2014",' + defaultTheme.fontFamily.sans,
