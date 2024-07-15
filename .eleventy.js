@@ -6,6 +6,11 @@ import inlineCss from "./src/utils/inlineCss.js";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import metagen from "eleventy-plugin-metagen";
 import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
+// import isValidDate from "date-fns/isValid";
+// import parseISODate from "date-fns/parseISO";
+// import formatDate from "date-fns/format";
+import * as dateLocales from "date-fns/locale";
+import { isValid as isValidDate, parseISO as parseISODate, format as formatDate } from "date-fns";
 import posthtml from "posthtml";
 import htmlnano from "htmlnano";
 import altAlways from "posthtml-alt-always";
@@ -114,6 +119,7 @@ export default async function (eleventyConfig) {
 	// --- DATA ---
 	eleventyConfig.addGlobalData("site", site);
 	eleventyConfig.addGlobalData("srcDir", srcDir);
+	eleventyConfig.addGlobalData("year", new Date().getFullYear());
 
 	// --- fILTERS ---
 	// Encodes to html entities
@@ -149,6 +155,26 @@ export default async function (eleventyConfig) {
 		// return this.env.filters.safe(`<script>console.table(${value})</script>`);
 		// return this.env.filters.safe(`<script>console.log(${JSON.stringify(value)})</script>`);
 		return this.env.filters.safe(`<script>console.log(${str})</script>`);
+	});
+	// date filter
+	eleventyConfig.addFilter("date", function (dateString, format, localeRaw) {
+		if (!dateString) {
+			// TODO: should we default to now()?
+			return undefined;
+		}
+		const date = parseISODate(dateString);
+		// TODO: can we automatically get the context to grab the curent locale of the page?
+		const locale = localeRaw?.id || localeRaw || "en";
+		let formatedDate = undefined;
+		try {
+			formatedDate = formatDate(date, format, { locale: dateLocales[locale] });
+		} catch (error) {
+			console.error(error);
+			if (!isValidDate(date)) {
+				console.error(`\nERROR: The date string '${dateString}' is invalid\n`);
+			}
+		}
+		return formatedDate;
 	});
 
 	// --- SHORTCODES ---

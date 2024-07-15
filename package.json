@@ -50,6 +50,7 @@
     "@unocss/transformer-variant-group": "^0.61.0",
     "cssesc": "^3.0.0",
     "cssnano": "^7.0.4",
+    "date-fns": "^3.6.0",
     "eleventy-plugin-metagen": "^1.8.3",
     "eslint-config-prettier": "^9.1.0",
     "he": "^1.2.0",
