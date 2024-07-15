@@ -430,7 +430,7 @@ export default function () {
 			return currentDir === srcDir ? pl : false;
 		},
 		eleventyComputed: {
-			metadata: async ({ metadata, page, site, eleventy, status, lang }) => {
+			metadata: async ({ metadata, page, site, eleventy, status, lang, ...rest }) => {
 				const url = metadata.url || (page.url ? site.url + page.url : undefined);
 				const robots = metadata.robots || (status === "noindex" ? "noindex" : undefined);
 				// TODO: compute this automatically by looking into the right directory
@@ -442,9 +442,11 @@ export default function () {
 				const locale = lang || "en";
 				const imgSrc = metadata.img || defaultMetaImg;
 
+				const outDir = eleventy.directories.output;
 				// TODO: Memoize image transforms ?
 				let imgStats = await Image(imgSrc, {
 					urlPath: "/assets/images/",
+					outputDir: `${outDir}/assets/images/`,
 					widths: [1000],
 					formats: ["auto"],
 				});
@@ -469,6 +471,8 @@ export default function () {
 				const img_height = imgStat.height;
 				const img_alt = metadata.img_alt || defaultMetaImgAlt || "";
 				const og_image_type = imgStat.sourceType;
+
+				console.log({ eleventy, outDir, imgStat });
 
 				return {
 					...metadata,
