@@ -263,6 +263,11 @@ textarea {
 	opacity: 0.7;
 }
 
+lite-youtube:hover > .lty-playbtn,
+lite-youtube .lty-playbtn:focus {
+	background-color: initial;
+}
+
 /* SECTIONS */
 .game-description::before {
 	/* @apply bg-gradient-to-b from-white to-blue-500; */

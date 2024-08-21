@@ -99,6 +99,8 @@ export default async function (eleventyConfig) {
 		// [formbouncerjs]: "assets/js/formbouncer.js",
 		"node_modules/formbouncerjs/dist/bouncer.polyfills.min.js": "assets/js/formbouncer.js",
 		// "node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
+		"node_modules/lite-youtube-embed/src/lite-yt-embed.css": "assets/css/lite-yt-embed.css",
+		"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "assets/js/lite-yt-embed.js",
 	});
 
 	eleventyConfig.ignores.add("**/_assets/**/*");
