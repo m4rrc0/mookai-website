@@ -6,6 +6,9 @@ redirects:
 metadata:
   title: "ALBUM: L'émotion d'une photo. L'intensité d'un mot."
   description: "Développez votre connaissance de vous et des autres autour d'un défi coopératif sur les ressentis et les interprétations de chacun·e"
+head: |
+  <link rel="stylesheet" href="/assets/css/lite-yt-embed.css" />
+  <script src="/assets/js/lite-yt-embed.js" async></script>
 ---
 
 {# # default: "website" // Accepts: article, product, website #} {# {% extends "./_layouts/base.njk"
@@ -46,6 +49,25 @@ metadata:
 			</strong>
 		</p>
 	</hgroup>
+
+	<div class="w-100% m-auto max-w-[640px]">
+		<lite-youtube
+			videoid="RC7wJjgflZA"
+			playlabel="Play: Ludochrono - Album"
+			style="background-image: url(&quot;https://i.ytimg.com/vi/RC7wJjgflZA/sddefault.jpg&quot;)"
+		>
+			<a
+				href="https://youtube.com/watch?v=RC7wJjgflZA"
+				target="_blank"
+				rel="noopener"
+				class="lty-playbtn"
+				title="Play Video"
+			>
+				<span class="lyt-visually-hidden">Play Video: Ludochrono - Album</span>
+			</a>
+		</lite-youtube>
+	</div>
+
 	<section class="game-description stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
 		<h2 class="font-bums text-center">Description du jeu</h2>
 		<img
