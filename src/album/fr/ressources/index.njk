@@ -1,0 +1,34 @@
+---
+class:
+  body: "max-w-5xl m-auto f-px-s0 font-sans"
+metadata:
+  title: "Ressources | ALBUM le jeu"
+  description: "Les ressources du jeu: visuels, communiqué de presse, fiche pédagogique, ..."
+---
+
+<main class="stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
+	<h1 class="font-bums text-center">Ressources</h1>
+	<section class="stack *:[--gap-stack:var(--f-s3)]">
+		<h2 class="font-bums text-center">Presse</h2>
+		<div class="stack justify-between *:[--gap-stack:var(--f-s-3)]">
+			<img
+				src="/album/_images/CP_Album_2024_1.png"
+				alt="Communiqué de presse 2024"
+				title="Communiqué de presse 2024"
+				eleventy:widths="200"
+			/>
+			<p><a href="/assets/documents/CP_Album_2024.pdf" target="_blank">Communiqué de presse</a></p>
+		</div>
+	</section>
+	<section class="stack *:[--gap-stack:var(--f-s3)]">
+		<h2 class="font-bums text-center">Visuels</h2>
+		<ul class="reset grid-auto f-gap-x-s1 f-gap-y-s3">
+			{% for visu in ressourcesVisuals %}
+			<li class="stack justify-between *:[--gap-stack:var(--f-s-3)]">
+				<img src="{{visu.src}}" alt="{{visu.alt}}" eleventy:widths="200" />
+				<p><a href="{{visu.href}}" download>Télécharger</a></p>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
+</main>

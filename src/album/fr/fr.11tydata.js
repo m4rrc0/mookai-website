@@ -11,6 +11,7 @@ export default {
 		// { href: "/fr/", txt: "🏠" },
 		{ href: "/fr/partenariats/", txt: "Partenariats" },
 		{ href: "/fr/photographes/", txt: "Photographes" },
+		{ href: "/fr/ressources/", txt: "Ressources" },
 		// { href: "/fr/partenariats/st-luc-liege-2024/", txt: "St Luc" },
 	],
 };

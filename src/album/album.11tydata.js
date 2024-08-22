@@ -1,7 +1,8 @@
 import Image from "@11ty/eleventy-img";
 import { srcDir, site } from "../../env.js";
 const currentDir = "album";
-
+const ressourcesVisualsDir = "/album/_assets/images/ressources-visuals";
+const ressourcesVisualsDistDir = "/assets/images/ressources-visuals";
 const defaultMetaImg = "src/album/_images/ALBUM_BOX3D_droite_2000.png";
 const defaultMetaImgAlt = "La boite du jeu ALBUM";
 
@@ -414,6 +415,24 @@ const photographs = Object.entries(photographsObj)
 	.map(([k, v]) => ({ name: k, pictures: v }))
 	.sort((a, b) => a.name.localeCompare(b.name));
 
+const ressourcesVisuals = [
+	// "ALBUM_2024_logo.png",
+	// "ALBUM_Icons.png",
+	{ fileName: "ALBUM_BOX_back.png", alt: "" },
+	{ fileName: "ALBUM_BOX_cover.png", alt: "" },
+	{ fileName: "ALBUM_BOX3D_droite.png", alt: "" },
+	{ fileName: "ALBUM_BOX3D_gauche.png", alt: "" },
+	{ fileName: "ALBUM_ECLATE_up.png", alt: "" },
+	{ fileName: "ALBUM_ECLATE.png", alt: "" },
+	{ fileName: "ALBUM_tagline.png", alt: "" },
+	{ fileName: "ALBUM_WORD_back.png", alt: "" },
+	{ fileName: "ALBUM_WORD_reve.png", alt: "" },
+].map((r) => ({
+	...r,
+	src: `${ressourcesVisualsDir}/${r.fileName}`,
+	href: `${ressourcesVisualsDistDir}/${r.fileName}`,
+}));
+
 export default function () {
 	return {
 		lang: "fr",
@@ -472,7 +491,7 @@ export default function () {
 				const img_alt = metadata.img_alt || defaultMetaImgAlt || "";
 				const og_image_type = imgStat.sourceType;
 
-				console.log({ eleventy, outDir, imgStat });
+				// console.log({ eleventy, outDir, imgStat });
 
 				return {
 					...metadata,
@@ -547,5 +566,6 @@ export default function () {
 		},
 		photographs,
 		gamePictures,
+		ressourcesVisuals,
 	};
 }
