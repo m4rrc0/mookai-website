@@ -1,0 +1,14 @@
+---
+class:
+  body: "max-w-5xl m-auto f-px-s0 font-sans"
+metadata:
+  title: "Démo interactive | ALBUM le jeu"
+  description: "Viens tester le jeu ALBUM en 2 minutes sur cette page!"
+head: |
+  <script type="module" src="/assets/js/is-land.js"></script>
+  <script type="module" src="/assets/js/is-land-autoinit.js"></script>
+---
+
+{% set component = "./src/album/_components/album-demo.svelte" | svelte %}
+
+<is-land on:visible autoinit="svelte" import="{{ component.clientJsUrl }}"></is-land>

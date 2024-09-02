@@ -1,4 +1,5 @@
 import pluginWebc from "@11ty/eleventy-plugin-webc";
+import pluginSvelte from "./src/11ty-plugins/svelte/SveltePlugin.cjs";
 import he from "he";
 import obfuscateEmail, { href } from "./src/utils/emailObfuscate.js";
 import inlineCss from "./src/utils/inlineCss.js";
@@ -58,8 +59,10 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addPlugin(pluginWebc, {
 		// This path is relative to the project-root!
 		components: [
-			"src/**/*.webc",
-			// "npm:@11ty/is-land/*.webc",
+			// "src/**/*.webc",
+			"src/_components/**/*.webc",
+			"src/*/_components/**/*.webc",
+			"npm:@11ty/is-land/*.webc",
 			// "npm:@11ty/eleventy-plugin-syntaxhighlight/*.webc",
 			// "npm:@11ty/eleventy-img/*.webc",
 		],
@@ -91,11 +94,14 @@ export default async function (eleventyConfig) {
 		},
 	});
 	eleventyConfig.addPlugin(metagen);
+	eleventyConfig.addPlugin(pluginSvelte, { componentsOutputDir: "components" });
 
 	// --- CONFIG ---
 	// Copy `src/assets/` to `dist/assets`
 	eleventyConfig.addPassthroughCopy({
 		[`src/${srcDir}/_assets`]: "assets",
+		"node_modules/@11ty/is-land/is-land.js": "assets/js/is-land.js",
+		"node_modules/@11ty/is-land/is-land-autoinit.js": "assets/js/is-land-autoinit.js",
 		// [formbouncerjs]: "assets/js/formbouncer.js",
 		"node_modules/formbouncerjs/dist/bouncer.polyfills.min.js": "assets/js/formbouncer.js",
 		// "node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",

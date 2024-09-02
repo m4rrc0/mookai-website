@@ -8,7 +8,7 @@
     "bun": ">=1.1.13"
   },
   "scripts": {
-    "clean": "rm -rf dist .cache",
+    "clean": "rm -rf dist .cache _site",
     "npm:build": "npx @11ty/eleventy",
     "build": "bun --bun eleventy",
     "build:debug": "DEBUG=Eleventy* bun --bun eleventy",
@@ -53,6 +53,7 @@
     "date-fns": "^3.6.0",
     "eleventy-plugin-metagen": "^1.8.3",
     "eslint-config-prettier": "^9.1.0",
+    "esm-import-transformer": "^3.0.2",
     "he": "^1.2.0",
     "htmlnano": "^2.1.1",
     "lite-youtube-embed": "^0.3.3",
@@ -71,6 +72,7 @@
     "prettier-plugin-jinja-template": "^1.4.0",
     "prettier-plugin-tailwindcss": "^0.5.14",
     "sharp": "^0.33.4",
+    "svelte": "3.55.1",
     "tailwind-utopia": "github:cwsdigital/tailwind-utopia",
     "tailwindcss": "^3.4.3",
     "terser": "^5.31.2",
@@ -79,6 +81,7 @@
     "unocss-preset-fluid": "^1.0.2"
   },
   "dependencies": {
+    "@11ty/is-land": "^4.0.0",
     "altcha": "^0.5.0",
     "formbouncerjs": "^1.4.6"
   }
