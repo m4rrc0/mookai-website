@@ -118,14 +118,14 @@ body {
 	/* animation-timeline: view(); */
 	animation-range-start: 100vh;
 	animation-range-end: 200vh;
-	box-shadow: var(--shadow-3);
+	box-shadow: var(--shadow-2);
 	@screen sm {
 		box-shadow: none;
 	}
 }
 @keyframes navShadow {
 	100% {
-		box-shadow: var(--shadow-3);
+		box-shadow: var(--shadow-2);
 	}
 }
 
@@ -266,6 +266,54 @@ textarea {
 lite-youtube:hover > .lty-playbtn,
 lite-youtube .lty-playbtn:focus {
 	background-color: initial;
+}
+
+/* Carbon Badge */
+#wcb:not(x) {
+	&.carbonbadge {
+		--b1: var(--color-front-theme);
+		--b2: var(--color-front-accent-theme);
+		color: currentColor;
+	}
+	/* &.carbonbadge sub {}
+	& #wcb_2,
+	& #wcb_a,
+	& #wcb_g {}
+	& #wcb_a,
+	& #wcb_g {} */
+	& #wcb_g {
+		color: var(--b1);
+	}
+	/* & #wcb_a {}
+	&.wcb-d #wcb_a {}
+	&.wcb-d #wcb_2 {} */
+}
+
+/* Eco-badge */
+.eco-badge {
+	position: fixed;
+	z-index: 1000;
+	/* top: var(--f-s2); */
+	top: calc(-1 * var(--f-s2));
+	/* right: var(--f-s2); */
+	right: calc(-1 * var(--f-s2));
+	width: var(--f-s8);
+	height: var(--f-s8);
+	border-radius: 999vw;
+	--color-text: var(--color-front-theme);
+	--color-bg: var(--color-front-muted);
+	@apply f-p-s0;
+	& > p {
+		@apply h-100% flex flex-col items-center justify-center;
+	}
+
+	& .loud {
+		@apply font-bums f-text-s2 leading-none;
+	}
+
+	& a {
+		@apply small;
+	}
 }
 
 /* SECTIONS */

@@ -12,7 +12,19 @@ head: |
 ---
 
 {# # default: "website" // Accepts: article, product, website #} {# {% extends "./_layouts/base.njk"
-%} {% block content %} #}
+%} {% block content %} #} {#
+<aside class="eco-badge ctxc-default">
+	<p>
+		<span class="loud">A+</span>
+		<a
+			href="https://www.websitecarbon.com/website/album-actingames-com-fr/"
+			target="_blank"
+			rel="noopener"
+			>websitecarbon.com</a
+		>
+	</p>
+</aside>
+#}
 <main class="stack f-py-s3+2 f-gap-s6 [--gap-stack:0]">
 	<hgroup
 		class="stack items-center *:[--gap-stack:var(--f-s0)] [&>picture]:[--gap-stack:var(--f-s5)]"
@@ -139,9 +151,13 @@ head: |
 				href="/assets/documents/ALBUM_2024_RULES_240424-low.pdf"
 				class="button ctxc-contrast font-bums text-center"
 				target="_blank"
-				>Règles du jeu <small class="h6">(PDF)</small></a
+				>Règles du jeu <small class="block">(PDF)</small></a
 			>
-			<a href="#" class="button font-bums text-center"
+			<a
+				href="https://unjeudansmaclasse.com/?page=article&id_article=123&lang=fr"
+				class="button font-bums text-center"
+				target="_blank"
+				rel="noopener"
 				>Fiche pédagogique <small class="block">(un jeu dans ma classe)</small></a
 			>
 		</div>
@@ -150,7 +166,7 @@ head: |
 	<section class="technical-info stack full-bleed-before ctxc-contrast *:[--gap-stack:var(--f-s1)]">
 		<h2 class="font-bums text-center">Fiche Technique</h2>
 		<div
-			class="box stack w-100% polaroid m-auto max-w-sm [--content-min:60%] [box-shadow:var(--shadow-4)]"
+			class="box stack w-100% polaroid m-auto max-w-sm [--content-min:60%] [box-shadow:var(--shadow-3)]"
 		>
 			<div class="with-sidebar items-center">
 				{#

@@ -6,29 +6,104 @@ metadata:
   description: "Les ressources du jeu: visuels, communiqué de presse, fiche pédagogique, ..."
 ---
 
-<main class="stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
+<main
+	class="stack f-py-s3 [&_a]:decoration-none *:[--gap-stack:var(--f-s3)] [&_a.shad:focus_img]:shadow-lg [&_a.shad:hover_img]:shadow-lg [&_a.shad_img]:shadow-md [&_a]:font-bold"
+>
 	<h1 class="font-bums text-center">Ressources</h1>
-	<section class="stack *:[--gap-stack:var(--f-s3)]">
-		<h2 class="font-bums text-center">Presse</h2>
-		<div class="stack justify-between *:[--gap-stack:var(--f-s-3)]">
-			<img
-				src="/album/_images/CP_Album_2024_1.png"
-				alt="Communiqué de presse 2024"
-				title="Communiqué de presse 2024"
-				eleventy:widths="200"
-			/>
-			<p><a href="/assets/documents/CP_Album_2024.pdf" target="_blank">Communiqué de presse</a></p>
-		</div>
-	</section>
-	<section class="stack *:[--gap-stack:var(--f-s3)]">
-		<h2 class="font-bums text-center">Visuels</h2>
-		<ul class="reset grid-auto f-gap-x-s1 f-gap-y-s3">
-			{% for visu in ressourcesVisuals %}
-			<li class="stack justify-between *:[--gap-stack:var(--f-s-3)]">
-				<img src="{{visu.src}}" alt="{{visu.alt}}" eleventy:widths="200" />
-				<p><a href="{{visu.href}}" download>Télécharger</a></p>
-			</li>
-			{% endfor %}
-		</ul>
-	</section>
+	<div class="stack *:[--gap-stack:var(--f-s6)]">
+		<section class="stack *:[--gap-stack:var(--f-s3)]">
+			<h2 class="font-bums text-center">Ils parlent d'Album</h2>
+			<ul
+				class="reset grid-auto f-gap-x-s1 f-gap-y-s3 justify-items-center [--width-column-min:200px]"
+			>
+				<li>
+					<a
+						href="https://gusandco.net/2024/08/22/album-jeu-societe-photographie-communication-deduction/"
+						target="_blank"
+						rel="noopener"
+						class="stack shad *:[--gap-stack:var(--f-s-3)]"
+					>
+						<img
+							src="/album/_images/ressources/Gus_And_Co_Album-la_photographie_comme_miroir_de_lautre.png"
+							alt="Article Gus & Co 22.08.2024"
+							title="Article Gus & Co 22.08.2024"
+							eleventy:widths="350"
+							class="f-p-s-2 aspect-square object-contain"
+						/>
+						<p>Article Gus & Co 22.08.2024</p>
+					</a>
+				</li>
+				<li>
+					<a
+						href="/assets/documents/press-articles/OuestFrance_.jpg"
+						target="_blank"
+						class="stack shad *:[--gap-stack:var(--f-s-3)]"
+					>
+						<img
+							src="/album/_assets/documents/press-articles/OuestFrance_.jpg"
+							alt="Article Presse Océan 24.07.2024"
+							title="Article Presse Océan 24.07.2024"
+							eleventy:widths="350"
+							class="f-p-s-2 aspect-square object-contain"
+						/>
+						<p>Article Presse Océan 24.07.2024</p>
+					</a>
+				</li>
+			</ul>
+		</section>
+		<section class="stack *:[--gap-stack:var(--f-s3)]">
+			<h2 class="font-bums text-center">Ressources générales</h2>
+			<ul class="reset grid-auto f-gap-x-s1 f-gap-y-s3 justify-items-center">
+				<li>
+					<a
+						href="/assets/documents/CP_Album-Feelings_2024.pdf"
+						target="_blank"
+						class="stack shad justify-between *:[--gap-stack:var(--f-s-3)]"
+					>
+						<img
+							src="/album/_images/CP_Album_2024_1.png"
+							alt="Communiqué de presse 2024"
+							title="Communiqué de presse 2024"
+							eleventy:widths="250"
+							class="f-p-s-2 aspect-square object-contain"
+						/>
+						<p>Communiqué de presse</p>
+					</a>
+				</li>
+				<li>
+					<a
+						href="/assets/documents/UJMDC_FR_ALBUM.pdf"
+						target="_blank"
+						class="stack shad justify-between *:[--gap-stack:var(--f-s-3)]"
+					>
+						<img
+							src="/album/_images/ressources/AlbumDansMaClasse.png"
+							alt="Fiche pédagogique"
+							title="Fiche pédagogique"
+							eleventy:widths="250"
+							class="f-p-s-2 aspect-square object-contain"
+						/>
+						<p>Fiche padagogique</p>
+					</a>
+				</li>
+			</ul>
+		</section>
+		<section class="stack *:[--gap-stack:var(--f-s3)]">
+			<h2 class="font-bums text-center">Visuels</h2>
+			<ul class="reset grid-auto f-gap-x-s1 f-gap-y-s3 [--width-column-min:120px]">
+				{% for visu in ressourcesVisuals %}
+				<li>
+					<a
+						href="{{visu.href}}"
+						download
+						class="h-100% f-gap-s-3 flex flex-col justify-between [&>picture]:my-auto"
+					>
+						<img src="{{visu.src}}" alt="{{visu.alt}}" eleventy:widths="260,180" />
+						<p>Télécharger</p>
+					</a>
+				</li>
+				{% endfor %}
+			</ul>
+		</section>
+	</div>
 </main>
