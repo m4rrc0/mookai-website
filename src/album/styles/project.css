@@ -46,6 +46,39 @@ body {
 	}
 } */
 
+/* details:has(summary svg), */
+details {
+	& summary::-webkit-details-marker {
+		display: none;
+	}
+	& summary {
+		list-style: none;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		/* padding: 10px 15px; */
+		/* font-weight: bold; */
+
+		& svg {
+			width: 18px;
+			height: 10px;
+			transition: 0.2s;
+		}
+		/* &::after {
+			content: "";
+			width: 18px;
+			height: 10px;
+			background: url("/assets/images/pictos/simple-arrow-down.svg") no-repeat;
+			background-size: cover;
+			transition: 0.2s;
+		} */
+	}
+
+	&[open] > summary svg {
+		transform: rotate(180deg);
+	}
+}
+
 .pic-frame {
 	--pic-frame-b-size: 0.5rem;
 	--pic-frame-b-width: 2px;
@@ -316,6 +349,13 @@ lite-youtube .lty-playbtn:focus {
 	}
 }
 
+.sticky-bottom {
+	/* @apply ; */
+
+	& > .label {
+	}
+}
+
 /* SECTIONS */
 .game-description::before {
 	/* @apply bg-gradient-to-b from-white to-blue-500; */
@@ -346,37 +386,6 @@ lite-youtube .lty-playbtn:focus {
 		max-height: 200vh;
 		/* Animate the change: does not work */
 		/* transition: max-height 400ms ease-out; */
-	}
-
-	& summary::-webkit-details-marker {
-		display: none;
-	}
-
-	& summary {
-		list-style: none;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;
-		/* padding: 10px 15px; */
-		/* font-weight: bold; */
-
-		& svg {
-			width: 18px;
-			height: 10px;
-			transition: 0.2s;
-		}
-		/* &::after {
-			content: "";
-			width: 18px;
-			height: 10px;
-			background: url("/assets/images/pictos/simple-arrow-down.svg") no-repeat;
-			background-size: cover;
-			transition: 0.2s;
-		} */
-	}
-
-	&[open] > summary svg {
-		transform: rotate(180deg);
 	}
 }
 
