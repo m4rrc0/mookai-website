@@ -107,6 +107,7 @@ export default async function (eleventyConfig) {
 		// "node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
 		"node_modules/lite-youtube-embed/src/lite-yt-embed.css": "assets/css/lite-yt-embed.css",
 		"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "assets/js/lite-yt-embed.js",
+		"node_modules/preact/dist/": "assets/js/preact/",
 	});
 
 	eleventyConfig.ignores.add("**/_assets/**/*");

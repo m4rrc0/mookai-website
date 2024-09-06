@@ -22,7 +22,7 @@ class CssManager {
 }
 
 module.exports = function (eleventyConfig, options) {
-	console.log({ outpuDir: options?.componentsOutputDir });
+	// console.log({ outpuDir: options?.componentsOutputDir });
 	// Page-level CSS
 	let pageCss = new CssManager();
 	eleventyConfig.on("eleventy.before", () => pageCss.reset());
@@ -30,7 +30,7 @@ module.exports = function (eleventyConfig, options) {
 	// End page-level CSS
 
 	eleventyConfig.addFilter("svelte", async function (filename, pageUrl) {
-		console.log({ filename, pageUrl });
+		// console.log({ filename, pageUrl });
 
 		let ssr = !!pageUrl;
 

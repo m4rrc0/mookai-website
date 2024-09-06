@@ -8,7 +8,7 @@ class FileTarget {
 	constructor(filename, eleventyConfig) {
 		this.filename = filename;
 		this.parsed = path.parse(filename);
-		console.log({ parsed: this.parsed });
+		// console.log({ parsed: this.parsed });
 		this.eleventyConfig = eleventyConfig;
 		this.suffix = ".client";
 	}

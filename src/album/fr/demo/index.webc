@@ -4,17 +4,68 @@ class:
 metadata:
   title: "Démo interactive | ALBUM le jeu"
   description: "Viens tester le jeu ALBUM en 2 minutes sur cette page!"
-head: |
-  <script type="module" src="/assets/js/is-land.js"></script>
+test: [1, 2, 3]
+str: "test string"
 ---
 
-<is-land on:media="(min-width: 64em)">
-	<album-demo>PRE JS</album-demo>
-	<template data-island="replace">
-		<album-demo>This component is post-JS.</album-demo>
-	</template>
-</is-land>
+<script webc:setup>
+	console.log(gamePictures);
+	const gamePics = gamePictures;
+	const myHtml = "<my-webc-component></my-webc-component>";
 
-<!-- {# {% set component = "./src/album/_components/album-demo.svelte" | svelte %} #} -->
-<!-- <is-land on:visible autoinit="svelte" import="../../_components/album-demo.svelte"></is-land> -->
-<!-- <is-land on:visible autoinit="svelte" :import="svelte('../../_components/album-demo.svelte')"></is-land> -->
+	function alwaysBlue() {
+		return "blue";
+	}
+</script>
+
+<div class="f-gap-s1 flex flex-col">
+	<p>...Texte d'intro...</p>
+
+	<div class="box">
+		<div>
+			<p>Tour</p>
+			<ol class="reset cluster">
+				<li>1</li>
+				<li>2</li>
+				<li>3</li>
+				<li>4</li>
+			</ol>
+		</div>
+		<ol>
+			<li>Si tu le souhaite, révèle un nouvel indice sur l'échelle d'intensité</li>
+			<li>Élimine une photo qui ne correspond pas aux intensités et aux indices révélés</li>
+		</ol>
+	</div>
+
+	<div class="with-sidebar">
+		<div>
+			<ol class="reset flex flex-col-reverse">
+				<li></li>
+				<li>Indice 1</li>
+				<li>Indice 2</li>
+				<li></li>
+				<li></li>
+				<li>
+					<ul>
+						<li>Rêve</li>
+						<li>Couleur</li>
+					</ul>
+				</li>
+			</ol>
+		</div>
+		<div>
+			<!-- <p @text="str"></p> -->
+			<ul class="reset">
+				<script webc:type="js" webc:is="template">
+					gamePictures
+						.slice(0, 5)
+						.map(
+							(pic, i) => `
+            <img src="/album/_images/album-pictures/${pic.id}.jpg" alt="" eleventy:widths="100" />`
+						)
+						.join("");
+				</script>
+			</ul>
+		</div>
+	</div>
+</div>

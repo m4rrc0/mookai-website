@@ -17,13 +17,13 @@ class EleventySvelteComponent {
 			? path.join(this.componentsOutputDir, this.parsed.name + this.parsed.ext)
 			: filename;
 
-		console.log({
-			content: this.content,
-			filename,
-			parsed: this.parsed,
-			__dirname,
-			cwd: process.cwd(),
-		});
+		// console.log({
+		// 	content: this.content,
+		// 	filename,
+		// 	parsed: this.parsed,
+		// 	__dirname,
+		// 	cwd: process.cwd(),
+		// });
 
 		this.clientImportMap = {
 			imports: {

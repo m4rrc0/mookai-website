@@ -83,6 +83,7 @@
   "dependencies": {
     "@11ty/is-land": "^4.0.0",
     "altcha": "^0.5.0",
-    "formbouncerjs": "^1.4.6"
+    "formbouncerjs": "^1.4.6",
+    "preact": "^10.23.2"
   }
 }
