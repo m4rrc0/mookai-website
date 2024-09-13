@@ -1,0 +1,35 @@
+---
+class:
+  body: "max-w-5xl m-auto f-px-s0 font-sans"
+metadata:
+  title: "Agenda | ALBUM le jeu"
+  description: "Venez nous rencontrer et découvrir Album en vrai."
+---
+
+<main class="stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
+	<h1 class="font-bums text-center">Agenda</h1>
+	<div class="center f-gap-s2 flex w-full max-w-xl flex-col">
+		{% for item in dates|sort(false, true, 'sortField') %}
+		<article class="with-sidebar breakout-clickable [--content-min:70%]">
+			<div class="flex flex-col">
+				<time datetime="{{item.dateStart}}">{{item.dateStart}}</time>
+				{% if item.dateEnd %}
+				<time datetime="{{item.dateEnd}}">{{item.dateEnd}}</time>
+				{% endif %}
+			</div>
+			<div>
+				<h2 class="h4">{{item.name}}</h2>
+				<p>
+					{{item.place.name}} -
+					<a
+						href="https://www.google.com/maps?q={{item.place.address | urlencode}}"
+						target="_blank"
+						rel="noopener"
+						>{{item.place.address}}</a
+					>
+				</p>
+			</div>
+		</article>
+		{% endfor %}
+	</div>
+</main>
