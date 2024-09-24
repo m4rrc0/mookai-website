@@ -9,8 +9,9 @@ import directoryOutputPlugin from "@11ty/eleventy-plugin-directory-output";
 // import isValidDate from "date-fns/isValid";
 // import parseISODate from "date-fns/parseISO";
 // import formatDate from "date-fns/format";
-import * as dateLocales from "date-fns/locale";
-import { isValid as isValidDate, parseISO as parseISODate, format as formatDate } from "date-fns";
+// import * as dateLocales from "date-fns/locale";
+// import { isValid as isValidDate, parseISO as parseISODate, format as formatDate } from "date-fns";
+import { DateTime } from "luxon";
 import posthtml from "posthtml";
 import htmlnano from "htmlnano";
 import altAlways from "posthtml-alt-always";
@@ -96,11 +97,17 @@ export default async function (eleventyConfig) {
 	// Copy `src/assets/` to `dist/assets`
 	eleventyConfig.addPassthroughCopy({
 		[`src/${srcDir}/_assets`]: "assets",
+		// formbouncer
 		// [formbouncerjs]: "assets/js/formbouncer.js",
 		"node_modules/formbouncerjs/dist/bouncer.polyfills.min.js": "assets/js/formbouncer.js",
+		// altcha
 		// "node_modules/altcha/dist/altcha.js": "assets/js/altcha.js",
+		// lite-yt-embed
 		"node_modules/lite-youtube-embed/src/lite-yt-embed.css": "assets/css/lite-yt-embed.css",
 		"node_modules/lite-youtube-embed/src/lite-yt-embed.js": "assets/js/lite-yt-embed.js",
+		// Luxon
+		// TODO: optionally import Luxon
+		// "node_modules/luxon/build/global/luxon.min.js": "assets/js/luxon.js",
 	});
 
 	eleventyConfig.ignores.add("**/_assets/**/*");
@@ -159,24 +166,37 @@ export default async function (eleventyConfig) {
 		return this.env.filters.safe(`<script>console.log(${str})</script>`);
 	});
 	// date filter
-	eleventyConfig.addFilter("date", function (dateString, format, localeRaw) {
-		if (!dateString) {
-			// TODO: should we default to now()?
-			return undefined;
-		}
-		const date = parseISODate(dateString);
-		// TODO: can we automatically get the context to grab the curent locale of the page?
-		const locale = localeRaw?.id || localeRaw || "en";
-		let formatedDate = undefined;
-		try {
-			formatedDate = formatDate(date, format, { locale: dateLocales[locale] });
-		} catch (error) {
-			console.error(error);
-			if (!isValidDate(date)) {
-				console.error(`\nERROR: The date string '${dateString}' is invalid\n`);
-			}
-		}
-		return formatedDate;
+	// eleventyConfig.addFilter("dateFns", function (dateString, format, localeRaw) {
+	// 	if (!dateString) {
+	// 		// TODO: should we default to now()?
+	// 		return undefined;
+	// 	}
+	// 	const date = parseISODate(dateString);
+	// 	// TODO: can we automatically get the context to grab the curent locale of the page?
+	// 	const locale = localeRaw?.id || localeRaw || "en";
+	// 	let formatedDate = undefined;
+	// 	try {
+	// 		formatedDate = formatDate(date, format, { locale: dateLocales[locale] });
+	// 	} catch (error) {
+	// 		console.error(error);
+	// 		if (!isValidDate(date)) {
+	// 			console.error(`\nERROR: The date string '${dateString}' is invalid\n`);
+	// 		}
+	// 	}
+	// 	return formatedDate;
+	// });
+	// Luxon dateTime filter
+	// LINK: Format tokens are here: https://moment.github.io/luxon/#/formatting?id=table-of-tokens
+	eleventyConfig.addFilter("date", function (dateString, locale, stringFormat, zone) {
+		return DateTime.fromISO(dateString, { locale: locale || "en", zone: zone || "utc" }).toFormat(
+			stringFormat || "dd LLLL yyyy"
+		);
+	});
+	eleventyConfig.addFilter("readableDate", (dateObj, format, zone) => {
+		return DateTime.fromJSDate(dateObj, { zone: zone || "utc" }).toFormat(format || "dd LLLL yyyy");
+	});
+	eleventyConfig.addFilter("htmlDateString", (dateObj) => {
+		return DateTime.fromJSDate(dateObj, { zone: "utc" }).toFormat("yyyy-LL-dd");
 	});
 
 	// --- SHORTCODES ---
