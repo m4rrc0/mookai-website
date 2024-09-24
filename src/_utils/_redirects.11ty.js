@@ -37,11 +37,11 @@ export const render = (data) => {
 	return `# Auto generated redirects
 
 # Global Redirects
-------------------
+# ------------------
 
 
 # Local Redirects
-------------------
+# ------------------
 ${localRedirString}
     `;
 };
