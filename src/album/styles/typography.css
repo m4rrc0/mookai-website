@@ -44,6 +44,7 @@
 	h3, .h3, .text-h3 { font-size: var(--fs-h3); } /* prettier-ignore */
 	h4, .h4, .text-h4 { font-size: var(--fs-h4); } /* prettier-ignore */
 	p, .p, .text-p { font-size: var(--fs-p); } /* prettier-ignore */
+	blockquote { font-size: var(--fs-p); } /* prettier-ignore */
 	h5, .h5, .text-h5 { font-size: var(--fs-h5); } /* prettier-ignore */
 	small, .small, .text-small { font-size: var(--fs-small); } /* prettier-ignore */
 	h6, .h6, .text-h6 { font-size: var(--fs-h6); } /* prettier-ignore */

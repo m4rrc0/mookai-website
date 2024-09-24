@@ -8,28 +8,42 @@ metadata:
 
 <main class="stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
 	<h1 class="font-bums text-center">Agenda</h1>
-	<div class="center f-gap-s2 flex w-full max-w-xl flex-col">
+	<ul class="reset center f-gap-s2 flex w-full max-w-xl flex-col">
 		{% for item in dates|sort(false, true, 'sortField') %}
-		<article class="with-sidebar breakout-clickable [--content-min:70%]">
-			<div class="flex flex-col">
-				<time datetime="{{item.dateStart}}">{{item.dateStart}}</time>
-				{% if item.dateEnd %}
-				<time datetime="{{item.dateEnd}}">{{item.dateEnd}}</time>
-				{% endif %}
-			</div>
-			<div>
-				<h2 class="h4">{{item.name}}</h2>
-				<p>
-					{{item.place.name}} -
-					<a
-						href="https://www.google.com/maps?q={{item.place.address | urlencode}}"
-						target="_blank"
-						rel="noopener"
-						>{{item.place.address}}</a
-					>
-				</p>
-			</div>
-		</article>
+		<li>
+			<article class="with-sidebar items-center [--content-min:75%] [--width-sidebar:4rem]">
+				<time
+					datetime="{{item.dateStart}}"
+					class="box f-gap-s-6 border-teal-light text-teal flex flex-col items-center border-2 leading-none"
+				>
+					<div class="flex flex-nowrap gap-1">
+						<strong>{{ item.dateStart | date(lang, 'dd') }}</strong>
+						{% if item.dateEnd and item.dateEnd|date(lang, 'LL') == item.dateStart|date(lang, 'LL')
+						%}
+						<span>-</span>
+						<strong>{{item.dateEnd | date(lang, 'dd') }}</strong>
+						{% endif %}
+					</div>
+					<div><strong>{{ item.dateStart | date(lang, 'LLL') }}</strong></div>
+					<div>{{ item.dateStart | date(lang, 'yyyy') }}</div>
+				</time>
+				<div class="f-gap-s-3 flex flex-col">
+					<h2 class="h4 font-bums">
+						{% if item.linkOrganizer %}
+						<a href="{{item.linkOrganizer}}" target="_blank" rel="noopener">{{item.name}}</a>
+						{% else %} {{item.name}} {% endif %}
+					</h2>
+					<p class="small">
+						<a
+							href="https://www.google.com/maps?q={{item.place.gmapQuery | urlencode}}"
+							target="_blank"
+							rel="noopener"
+							>{{item.place.address}}</a
+						>, {{item.place.name}}, <strong>{{item.place.country}}</strong>
+					</p>
+				</div>
+			</article>
+		</li>
 		{% endfor %}
-	</div>
+	</ul>
 </main>

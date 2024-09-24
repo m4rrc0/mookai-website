@@ -6,3 +6,4 @@ export const site = {
 	url: process.env.SITE_URL,
 };
 export const srcDir = process.env.SRC_DIR;
+export const sheetApiKey = process.env.SHEET_API_KEY;

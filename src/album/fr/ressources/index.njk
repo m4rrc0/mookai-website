@@ -7,12 +7,13 @@ metadata:
 ---
 
 <main
-	class="stack f-py-s3 [&_a]:decoration-none *:[--gap-stack:var(--f-s3)] [&_a.shad:focus_img]:shadow-lg [&_a.shad:hover_img]:shadow-lg [&_a.shad_img]:shadow-md [&_a]:font-bold"
+	class="stack f-py-s3 *:[--gap-stack:var(--f-s3)] [&_.shad:has(a:hover,a:focus)]:shadow-lg [&_.shad]:shadow-md [&_a:focus_.shad]:shadow-lg [&_a:hover_.shad]:shadow-lg [&_a]:font-bold"
 >
 	<h1 class="font-bums text-center">Ressources</h1>
 	<div class="stack *:[--gap-stack:var(--f-s6)]">
 		<section class="stack *:[--gap-stack:var(--f-s3)]">
 			<h2 class="font-bums text-center">Ils parlent d'Album</h2>
+			{#
 			<ul
 				class="reset grid-auto f-gap-x-s1 f-gap-y-s3 justify-items-center [--width-column-min:200px]"
 			>
@@ -50,22 +51,63 @@ metadata:
 					</a>
 				</li>
 			</ul>
+			#}
+
+			<ul class="reset center f-gap-s2 flex w-full max-w-xl flex-col">
+				{% for item in pressReviews|sort(false, true, 'sortField') %}
+				<li class="">
+					<article class="with-sidebar f-p-s-1 shad breakout-clickable">
+						{% if item.quote %}
+						<i class="h3 i-ph-quotes-fill inline-block" title="Review"></i>
+						{% else %}
+						<i class="h3 i-ph-newspaper-clipping inline-block" title="Article de Presse"></i>
+						{% endif %}
+						<div class="f-gap-s-3 flex flex-col">
+							{% if item.title %}
+							<p class="font-bums">{{item.title}}</p>
+							{% endif %} {% if item.quote %}
+							<blockquote
+								class="f-pl-s-1 quote-indent f-text-s-0.5 italic leading-tight [--indent-inset-y:0.25em]"
+							>
+								{{item.quote}}
+							</blockquote>
+							{% endif %} {% if item.author or item.source %}
+							<p class="small cluster">
+								<a href="{{item.url}}" target="_blank" rel="noopener" class="clickable">
+									{% if item.author %}
+									<span>{{item.author}}</span>
+									{% endif %} {% if item.author and item.source %}
+									<span> - </span>
+									{% endif %} {% if item.source %}
+									<span>{{item.source}}</span>
+									{% endif %}
+								</a>
+								<span>{{item.language}}</span>
+								<span>{{ item.date | date(lang, 'dd.LL.yyyy') }}</span>
+							</p>
+							{% endif %}
+							<div class="cluster"></div>
+						</div>
+					</article>
+				</li>
+				{% endfor %}
+			</ul>
 		</section>
-		<section class="stack *:[--gap-stack:var(--f-s3)]">
+		<section class="stack [&_a]:decoration-none *:[--gap-stack:var(--f-s3)]">
 			<h2 class="font-bums text-center">Ressources générales</h2>
 			<ul class="reset grid-auto f-gap-x-s1 f-gap-y-s3 justify-items-center">
 				<li>
 					<a
 						href="/assets/documents/CP_Album-Feelings_2024.pdf"
 						target="_blank"
-						class="stack shad justify-between *:[--gap-stack:var(--f-s-3)]"
+						class="stack justify-between *:[--gap-stack:var(--f-s-3)]"
 					>
 						<img
 							src="/album/_images/CP_Album_2024_1.png"
 							alt="Communiqué de presse 2024"
 							title="Communiqué de presse 2024"
 							eleventy:widths="250"
-							class="f-p-s-2 aspect-square object-contain"
+							class="f-p-s-2 shad aspect-square object-contain"
 						/>
 						<p>Communiqué de presse</p>
 					</a>
@@ -74,21 +116,21 @@ metadata:
 					<a
 						href="/assets/documents/UJMDC_FR_ALBUM.pdf"
 						target="_blank"
-						class="stack shad justify-between *:[--gap-stack:var(--f-s-3)]"
+						class="stack justify-between *:[--gap-stack:var(--f-s-3)]"
 					>
 						<img
 							src="/album/_images/ressources/AlbumDansMaClasse.png"
 							alt="Fiche pédagogique"
 							title="Fiche pédagogique"
 							eleventy:widths="250"
-							class="f-p-s-2 aspect-square object-contain"
+							class="f-p-s-2 shad aspect-square object-contain"
 						/>
 						<p>Fiche pédagogique</p>
 					</a>
 				</li>
 			</ul>
 		</section>
-		<section class="stack *:[--gap-stack:var(--f-s3)]">
+		<section class="stack [&_a]:decoration-none *:[--gap-stack:var(--f-s3)]">
 			<h2 class="font-bums text-center">Visuels</h2>
 			<ul class="reset grid-auto f-gap-x-s1 f-gap-y-s3 [--width-column-min:120px]">
 				{% for visu in ressourcesVisuals %}

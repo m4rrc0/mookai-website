@@ -6,7 +6,7 @@ metadata:
   description: "ALBUM, ce sont des instants capturés pas les photographes que voici..."
 ---
 
-<main class="photographs stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
+<main class="photographers stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
 	<h1 class="font-bums text-center">Les photographes</h1>
 	<form class="sort-selection" action="">
 		<fieldset class="cluster m-auto w-[fit-content] border-0">
@@ -31,7 +31,7 @@ metadata:
 		{% endfor %}
 	</ol>
 	<ul class="sortedByPhotograph reset stack *:[--gap-stack:var(--f-s0)]">
-		{% for photograph in photographs %} {% if photograph.pictures.length > 0 %}
+		{% for photograph in photographers %} {% if photograph.pictures.length > 0 %}
 		<li class="">
 			<p class="font-bums">{{photograph.name}}</p>
 			<ul class="reset cluster">
