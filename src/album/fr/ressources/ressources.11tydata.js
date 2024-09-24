@@ -10,6 +10,7 @@ export default async function () {
 		.then((data) => data.values)
 		.catch((error) => console.error("Error:", error));
 
+	console.log({ sheetApiKey, sheetData });
 	const sheetHeader = sheetData.shift();
 	let data = sheetData.map((row) =>
 		sheetHeader.reduce((accu, key, index) => {
