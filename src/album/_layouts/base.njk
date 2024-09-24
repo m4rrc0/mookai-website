@@ -49,6 +49,14 @@
 		<!--  -->
 		{{ head | safe }}
 		<!-- inlineCss -->
+		<!-- Analytics -->
+		{% if BUILD_CONTEXT == "production" %}
+		<script
+			defer
+			src="https://cloud.umami.is/script.js"
+			data-website-id="642acae6-02f8-447c-a7c6-90a031687bf8"
+		></script>
+		{% endif %}
 	</head>
 	<body class="{{class.body}}">
 		<!-- Nav -->

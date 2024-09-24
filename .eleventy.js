@@ -17,7 +17,7 @@ import htmlnano from "htmlnano";
 import altAlways from "posthtml-alt-always";
 import { noopener } from "posthtml-noopener";
 // import posthtmlw3c from "posthtml-w3c";
-import { site, srcDir, PROD } from "./env.js";
+import { site, srcDir, PROD, BUILD_CONTEXT } from "./env.js";
 
 // console.log({ site, srcDir });
 
@@ -126,6 +126,7 @@ export default async function (eleventyConfig) {
 	// eleventyConfig.addWatchTarget("tailwind.config.js");
 
 	// --- DATA ---
+	eleventyConfig.addGlobalData("BUILD_CONTEXT", BUILD_CONTEXT);
 	eleventyConfig.addGlobalData("site", site);
 	eleventyConfig.addGlobalData("srcDir", srcDir);
 	eleventyConfig.addGlobalData("year", new Date().getFullYear());
