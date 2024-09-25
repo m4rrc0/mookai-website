@@ -45,5 +45,8 @@ export default async function () {
 		};
 	});
 
+	const today = new Date().toISOString().split("T")[0];
+	dates = dates.filter((d) => d.dateStart >= today);
+
 	return { dates };
 }
