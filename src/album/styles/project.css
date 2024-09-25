@@ -8,7 +8,8 @@
 html {
 	/* @apply f-var-s1+1; */
 	/* height of the nav logo + nav y padding * 2 */ /* prettier-ignore */
-	scroll-padding-top: calc(var(--f-s2) + var(--f-s1\+1) * 2 + var(--f-s0));
+	/* scroll-padding-top: calc(var(--f-s2) + var(--f-s1\+1) * 2 + var(--f-s0)); */
+	scroll-padding-top: 200px;
 }
 /* If Motion = ok */
 @media (prefers-reduced-motion: no-preference) {

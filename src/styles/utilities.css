@@ -72,8 +72,8 @@
 	outline: none;
 }
 .breakout-clickable .clickable:focus::after {
-	outline: 1px solid;
-	outline-offset: calc(var(--gap) / 2 * -1);
+	outline: 1px solid var(--color-outline--focus, currentColor);
+	outline-offset: calc(var(--focus-offset, 1rem) / 2 * -1);
 }
 
 /* Full Bleed: break out of a reduced width */

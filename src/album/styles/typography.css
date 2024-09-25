@@ -39,19 +39,19 @@
 	.h-2, .text-h-2 { font-size: var(--fs-h-2); } /* prettier-ignore */
 	.h-1, .text-h-1 { font-size: var(--fs-h-1); } /* prettier-ignore */
 	.h0, .text-h0 { font-size: var(--fs-h0); } /* prettier-ignore */
-	h1, .h1, .text-h1 { font-size: var(--fs-h1); } /* prettier-ignore */
-	h2, .h2, .text-h2 { font-size: var(--fs-h2); } /* prettier-ignore */
-	h3, .h3, .text-h3 { font-size: var(--fs-h3); } /* prettier-ignore */
-	h4, .h4, .text-h4 { font-size: var(--fs-h4); } /* prettier-ignore */
-	p, .p, .text-p { font-size: var(--fs-p); } /* prettier-ignore */
-	blockquote { font-size: var(--fs-p); } /* prettier-ignore */
-	h5, .h5, .text-h5 { font-size: var(--fs-h5); } /* prettier-ignore */
-	small, .small, .text-small { font-size: var(--fs-small); } /* prettier-ignore */
-	h6, .h6, .text-h6 { font-size: var(--fs-h6); } /* prettier-ignore */
+	:where(h1), .h1, .text-h1 { font-size: var(--fs-h1); } /* prettier-ignore */
+	:where(h2), .h2, .text-h2 { font-size: var(--fs-h2); } /* prettier-ignore */
+	:where(h3), .h3, .text-h3 { font-size: var(--fs-h3); } /* prettier-ignore */
+	:where(h4), .h4, .text-h4 { font-size: var(--fs-h4); } /* prettier-ignore */
+	:where(p), .p, .text-p { font-size: var(--fs-p); } /* prettier-ignore */
+	:where(blockquote) { font-size: var(--fs-p); } /* prettier-ignore */
+	:where(h5), .h5, .text-h5 { font-size: var(--fs-h5); } /* prettier-ignore */
+	:where(small), .small, .text-small { font-size: var(--fs-small); } /* prettier-ignore */
+	:where(h6), .h6, .text-h6 { font-size: var(--fs-h6); } /* prettier-ignore */
 	.text-xs { font-size: var(--fs-xs); } /* prettier-ignore */
-	h7, .h7, .text-h7 { font-size: var(--fs-h7); } /* prettier-ignore */
-	h8, .h8, .text-h8 { font-size: var(--fs-h8); } /* prettier-ignore */
-	h9, .h9, .text-h9 { font-size: var(--fs-h9); } /* prettier-ignore */
+	.h7, .text-h7 { font-size: var(--fs-h7); } /* prettier-ignore */
+	.h8, .text-h8 { font-size: var(--fs-h8); } /* prettier-ignore */
+	.h9, .text-h9 { font-size: var(--fs-h9); } /* prettier-ignore */
 }
 
 body {

@@ -159,6 +159,8 @@ body,
 	--color-back-success-theme: var(--color-front-success); /* prettier-ignore */
 	--color-back-warning-theme: var(--color-front-warning); /* prettier-ignore */
 	--color-back-error-theme: var(--color-front-error); /* prettier-ignore */
+
+	/* --color-outline--focus: var(--color-front-accent); */
 }
 :--palette-alt-contrast {
 	--color-front-theme: var(--color-back-alt); /* prettier-ignore */
