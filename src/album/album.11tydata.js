@@ -1,10 +1,11 @@
 import { srcDir, site } from "../../env.js";
 import metadataComputed from "./_data/metadataComputed.js";
 import { photographers, gamePictures } from "./_data/gamePictures.js";
+import { pressReviews } from "./_data/ressources.js";
 import { ressourcesVisuals } from "./_data/ressourcesVisuals.js";
 const currentDir = "album";
 
-export default function () {
+export default async function () {
 	return {
 		lang: "fr",
 		// eleventyExcludeFromCollections: currentDir !== srcDir,
@@ -25,5 +26,6 @@ export default function () {
 		photographers,
 		gamePictures,
 		ressourcesVisuals,
+		pressReviews: await pressReviews(),
 	};
 }

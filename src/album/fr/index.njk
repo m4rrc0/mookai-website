@@ -80,6 +80,59 @@ head: |
 		</lite-youtube>
 	</div>
 
+	<section class="testimonials stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
+		<h2 class="font-bums text-center">Témoignages</h2>
+		<ul class="reset reel f-gap-s0 f-p-s-1 mx-auto max-w-full snap-x snap-proximity">
+			{% for item in pressReviews|sort(false, true, 'sortField') %}
+			<!-- prettier-ignore -->
+			{# {% set i = loop.index|int %} #}
+				{% if loop.index%2==0 %} {% set paletteClass = "ctxc-alt" %}
+				{% else %} {% set paletteClass = "ctxc-default" %} {% endif %}
+
+			<li
+				class="ctxc-contrast rounded-md w-[95%] max-w-lg snap-start flex items-center {{paletteClass}}"
+			>
+				<article class="with-sidebar f-p-s-1 shad breakout-clickable">
+					{% if item.quote %}
+					<i class="h3 i-ph-quotes-fill inline-block" title="Review"></i>
+					{% else %}
+					<i class="h3 i-ph-newspaper-clipping inline-block" title="Article de Presse"></i>
+					{% endif %}
+					<div class="f-gap-s-3 flex flex-col">
+						{% if item.quote %}
+						<blockquote
+							class="f-pl-s-1 quote-indent italic leading-tight [--indent-inset-y:0.25em]"
+						>
+							{{item.quote}}
+						</blockquote>
+						{% endif %}
+						<div>
+							{% if item.title %}
+							<p class="font-bums small">{{item.title}}</p>
+							{% endif %}
+							<p class="small cluster">
+								{% if item.author or item.source %}
+								<a href="{{item.url}}" target="_blank" rel="noopener" class="clickable">
+									{% if item.author %}
+									<span>{{item.author}}</span>
+									{% endif %} {% if item.author and item.source %}
+									<span> - </span>
+									{% endif %} {% if item.source %}
+									<span>{{item.source}}</span>
+									{% endif %}
+								</a>
+								{% endif %}
+								<span>{{item.language}}</span>
+								<span>{{ item.date | date(lang, 'dd.LL.yyyy') }}</span>
+							</p>
+						</div>
+					</div>
+				</article>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
+
 	<section class="game-description stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
 		<h2 class="font-bums text-center">Description du jeu</h2>
 		<img

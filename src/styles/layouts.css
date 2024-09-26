@@ -331,13 +331,13 @@ NEW: --object-fit-frame: var keyword
 --height: var dimension or keyword (auto) | The height of the parent (Reel) element
 --gap-reel: var dimension | The space between each child element, and between the child elements and the scrollbar
 NEW: .no-bar: class bool (false), // Whether to display the scrollbar
---track-color: var color (currentcolor)
---thumb-color: var color (white)
+--color-track: var color (currentcolor)
+--color-thumb: var color (white)
 NEW: .no-js: class bool (false) | Wether the observer has been setup to manage the "overflowing" classname
 */
 /* TODO: ? Javascript observer for scrollbar ? Can we avoid it? */
 /* TODO: ? implement background attachment local for affordance instead. http://lea.verou.me/2012/04/background-attachment-local/ */
-/* TODO: ? should --thumb-color have a fallback? */
+/* TODO: ? should --color-thumb have a fallback? */
 
 :--reel {
 	--gap-reel: var(--gap, 1em);
@@ -345,7 +345,7 @@ NEW: .no-js: class bool (false) | Wether the observer has been setup to manage t
 	block-size: var(--height, auto);
 	overflow-x: auto;
 	overflow-y: hidden;
-	scrollbar-color: var(--thumb-color) var(--track-color, currentcolor);
+	scrollbar-color: var(--color-thumb, currentColor) var(--color-track, transparent);
 }
 /* NEW */
 :--reel:--no-bar {
@@ -379,16 +379,16 @@ NEW: .no-js: class bool (false) | Wether the observer has been setup to manage t
 	display: none;
 }
 :--reel::-webkit-scrollbar-track {
-	background-color: var(--track-color, currentcolor);
+	background-color: var(--color-track, transparent);
 }
 :--reel::-webkit-scrollbar-thumb {
-	background-color: var(--track-color, currentcolor);
+	background-color: var(--color-track, transparent);
 	background-image: linear-gradient(
-		var(--track-color, currentcolor) 0,
-		var(--track-color, currentcolor) 0.25rem,
-		var(--thumb-color) 0.25rem,
-		var(--thumb-color) 0.75rem,
-		var(--track-color, currentcolor) 0.75rem
+		var(--color-track, transparent) 0,
+		var(--color-track, transparent) 0.25rem,
+		var(--color-thumb, currentColor) 0.25rem,
+		var(--color-thumb, currentColor) 0.75rem,
+		var(--color-track, transparent) 0.75rem
 	);
 }
 

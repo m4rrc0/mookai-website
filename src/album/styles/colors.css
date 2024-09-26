@@ -254,8 +254,8 @@ body,
 
 	/* --- SCROLLBAR --- */
 	/* TODO: this is for the Reel Layout Component */
-	/* --track-color */
-	/* --thumb-color */
+	--color-track: var(--color-back-theme);
+	--color-thumb: var(--color-front-theme);
 	/*  */
 }
 
