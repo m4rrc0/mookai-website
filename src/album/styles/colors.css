@@ -266,11 +266,21 @@ body,
 	/* --color-bg__a--hover: var(--color-back-theme); */
 }
 
-:--palette-contrast,
+/* TODO: issue because button with a ctxc class should have different values than ones children of a ctxc block */
+/* :--palette-contrast,
 :--palette-alt-contrast,
-:--palette-accent-contrast {
-	--color-border__button: var(--color-back-theme);
-	--color-border__button--hover: var(--color-back-theme);
+:--palette-accent-contrast, */
+.ctxc-contrast {
+	&.button {
+		--color-border__button: var(--color-back-theme);
+		/* border-color: var(--color-back-theme); */
+
+		&:hover,
+		&:focus {
+			--color-border__button--hover: var(--color-back-theme);
+			/* border-color: var(--color-back-theme); */
+		}
+	}
 }
 
 body,

@@ -9,7 +9,7 @@ metadata:
 <main class="stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
 	<h1 class="font-bums text-center">Agenda</h1>
 	<ul class="reset center f-gap-s2 flex w-full max-w-xl flex-col">
-		{% for item in dates|sort(false, true, 'sortField') %}
+		{% for item in agenda|sort(false, true, 'sortField') %}
 		<li>
 			<article class="with-sidebar items-center [--content-min:75%] [--width-sidebar:4rem]">
 				<time
