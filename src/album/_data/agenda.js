@@ -42,6 +42,8 @@ export async function agenda() {
 			// timeEnd,
 			linkOrganizer: d["Link Organizer (FR)"] || null,
 			sortField,
+			description_fr: d.description_fr,
+			description_en: d.description_en,
 		};
 	});
 

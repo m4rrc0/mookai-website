@@ -33,6 +33,7 @@ metadata:
 						<a href="{{item.linkOrganizer}}" target="_blank" rel="noopener">{{item.name}}</a>
 						{% else %} {{item.name}} {% endif %}
 					</h2>
+					{#
 					<p class="small">
 						<a
 							href="https://www.google.com/maps?q={{item.place.gmapQuery | urlencode}}"
@@ -41,6 +42,10 @@ metadata:
 							>{{item.place.address}}</a
 						>, {{item.place.name}}, <strong>{{item.place.country}}</strong>
 					</p>
+					#} {% if item.description_fr %}
+					<p>{{item.description_fr}}</p>
+					{% endif %}
+					<p class="small">{{item.place.name}}, <strong>{{item.place.country}}</strong></p>
 				</div>
 			</article>
 		</li>

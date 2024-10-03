@@ -109,13 +109,13 @@ head: |
 		>
 	</section>
 
+	{#
 	<section class="testimonials stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
 		<h2 class="font-bums text-center">Témoignages</h2>
 		<ul class="reset reel f-gap-s0 f-p-s-1 mx-auto max-w-full snap-x snap-proximity">
 			{% for item in pressReviews|sort(false, true, 'sortField') %}
 			<!-- prettier-ignore -->
-			{# {% set i = loop.index|int %} #}
-				{% if loop.index%2==0 %} {% set paletteClass = "ctxc-alt" %}
+			{% if loop.index%2==0 %} {% set paletteClass = "ctxc-alt" %}
 				{% else %} {% set paletteClass = "ctxc-default" %} {% endif %}
 
 			<li
@@ -161,6 +161,7 @@ head: |
 			{% endfor %}
 		</ul>
 	</section>
+	#}
 
 	<section class="game-description stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
 		<h2 class="font-bums text-center">Description du jeu</h2>
@@ -204,9 +205,6 @@ head: |
 				<p>
 					C'est l'heure de créer un album collectif et c'est à votre tour de faire retenir une photo
 					aux autres !
-				</p>
-				<p>
-					Mais pas question d'imposer son choix, il faut que tout le monde s'entende et s'accorde.
 				</p>
 				<p>Vous piochez une photo que vous observez secrètement et tranquillement.</p>
 				<p>
