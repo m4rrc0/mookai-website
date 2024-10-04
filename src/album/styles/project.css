@@ -363,7 +363,7 @@ lite-youtube .lty-playbtn:focus {
 }
 
 /* SECTIONS */
-.game-description::before {
+.green-gradient-in::before {
 	/* @apply bg-gradient-to-b from-white to-blue-500; */
 	bottom: calc(-1 / 2 * var(--f-s6));
 	background: transparent
@@ -400,7 +400,7 @@ lite-youtube .lty-playbtn:focus {
 	bottom: calc(-1 / 2 * var(--f-s6));
 }
 
-.created-by::before {
+.green-gradient-out::before {
 	top: calc(-1 / 2 * var(--f-s6));
 	background: transparent
 		linear-gradient(

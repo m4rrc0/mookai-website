@@ -80,6 +80,38 @@ head: |
 		</lite-youtube>
 	</div>
 
+	<section class="testimonials stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
+		<h2 class="font-bums text-center">Témoignages</h2>
+		<ul class="reset reel f-gap-s0 f-p-s-1 mx-auto max-w-full snap-x snap-proximity">
+			{% for item in testimonials %}
+			<!-- prettier-ignore -->
+			{% if loop.index%2==0 %} {% set paletteClass = "ctxc-alt" %}
+				{% else %} {% set paletteClass = "ctxc-default" %} {% endif %}
+
+			<li class="flex w-[95%] max-w-lg snap-start items-center">
+				<article
+					class="with-sidebar ctxc-contrast f-p-s-1 shad breakout-clickable rounded-md {{paletteClass}}"
+				>
+					<i class="h3 i-ph-quotes-fill inline-block" title="Review"></i>
+
+					<div class="f-gap-s-3 flex flex-col">
+						{% if item.quote %}
+						<blockquote
+							class="f-pl-s-1 quote-indent italic leading-tight [--indent-inset-y:0.25em]"
+						>
+							{{item.quote}}
+						</blockquote>
+						{% endif %}
+						<div>
+							<p class="small">{{ item.author }}</p>
+						</div>
+					</div>
+				</article>
+			</li>
+			{% endfor %}
+		</ul>
+	</section>
+
 	<section class="full-bleed-before ctxc-contrast f-gap-s1 f-p-s2 flex flex-col items-center">
 		<p class="h3 font-bums">Venez essayer Album en live avec l'équipe</p>
 		<ul class="reset center f-gap-s2 cluster">
@@ -109,61 +141,9 @@ head: |
 		>
 	</section>
 
-	{#
-	<section class="testimonials stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
-		<h2 class="font-bums text-center">Témoignages</h2>
-		<ul class="reset reel f-gap-s0 f-p-s-1 mx-auto max-w-full snap-x snap-proximity">
-			{% for item in pressReviews|sort(false, true, 'sortField') %}
-			<!-- prettier-ignore -->
-			{% if loop.index%2==0 %} {% set paletteClass = "ctxc-alt" %}
-				{% else %} {% set paletteClass = "ctxc-default" %} {% endif %}
-
-			<li
-				class="ctxc-contrast rounded-md w-[95%] max-w-lg snap-start flex items-center {{paletteClass}}"
-			>
-				<article class="with-sidebar f-p-s-1 shad breakout-clickable">
-					{% if item.quote %}
-					<i class="h3 i-ph-quotes-fill inline-block" title="Review"></i>
-					{% else %}
-					<i class="h3 i-ph-newspaper-clipping inline-block" title="Article de Presse"></i>
-					{% endif %}
-					<div class="f-gap-s-3 flex flex-col">
-						{% if item.quote %}
-						<blockquote
-							class="f-pl-s-1 quote-indent italic leading-tight [--indent-inset-y:0.25em]"
-						>
-							{{item.quote}}
-						</blockquote>
-						{% endif %}
-						<div>
-							{% if item.title %}
-							<p class="font-bums small">{{item.title}}</p>
-							{% endif %}
-							<p class="small cluster">
-								{% if item.author or item.source %}
-								<a href="{{item.url}}" target="_blank" rel="noopener" class="clickable">
-									{% if item.author %}
-									<span>{{item.author}}</span>
-									{% endif %} {% if item.author and item.source %}
-									<span> - </span>
-									{% endif %} {% if item.source %}
-									<span>{{item.source}}</span>
-									{% endif %}
-								</a>
-								{% endif %}
-								<span>{{item.language}}</span>
-								<span>{{ item.date | date(lang, 'dd.LL.yyyy') }}</span>
-							</p>
-						</div>
-					</div>
-				</article>
-			</li>
-			{% endfor %}
-		</ul>
-	</section>
-	#}
-
-	<section class="game-description stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
+	<section
+		class="game-description green-gradient-in stack full-bleed-before *:[--gap-stack:var(--f-s1)]"
+	>
 		<h2 class="font-bums text-center">Description du jeu</h2>
 		<img
 			src="/album/_images/ALBUM_ECLATE_up_2000.png"
@@ -330,6 +310,31 @@ head: |
 		</blockquote>
 	</section>
 	#}
+	<section
+		class="green-gradient-out with-sidebar full-bleed-before f-py-s2 items-center [--content-min:60%]"
+	>
+		<div>
+			<img
+				src="/album/_images/ressources/AlbumDansMaClasse.png"
+				alt="Album dans ma classe"
+				eleventy:widths="300"
+				class=""
+				loading="lazy"
+			/>
+		</div>
+		<div class="stack *:[--gap-stack:var(--f-s-2)]">
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis beatae et dolor laboriosam
+				voluptas tempore impedit saepe, quam delectus quae nobis iure porro atque autem harum error
+				vitae in illo!
+			</p>
+			<p>
+				Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quis beatae et dolor laboriosam
+				voluptas tempore impedit saepe, quam delectus quae nobis iure porro atque autem harum error
+				vitae in illo!
+			</p>
+		</div>
+	</section>
 	<section class="created-by full-bleed-before stack *:[--gap-stack:var(--f-s1)]">
 		<h2 class="font-bums text-center">Un jeu créé par…</h2>
 		<article class="with-sidebar ctxc-accent items-start bg-transparent [--content-min:70%]">

@@ -69,15 +69,22 @@ metadata:
 				{% for item in pressReviews|sort(false, true, 'sortField') %}
 				<!-- prettier-ignore -->
 				{# {% set i = loop.index|int %} #}
-				{% if loop.index%2==0 %} {% set paletteClass = "ctxc-alt" %}
+				{% if loop.index%2==0 %} {% set paletteClass = "ctxc-accent" %}
 				{% else %} {% set paletteClass = "ctxc-default" %} {% endif %}
 
-				<li class="ctxc-contrast rounded-md {{paletteClass}}">
-					<article class="with-sidebar f-p-s-1 shad breakout-clickable">
-						{% if item.quote %}
-						<i class="h3 i-ph-quotes-fill inline-block" title="Review"></i>
-						{% else %}
+				<li class="rounded-md {{paletteClass}} [border:solid_1px_currentColor]">
+					<article
+						class="with-sidebar f-p-s-1 shad breakout-clickable"
+						lang="{{item.language|lower}}"
+					>
+						{% if item.category == "Press" %}
 						<i class="h3 i-ph-newspaper-clipping inline-block" title="Article de Presse"></i>
+						{% elif item.category == "Review" %}
+						<i class="h3 i-ph-quotes-fill inline-block" title="Review"></i>
+						{% elif item.category == "Blog" %}
+						<i class="h3 i-ph-article-ny-times inline-block" title="Review"></i>
+						{% elif item.category == "Instagram" %}
+						<i class="h3 i-ph-instagram-logo inline-block" title="Review"></i>
 						{% endif %}
 						<div class="f-gap-s-3 flex flex-col">
 							{% if item.quote %}
@@ -129,7 +136,7 @@ metadata:
 							title="Communiqué de presse 2024"
 							eleventy:widths="250"
 							class="f-p-s-2 shad aspect-square object-contain"
-							loading="eager"
+							loading="lazy"
 						/>
 						<p>Communiqué de presse</p>
 					</a>
@@ -149,7 +156,7 @@ metadata:
 							title="Fiche pédagogique"
 							eleventy:widths="250"
 							class="f-p-s-2 shad aspect-square object-contain"
-							loading="eager"
+							loading="lazy"
 						/>
 						<p>Fiche pédagogique</p>
 					</a>

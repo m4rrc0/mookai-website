@@ -4,6 +4,7 @@ import { photographers, gamePictures } from "./_data/gamePictures.js";
 import { pressReviews } from "./_data/ressources.js";
 import { agenda } from "./_data/agenda.js";
 import { ressourcesVisuals } from "./_data/ressourcesVisuals.js";
+import { testimonials } from "./_data/testimonials.js";
 const currentDir = "album";
 
 export default async function () {
@@ -29,5 +30,6 @@ export default async function () {
 		ressourcesVisuals,
 		pressReviews: await pressReviews(),
 		agenda: await agenda(),
+		testimonials: await testimonials(),
 	};
 }
