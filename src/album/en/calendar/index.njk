@@ -3,12 +3,12 @@ pageRef: "calendar"
 class:
   body: "max-w-5xl m-auto f-px-s0 font-sans"
 metadata:
-  title: "Agenda | ALBUM le jeu"
-  description: "Venez nous rencontrer et découvrir Album en vrai."
+  title: "Calendar | ALBUM the game"
+  description: "Come and meet us and discover Album in real life."
 ---
 
 <main class="stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
-	<h1 class="font-bums text-center">Agenda</h1>
+	<h1 class="font-bums text-center">Calendar</h1>
 	<ul class="reset center f-gap-s2 flex w-full max-w-xl flex-col">
 		{% for item in agenda|sort(false, true, 'sortField') %}
 		<li>
@@ -31,7 +31,9 @@ metadata:
 				<div class="f-gap-s-3 flex flex-col">
 					<h2 class="h4 font-bums">
 						{% if item.linkOrganizer %}
-						<a href="{{item.linkOrganizer}}" target="_blank" rel="noopener">{{item.name}}</a>
+						<a href="{{item.linkOrganizer|replace('/fr/', '/en/')}}" target="_blank" rel="noopener"
+							>{{item.name}}</a
+						>
 						{% else %} {{item.name}} {% endif %}
 					</h2>
 					{#

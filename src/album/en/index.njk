@@ -2,20 +2,16 @@
 pageRef: "home"
 class:
   body: "max-w-5xl m-auto f-px-s0 font-sans"
-redirects:
-  - from: /
 metadata:
-  title: "ALBUM: L'émotion d'une photo. L'intensité d'un mot."
-  description: "Développez votre connaissance de vous et des autres autour d'un défi coopératif sur les ressentis et les interprétations de chacun·e"
+  title: "ALBUM: The emotion of a photo. The intensity of a word."
+  description: "Develop your knowledge of yourself and others with this cooperative challenge on the feelings and interpretations of each player"
 head: |
   <link rel="stylesheet" href="/assets/css/lite-yt-embed.css" />
   <script src="/assets/js/lite-yt-embed.js" async></script>
 ---
 
-<!-- prettier-ignore -->
-{# # default: "website" // Accepts: article, product, website #}
-{# {% extends "./_layouts/base.njk" %} {% block content %} #}
-
+{# # default: "website" // Accepts: article, product, website #} {# {% extends "./_layouts/base.njk"
+%} {% block content %} #}
 <main class="stack f-py-s3+2 f-gap-s6 [--gap-stack:0]">
 	<hgroup
 		class="stack items-center *:[--gap-stack:var(--f-s0)] [&>picture]:[--gap-stack:var(--f-s5)]"
@@ -29,15 +25,15 @@ head: |
 				decoding="auto"
 			/>
 		</h1>
-		<p class="h4 font-bums">L'émotion d'une photo. L'intensité d'un mot.</p>
+		<p class="h4 font-bums">The emotion of a photo. The intensity of a word.</p>
 		<p class="cluster justify-center [--gap-stack:var(--f-s2)]">
-			<span class="font-bums ctxc-contrast ctxc-accent badge">Coopération</span>
-			<span class="font-bums ctxc-contrast ctxc-accent badge">Déduction</span>
+			<span class="font-bums ctxc-contrast ctxc-accent badge">Cooperation</span>
+			<span class="font-bums ctxc-contrast ctxc-accent badge">Deduction</span>
 			<span class="font-bums ctxc-contrast ctxc-accent badge">Communication</span>
 		</p>
 		<img
 			src="/album/_images/ALBUM_BOX3D_droite_2000.png"
-			alt="La boite du jeu Album"
+			alt="The box of the game Album"
 			eleventy:widths="400"
 			loading="eager"
 			decoding="auto"
@@ -45,15 +41,15 @@ head: |
 		/>
 		<p class="m-auto max-w-xl text-center">
 			<strong>
-				Album est un jeu de <em>développement de la connaissance de soi et des autres</em>.
-				Retrouvez vous autour d'un défi coopératif sur les ressentis et les interprétations de
-				chacun·e. Voyagez à travers des photographies artistiques et symboliques. Chaque
-				photographie est le point de vue d'un photographe (en chair en en os). 🤯
+				Album is a game that <em>develops the knowledge of self and others</em>. Gather around a
+				cooperative challenge on the feelings and interpretations of each player. Travel through
+				artistic and symbolic photographs. Each photograph is by a real photographer (in flesh and
+				blood). 🤯
 			</strong>
 		</p>
 	</hgroup>
 
-	<div class="w-100% m-auto max-w-[640px]">
+	<div class="w-100% m-auto max-w-[640px]" lang="fr">
 		<lite-youtube
 			videoid="RC7wJjgflZA"
 			playlabel="Play: Ludochrono - Album"
@@ -72,7 +68,7 @@ head: |
 	</div>
 
 	<section class="testimonials stack full-bleed-before *:[--gap-stack:var(--f-s1)]">
-		<h2 class="font-bums text-center">Témoignages</h2>
+		<h2 class="font-bums text-center">Testimonials</h2>
 		<ul class="reset reel f-gap-s0 f-p-s-1 mx-auto max-w-full snap-x snap-proximity">
 			{% for item in testimonials %}
 			<!-- prettier-ignore -->
@@ -90,11 +86,11 @@ head: |
 						<blockquote
 							class="f-pl-s-1 quote-indent italic leading-tight [--indent-inset-y:0.25em]"
 						>
-							{{item.quote}}
+							{{item.quote_en}}
 						</blockquote>
 						{% endif %}
 						<div>
-							<p class="small">{{ item.author }}</p>
+							<p class="small">{{ item.author | replace("ans", "y.o.") }}</p>
 						</div>
 					</div>
 				</article>
@@ -104,7 +100,7 @@ head: |
 	</section>
 
 	<section class="full-bleed-before ctxc-contrast f-gap-s1 f-p-s2 flex flex-col items-center">
-		<p class="h3 font-bums">Venez essayer Album en live avec l'équipe</p>
+		<p class="h3 font-bums">Come and try Album with the team</p>
 		<ul class="reset center f-gap-s2 cluster">
 			{% for item in agenda|sort(false, true, 'sortField') %} {% if loop.index<=3 %}
 			<li>
@@ -126,38 +122,38 @@ head: |
 			</li>
 			{% endif %} {% endfor %}
 		</ul>
-		<a href="/fr/agenda/" class="button" title="Agenda">
+		<a href="/en/agenda/" class="button" title="Schedule">
 			<i class="p i-ph-calendar-dots relative top-[0.2em] inline-block"></i>
-			<span>Voir l'agenda complet</span></a
+			<span>Check the full schedule</span></a
 		>
 	</section>
 
 	<section
 		class="game-description green-gradient-in stack full-bleed-before *:[--gap-stack:var(--f-s1)]"
 	>
-		<h2 class="font-bums text-center">Description du jeu</h2>
+		<h2 class="font-bums text-center">Game Description</h2>
 		<img
 			src="/album/_images/ALBUM_ECLATE_up_2000.png"
-			alt="Album: le jeu. Vue éclatée du matériel."
+			alt="Album: the material of the game."
 			eleventy:widths="500"
 			class="m-auto"
 		/>
 		<p class="m-auto max-w-prose">
 			<strong>
-				Parmi 5 photos, une seule doit rester visible en fin de manche. Pour vous aider, des mots
-				sont placés sur une échelle d'intensité, tels de subjectifs indices. Album est un jeu
-				coopératif où l'échange et l'écoute des points de vue sont les clés de la réussite.
+				Out of the 5 photographs, only one must remain visible at the end of the round. To help you,
+				words are placed on a scale of intensity as subjective clues. Album is a cooperative game
+				where the exchange and listening to points of view are the keys to success.
 			</strong>
 		</p>
 		<p class="m-auto max-w-prose">
-			Vous devez réaliser un Album photo collectif sur base du meilleur consensus. Chaque photo
-			raconte un point de vue (de photographe) qui peut se traduire par de singulière et différentes
-			histoires (selon la personne). Saurez-vous retrouver la photo initiale en ayant pour seuls
-			indices, le regard (subjectif) d'une personne&nbsp;?!
+			You must create a collective photo album based on the best consensus. Each photo tells a point
+			of view (from a photographer) that can translate into singular and different stories
+			(depending on the person). Will you be able to find the initial photograph with, the only clue
+			being, the subjective point of view of another person&nbsp;?!
 		</p>
 		<details class="box no-border ctxc-contrast rounded-md">
 			<summary class="p">
-				<span>La règle plus en détail</span>
+				<span>The rules in greater details</span>
 				{% include "src/album/_svg/simple-arrow-down.njk" %}
 			</summary>
 			{#
@@ -168,33 +164,32 @@ head: |
 			>
 				<img
 					src="/album/_images/ALBUM_BOX_back_2000.jpg"
-					alt="Explication des règles à l'arrière de la boite de jeu"
+					alt="Rule explanation on the back of the game box"
 					class="xs:f-px-s-1 w-100% xs:w-[min(50%,450px)] f-mb-s0 float-right"
 					eleventy:widths="450"
 				/>
 
 				<p>
-					C'est l'heure de créer un album collectif et c'est à votre tour de faire retenir une photo
-					aux autres !
+					It's time to create a collective album and it's your turn to make others remember a photo!
 				</p>
-				<p>Vous piochez une photo que vous observez secrètement et tranquillement.</p>
+				<p>You take a photo that you observe secretly and quietly.</p>
 				<p>
-					Vous vous en imprégnez...en même temps que vous piochez et placez, un à un, un mot - qui
-					deviendra un précieux indice - sur une échelle d'intensité de 0 à 5.
+					You immerse yourself in it… at the same time, you pick and place, one by one, a word -
+					which will become a valuable clue - on an intensity scale from 0 to 5.
 				</p>
 				<p>
-					Selon vous, ce mot est plutôt pas (0), peu (1ou 2) ou très (4 ou 5) présent/représenté sur
-					la photo ?
+					In your opinion, is this word rather not (0), little (1or 2) or very (4 or 5)
+					present/represented in the photo?
 				</p>
-				<p>"De l'Aventure, il y en a pour moi sur cette photo ?</p>
-				<p>Oui énormément !</p>
-				<p>Je place le mot au niveau 4 de l'échelle !"</p>
-				<p>Question de perspective, d'histoire personnelle ou tout simplement de ressenti.</p>
+				<p>" 'Adventure', is there any for me in this photo?</p>
+				<p>Yes, very much!</p>
+				<p>I place the word at level 4 of the scale!"</p>
+				<p>It's a matter of perspective, personal history or simply feelings.</p>
 				<p>
-					Les autres réussiront-ils à se projeter à votre place et se mettre au diapason de votre
-					regard ?
+					Will others be able to project themselves in your place and get in tune with your
+					subjective regard ?
 				</p>
-				<p>A chaque tour, une photo est éliminée. Parmi 5 photos, une seule est valable !</p>
+				<p>In each turn, one photo is eliminated. Out of 5 photos, only one is valid!</p>
 			</div>
 		</details>
 		<div class="cluster justify-center">
@@ -202,20 +197,20 @@ head: |
 				href="/assets/documents/ALBUM_2024_RULES_240424-low.pdf"
 				class="button ctxc-contrast font-bums text-center"
 				target="_blank"
-				>Règles du jeu <small class="block">(PDF)</small></a
+				>Rules of the game <small class="block">(PDF)</small></a
 			>
 			<a
 				href="https://unjeudansmaclasse.com/?page=article&id_article=123&lang=fr"
 				class="button font-bums text-center"
 				target="_blank"
 				rel="noopener"
-				>Fiche pédagogique <small class="block">(un jeu dans ma classe)</small></a
+				>Educational sheet [FR] <small class="block" lang="fr">(un jeu dans ma classe)</small></a
 			>
 		</div>
 	</section>
 
 	<section class="technical-info stack full-bleed-before ctxc-contrast *:[--gap-stack:var(--f-s1)]">
-		<h2 class="font-bums text-center">Fiche Technique</h2>
+		<h2 class="font-bums text-center">Technical sheet</h2>
 		<div
 			class="box stack w-100% polaroid m-auto max-w-sm [--content-min:60%] [box-shadow:var(--shadow-3)]"
 		>
@@ -233,35 +228,17 @@ head: |
 					{% include "../_svg/Album-picto_age-min.njk" %}
 				</div>
 				<div class="stack [--gap-stack:0.2rem]">
-					<p class="f-text-s-1">À partir de <strong>8 ans</strong> accompagné</p>
-					<p class="f-text-s-1">À partir de <strong>10 ans</strong> seul</p>
+					<p class="f-text-s-1">From <strong>8 years old</strong> supervised</p>
+					<p class="f-text-s-1">From <strong>10 years old</strong> alone</p>
 				</div>
 			</div>
 			<div class="with-sidebar items-center">
-				{#
-				<img
-					src="/album/_images/pictos/Album-picto_players-min.svg"
-					alt="Nombre de joueurs recommandé"
-					eleventy:formats="auto"
-					eleventy:widths="100"
-					class="max-h-[50px] w-[fit-content]"
-				/>
-				#}
 				<div class="frame h-[50px] [--aspect-ratio:16/9]">
 					{% include "../_svg/Album-picto_players-min.njk" %}
 				</div>
-				<p class="f-text-s-1">pour <strong>2 à 6 joueurs</strong></p>
+				<p class="f-text-s-1">For <strong>2 to 6 players</strong></p>
 			</div>
 			<div class="with-sidebar items-center">
-				{#
-				<img
-					src="/album/_images/pictos/Album-picto_time-min.svg"
-					alt="Temps de partie estimé"
-					eleventy:formats="auto"
-					eleventy:widths="100"
-					class="max-h-[50px] w-[fit-content]"
-				/>
-				#}
 				<div class="frame h-[50px] [--aspect-ratio:16/9]">
 					{% include "../_svg/Album-picto_time-min.njk" %}
 				</div>
@@ -328,7 +305,7 @@ head: |
 	</section>
 	#}
 	<section class="created-by full-bleed-before stack *:[--gap-stack:var(--f-s1)]">
-		<h2 class="font-bums text-center">Un jeu créé par…</h2>
+		<h2 class="font-bums text-center">A game by…</h2>
 		<article class="with-sidebar ctxc-accent items-start bg-transparent [--content-min:70%]">
 			<div>
 				<div class="ctxc-default f-p-s-4 w-[min(100%,200px+var(--f-s-4)*2)] text-center shadow-md">
@@ -345,15 +322,14 @@ head: |
 			</div>
 			<div class="stack *:[--gap-stack:var(--f-s-2)]">
 				<p>
-					Indécrottable idéaliste, je rêve de voir les humains s'épanouir pleinement, développer
-					leur potentiel et vivre ensemble dans la paix, la joie et la bonne humeur. C'est pas gagné
-					en effet mais tant qu'il y a des jeux, il y a de l'espoir ! Passionnée par les enjeux de
-					la Relation (à soi, à l'autre) j'utilise le jeu dans mes pratiques professionnelles pour
-					créer du lien, faciliter les échanges, faire émerger les compétences et offrir d'intenses
-					moments de partage et de rigolade. Je crée à l'occasion des jeux de communication et des
-					expériences ludiques relationnelles.
+					Idealistic, I dream of seeing humans flourish fully, develop their potential and livin
+					together in peace, joy and good humor. It is not won in fact but as long as there are
+					games, there is hope! Passionate about the challenges of relationships (to oneself, to the
+					other), I use the game in my professional practices to create a link, facilitate
+					exchanges, bring out skills and offer intense moments of sharing and fun. I create
+					communication games and playful relational experiences.
 				</p>
-				<p><span class="font-bums ctxc-accent ctxc-contrast badge">Autrice</span></p>
+				<p><span class="font-bums ctxc-accent ctxc-contrast badge">Author</span></p>
 			</div>
 		</article>
 		<article class="with-sidebar items-start [--content-min:70%]">
@@ -372,13 +348,13 @@ head: |
 			</div>
 			<div class="stack *:[--gap-stack:var(--f-s-2)]">
 				<p>
-					Depuis 2005, Maud Chalmel oeuvre dans la communication visuelle et l'évènementiel. Puis
-					elle fait ses premiers pas dans l'illustration de jeux de société en 2014 avec Siggil et
-					depuis, les jeux se multiplient. Co-fondatrice de la Charte des Illustrateurices Ludiques
-					en 2022 pour fédérer le milieu, elle crée un pictogramme «illustré à la main» pour
-					encourager l'objet culturel à rester humain avant tout.
+					Since 2005, Maud Chalmel has been working in visual communication and events. Then she
+					took her first steps in the illustration of board games in 2014 with Siggil and since, the
+					games are multiplying. Co-founder of the Charter of Ludic Illustrators in 2022, she
+					created a pictogram «illustrated by hand» to encourage the cultural object to remain human
+					first.
 				</p>
-				<p><span class="font-bums ctxc-contrast badge">Illustratrice</span></p>
+				<p><span class="font-bums ctxc-contrast badge">Illustrator</span></p>
 			</div>
 		</article>
 		<article class="with-sidebar ctxc-accent items-start bg-transparent [--content-min:70%]">
@@ -401,16 +377,15 @@ head: |
 			</div>
 			<div class="stack *:[--gap-stack:var(--f-s-2)]">
 				<p>
-					<a href="https://www.actingames.com" target="_blank" rel="noopener">Act in Games</a> est
-					une maison de création et d'édition de jeux de société. Elle est ludiquement née d'une
-					conviction de la puissance du jeu comme moyen de rencontres passionnées, de partage
-					d'émotions enjouées et d'interactions fortes et passionnantes, autour d'une table. Les
-					créations internes et les éditions originales que propose
-					<a href="https://www.actingames.com" target="_blank" rel="noopener">Act in Games</a>
-					forment un subtil mélange entre interaction directe, simultanéité d'actions et immersion
-					thématique.
+					<a href="https://www.actingames.com" target="_blank" rel="noopener">Act in Games</a> is a
+					company that creates and publishes board games. It is born playfully from a conviction of
+					the power of the game as means of passionate encounters, sharing of playful emotions and
+					strong and exciting interactions around a table.
+					<a href="https://www.actingames.com" target="_blank" rel="noopener">Act in Games</a>'s
+					internal creations and original editions are a subtle mix of direct interaction,
+					simultaneous action and thematic immersion.
 				</p>
-				<p><span class="font-bums ctxc-accent ctxc-contrast badge">Éditeur</span></p>
+				<p><span class="font-bums ctxc-accent ctxc-contrast badge">Publisher</span></p>
 			</div>
 		</article>
 	</section>

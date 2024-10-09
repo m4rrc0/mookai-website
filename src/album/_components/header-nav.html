@@ -14,8 +14,14 @@
 				class="inline-block h-[0.9em] w-[0.9em] sm:hidden"
 				loading="eager"
 			/> -->
-			{% for li in mainMenuList %} {% if li.href == page.url %} {% set ariaCurrent = 'page' %} {%
-			else %} {% set ariaCurrent = 'false' %} {% endif %}
+			<!-- prettier-ignore -->
+			{% for item in mainMenuList %}
+			{% set li = item[lang] %}
+			{% if li.href == page.url %}
+			{% set ariaCurrent = 'page' %}
+			{% else %}
+			{% set ariaCurrent = 'false' %}
+			{% endif %}
 			<li class="sm:w-auto {{'w-100%' if loop.index == 1}}">
 				<a href="{{ li.href }}" aria-current="{{ariaCurrent}}" class="reset f-text-s0 block">
 					{% if loop.index == 1 %}
@@ -39,6 +45,14 @@
 			</li>
 			{% endfor %}
 		</ul>
+		<!-- prettier-ignore -->
+		{% if altLangs %}
+		<div>
+			{% for item in altLangs %}
+			<a href="{{item.href}}">{{item.hreflang | upper}}</a>
+			{% endfor %}
+		</div>
+		{% endif %}
 	</nav>
 </header>
 

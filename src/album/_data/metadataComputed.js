@@ -2,7 +2,9 @@ import Image from "@11ty/eleventy-img";
 const defaultMetaImg = "src/album/_images/ALBUM_BOX3D_droite_2000.png";
 const defaultMetaImgAlt = "La boite du jeu ALBUM";
 
-export default async ({ metadata, page, site, eleventy, status, lang, ...rest }) => {
+export default async ({ metadata, page, site, eleventy, status, lang, altLangs, ...rest }) => {
+	// console.log({ metadata, page, site, eleventy, status, lang, ...rest });
+
 	const url = metadata.url || (page.url ? site.url + page.url : undefined);
 	const robots = metadata.robots || (status === "noindex" ? "noindex" : undefined);
 	// TODO: compute this automatically by looking into the right directory
@@ -81,6 +83,13 @@ export default async ({ metadata, page, site, eleventy, status, lang, ...rest })
 			...(typeof metadata.inline_js === "string" ? [metadata.inline_js] : metadata.inline_js || []),
 			// 'console.log("hello, world");',
 			// { type: "application/json", id: "some-id", js: '{"data": "hello"}' },
+		],
+		custom: [
+			// NOTE: <link rel="alternate" hreflang="lang_code" href="url_of_page" />
+			...(altLangs || []).map(({ href, hreflang }) => ({
+				tag: "link",
+				attrs: { rel: "alternate", hreflang, href },
+			})),
 		],
 		// Open Graph
 		// -----------------------------------------------

@@ -3,30 +3,30 @@ pageRef: "resources"
 class:
   body: "max-w-5xl m-auto f-px-s0 font-sans"
 metadata:
-  title: "Ressources | ALBUM le jeu"
-  description: "Les ressources du jeu: visuels, communiqué de presse, fiche pédagogique, ..."
+  title: "Resources | ALBUM the game"
+  description: "The resources of the game: visuals, press release, educational sheet, ..."
 ---
 
 <main
 	class="stack f-py-s3 *:[--gap-stack:var(--f-s3)] [&_.shad:has(a:hover,a:focus)]:shadow-lg [&_.shad]:shadow-md [&_a:focus_.shad]:shadow-lg [&_a:hover_.shad]:shadow-lg [&_a]:font-bold"
 >
-	<h1 class="font-bums text-center">Ressources</h1>
+	<h1 class="font-bums text-center">Resources</h1>
 	<div class="f-py-s1 f-gap-s-1 mx-auto flex w-full max-w-2xl flex-col">
 		{#
-		<p class="h4 text-center">Sur cette page</p>
+		<p class="h4 text-center">On this page</p>
 		#}
 		<ul class="reset switcher h4 justify-center whitespace-nowrap">
 			<li class="flex-grow-0 text-center">
-				<a href="#testimonialsRessources">Ils parlent d'Album</a>
+				<a href="#testimonialsResources">They talk about Album</a>
 			</li>
-			<li class="flex-grow-0 text-center"><a href="#generalRessources">Ressources générales</a></li>
-			<li class="flex-grow-0 text-center"><a href="#visualsRessources">Visuels du jeu</a></li>
+			<li class="flex-grow-0 text-center"><a href="#generalResources">General resources</a></li>
+			<li class="flex-grow-0 text-center"><a href="#visualsResources">Visuals of the game</a></li>
 		</ul>
 	</div>
 
 	<div class="stack *:[--gap-stack:var(--f-s6)]">
-		<section id="testimonialsRessources" class="stack *:[--gap-stack:var(--f-s3)]">
-			<h2 class="font-bums text-center">Ils parlent d'Album</h2>
+		<section id="testimonialsResources" class="stack *:[--gap-stack:var(--f-s3)]">
+			<h2 class="font-bums text-center">They talk about Album</h2>
 			{#
 			<ul
 				class="reset grid-auto f-gap-x-s1 f-gap-y-s3 justify-items-center [--width-column-min:200px]"
@@ -79,11 +79,11 @@ metadata:
 						lang="{{item.language|lower}}"
 					>
 						{% if item.category == "Press" %}
-						<i class="h3 i-ph-newspaper-clipping inline-block" title="Article de Presse"></i>
+						<i class="h3 i-ph-newspaper-clipping inline-block" title="Press article"></i>
 						{% elif item.category == "Review" %}
 						<i class="h3 i-ph-quotes-fill inline-block" title="Review"></i>
 						{% elif item.category == "Blog" %}
-						<i class="h3 i-ph-article-ny-times inline-block" title="Article de blog"></i>
+						<i class="h3 i-ph-article-ny-times inline-block" title="Blog post"></i>
 						{% elif item.category == "Instagram" %}
 						<i class="h3 i-ph-instagram-logo inline-block" title="Instagram"></i>
 						{% endif %}
@@ -122,8 +122,8 @@ metadata:
 			</ul>
 		</section>
 
-		<section id="generalRessources" class="stack [&_a]:decoration-none *:[--gap-stack:var(--f-s3)]">
-			<h2 class="font-bums text-center">Ressources générales</h2>
+		<section id="generalResources" class="stack [&_a]:decoration-none *:[--gap-stack:var(--f-s3)]">
+			<h2 class="font-bums text-center">General resources</h2>
 			<ul class="reset grid-auto f-gap-x-s1 f-gap-y-s3 justify-items-center">
 				<li>
 					<a
@@ -133,13 +133,13 @@ metadata:
 					>
 						<img
 							src="/album/_images/CP_Album_2024_1.png"
-							alt="Communiqué de presse 2024"
-							title="Communiqué de presse 2024"
+							alt="Press release 2024"
+							title="Press release 2024"
 							eleventy:widths="250"
 							class="f-p-s-2 shad aspect-square object-contain"
 							loading="lazy"
 						/>
-						<p>Communiqué de presse</p>
+						<p>Press release</p>
 					</a>
 				</li>
 				<li>
@@ -153,20 +153,20 @@ metadata:
 					>
 						<img
 							src="/album/_images/ressources/AlbumDansMaClasse.png"
-							alt="Fiche pédagogique"
-							title="Fiche pédagogique"
+							alt="Educational sheet"
+							title="Educational sheet"
 							eleventy:widths="250"
 							class="f-p-s-2 shad aspect-square object-contain"
 							loading="lazy"
 						/>
-						<p>Fiche pédagogique</p>
+						<p>Educational sheet</p>
 					</a>
 				</li>
 			</ul>
 		</section>
 
-		<section id="visualsRessources" class="stack [&_a]:decoration-none *:[--gap-stack:var(--f-s3)]">
-			<h2 class="font-bums text-center">Visuels</h2>
+		<section id="visualsResources" class="stack [&_a]:decoration-none *:[--gap-stack:var(--f-s3)]">
+			<h2 class="font-bums text-center">Visuals</h2>
 			<ul class="reset grid-auto f-gap-x-s1 f-gap-y-s3 [--width-column-min:120px]">
 				{% for visu in ressourcesVisuals %}
 				<li>
@@ -176,7 +176,7 @@ metadata:
 						class="h-100% f-gap-s-3 flex flex-col justify-between [&>picture]:my-auto"
 					>
 						<img src="{{visu.src}}" alt="{{visu.alt}}" eleventy:widths="260,180" />
-						<p>Télécharger</p>
+						<p>Download</p>
 					</a>
 				</li>
 				{% endfor %}
