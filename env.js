@@ -9,3 +9,6 @@ export const site = {
 };
 export const srcDir = process.env.SRC_DIR;
 export const sheetApiKey = process.env.SHEET_API_KEY;
+
+export const FETCH_CACHE_DURATION = process.env.FETCH_CACHE_DURATION || "10s";
+export const FETCH_CACHE_DIR = process.env.FETCH_CACHE_DIR || ".cache";
