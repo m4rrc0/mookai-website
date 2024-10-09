@@ -1,12 +1,13 @@
 import { sheetApiKey } from "../../../env.js";
+import eleventyFetch from "../../utils/eleventyFetch.js";
 const spreadsheetId = "13heVkrh--l01YTxhXSdJlKi6zTICjsdItuFHDsHDR8w"; // Replace with your spreadsheet ID
 const sheetName = "Ressources"; // Replace with your sheet name
 
 export async function pressReviews() {
-	const sheetData = await fetch(
+	const sheetData = await eleventyFetch(
 		`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${sheetApiKey}`
 	)
-		.then((response) => response.json())
+		// .then((response) => response.json())
 		.then((data) => data.values)
 		.catch((error) => console.error("Error:", error));
 

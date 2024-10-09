@@ -1,35 +1,40 @@
 import { srcDir, site } from "../../env.js";
 import metadataComputed from "./_data/metadataComputed.js";
-import { photographers, gamePictures } from "./_data/gamePictures.js";
-import { pressReviews } from "./_data/ressources.js";
-import { agenda } from "./_data/agenda.js";
-import { ressourcesVisuals } from "./_data/ressourcesVisuals.js";
-import { testimonials } from "./_data/testimonials.js";
-const currentDir = "album";
 
 export default async function () {
 	return {
 		lang: "fr",
 		// eleventyExcludeFromCollections: currentDir !== srcDir,
 		layout: "album/_layouts/base.njk",
-		permalink: function ({ page: { fileSlug, filePathStem, outputFileExtension } }) {
-			// fileSlug: "album",
-			const regex = new RegExp(`^/${currentDir}/`);
-			// filePathStem: "/album/index",
-			const stem = filePathStem.replace(regex, "");
-			// outputFileExtension: "html",
-			const pl = `${stem}.${outputFileExtension}`;
-
-			return currentDir === srcDir ? pl : false;
-		},
+		currentDir: "album",
 		eleventyComputed: {
 			metadata: metadataComputed,
 		},
-		photographers,
-		gamePictures,
-		ressourcesVisuals,
-		pressReviews: await pressReviews(),
-		agenda: await agenda(),
-		testimonials: await testimonials(),
+		mainMenuList: [
+			{
+				fr: { href: "/fr/", txt: "Accueil" },
+				en: { href: "/en/", txt: "Home" },
+			},
+			{
+				fr: { href: "/fr/partenariats/", txt: "Partenariats" },
+				en: { href: "/en/partnerships/", txt: "Partnerships" },
+			},
+			{
+				fr: { href: "/fr/photographes/", txt: "Photographes" },
+				en: { href: "/en/photographers/", txt: "Photographers" },
+			},
+			{
+				fr: { href: "/fr/ressources/", txt: "Ressources" },
+				en: { href: "/en/resources/", txt: "Ressources" },
+			},
+			{
+				fr: { href: "/fr/agenda/", txt: "Agenda" },
+				en: { href: "/en/calendar/", txt: "Calendar" },
+			},
+			// {
+			// 	fr: { href: "/fr/partenariats/st-luc-liege-2024/", txt: "St Luc" },
+			// 	en: { href: "/en/partnerships/st-luc-liege-2024/", txt: "St Luc" },
+			// },
+		],
 	};
 }

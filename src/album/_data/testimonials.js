@@ -1,12 +1,13 @@
 import { sheetApiKey } from "../../../env.js";
+import eleventyFetch from "../../utils/eleventyFetch.js";
 const spreadsheetId = "13heVkrh--l01YTxhXSdJlKi6zTICjsdItuFHDsHDR8w";
 const sheetName = "Témoignages";
 
 export async function testimonials() {
-	const sheetData = await fetch(
+	const sheetData = await eleventyFetch(
 		`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${sheetApiKey}`
 	)
-		.then((response) => response.json())
+		// .then((response) => response.json())
 		.then((data) => data.values)
 		.catch((error) => console.error("Error:", error));
 

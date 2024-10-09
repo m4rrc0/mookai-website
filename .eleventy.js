@@ -130,6 +130,12 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addGlobalData("site", site);
 	eleventyConfig.addGlobalData("srcDir", srcDir);
 	eleventyConfig.addGlobalData("year", new Date().getFullYear());
+	// Global data from project
+	const { default: globalData } = await import(`./src/${srcDir}/_data/global.js`);
+	const globalDataObject = await globalData();
+	for (const [key, value] of Object.entries(globalDataObject)) {
+		eleventyConfig.addGlobalData(key, value);
+	}
 
 	// --- fILTERS ---
 	// Encodes to html entities
