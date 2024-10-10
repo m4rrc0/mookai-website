@@ -36,16 +36,16 @@ const fluidConfig = {
 };
 const ranges = computeRanges(fluidConfig);
 
-export default defineConfig({
-	content: {
-		filesystem: [
-			`src/${srcDir}/**/*.{html,js,njk,webc}`,
-			// `src/${srcDir}/_components/**/*.{html,js,njk,webc}`,
-			// `src/${srcDir}/_layouts/**/*.{html,js,njk,webc}`,
-			// `src/${srcDir}/_partials/**/*.{html,js,njk,webc}`,
-			// `src/${srcDir}/_svg/**/*.{html,js,njk,webc}`,
-		],
-	},
+export const config = {
+	// content: {
+	// 	filesystem: [
+	// 		`src/${srcDir}/**/*.{html,js,njk,webc}`,
+	// 		// `src/${srcDir}/_components/**/*.{html,js,njk,webc}`,
+	// 		// `src/${srcDir}/_layouts/**/*.{html,js,njk,webc}`,
+	// 		// `src/${srcDir}/_partials/**/*.{html,js,njk,webc}`,
+	// 		// `src/${srcDir}/_svg/**/*.{html,js,njk,webc}`,
+	// 	],
+	// },
 	transformers: [transformerVariantGroup()],
 	presets: [
 		defaultConfig(),
@@ -103,4 +103,17 @@ export default defineConfig({
 			},
 		}, // backgroundColor, borderColor, textColor, ...
 	},
+};
+
+export default defineConfig({
+	content: {
+		filesystem: [
+			`src/${srcDir}/**/*.{html,js,njk,webc}`,
+			// `src/${srcDir}/_components/**/*.{html,js,njk,webc}`,
+			// `src/${srcDir}/_layouts/**/*.{html,js,njk,webc}`,
+			// `src/${srcDir}/_partials/**/*.{html,js,njk,webc}`,
+			// `src/${srcDir}/_svg/**/*.{html,js,njk,webc}`,
+		],
+	},
+	...config,
 });

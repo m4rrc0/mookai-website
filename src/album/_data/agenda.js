@@ -4,13 +4,14 @@ const spreadsheetId = "13heVkrh--l01YTxhXSdJlKi6zTICjsdItuFHDsHDR8w"; // Replace
 const sheetName = "Agenda"; // Replace with your sheet name
 
 export async function agenda() {
-	const sheetData = await eleventyFetch(
+	const result = await eleventyFetch(
 		`https://sheets.googleapis.com/v4/spreadsheets/${spreadsheetId}/values/${sheetName}?key=${sheetApiKey}`
-	)
-		// .then((response) => response.json())
-		.then((data) => data.values)
-		.catch((error) => console.error("Error:", error));
+	);
+	// .then((response) => response.json())
+	// .then((data) => data.values)
+	// .catch((error) => console.error("Error:", error));
 
+	const sheetData = result.values;
 	const sheetHeader = sheetData.shift();
 	let dates = sheetData.map((row) =>
 		sheetHeader.reduce((accu, key, index) => {

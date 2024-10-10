@@ -1,0 +1,75 @@
+{# {% from '../_svg/logo-mookai-asbl-no-border.njk' import logo %} #}
+
+<aside class="full-bleed [&_p]:f-text-s-0.5 sticky bottom-0 flex flex-col">
+	<details class="f-px-s-4">
+		<summary
+			class="f-p-s-2 ctxc-contrast f-gap-s-2 ml-auto flex w-fit flex-nowrap items-center rounded-[0.5rem_0.5rem_0_0] border-0"
+			aria-label="Ecological commitment"
+		>
+			<i class="h3 i-ph-tree inline-block" title="Ecological commitment"></i>
+			{% include "src/album/_svg/simple-arrow-down.njk" %}
+		</summary>
+		<div
+			class="f-p-s0 f-gap-s-2 ctxc-contrast ml-auto flex max-w-2xl flex-col rounded-[0.5rem_0_0_0] border-b-[solid_red_1px] leading-tight"
+		>
+			<h2 class="h4 f-mb-s-2 font-bums f-gap-s-2 flex flex-nowrap">Ecological commitment</h2>
+			<p>We are not perfect, but we try to make more "green" websites.</p>
+			<p>
+				The goal is not to preach but to stay true to our convictions and, hopefully, to raise
+				awareness about the issues of a more responsible digital world.
+			</p>
+			<p>
+				Thank you to <strong><em>Act in Games</em></strong> for supporting and trusting us.
+			</p>
+			<p>
+				<em>― <a href="https://www.mookai.be" target="_blank" rel="noopener">mookaï asbl</a></em>
+			</p>
+			{#
+			<p>{{ logo() }}</p>
+			#}
+			<div>
+				<p class="inline">
+					To test the ecological impact of this site, check out one of the following websites:
+				</p>
+				<ul class="reset [display:contents] *:[display:inline] [&>li+li:before]:content-['•']">
+					<li>
+						<a
+							href="https://www.websitecarbon.com/website/album-actingames-com-en/"
+							target="_blank"
+							rel="noopener"
+							class=""
+							>Website Carbon Calculator</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://ecograder.com/report/B7VrphEOyVuBMMmGf52MuLBK"
+							target="_blank"
+							rel="noopener"
+							class=""
+							>Ecograder</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://kastor.green/simple-audit-result/9fb583f8-0820-46f3-54fd-08dccb4cda8c"
+							target="_blank"
+							rel="noopener"
+							class=""
+							>Kastor</a
+						>
+					</li>
+					<li>
+						<a
+							href="https://withcabin.com/inspect?url=album.actingames.com%2Fen"
+							target="_blank"
+							rel="noopener"
+							class=""
+							>Cabin</a
+						>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</details>
+</aside>

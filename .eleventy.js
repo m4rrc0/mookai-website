@@ -18,6 +18,7 @@ import altAlways from "posthtml-alt-always";
 import { noopener } from "posthtml-noopener";
 // import posthtmlw3c from "posthtml-w3c";
 import { site, srcDir, PROD, BUILD_CONTEXT } from "./env.js";
+import runUnoCss from "./src/utils/unocss/runUnoCss.js";
 
 // console.log({ site, srcDir });
 
@@ -125,6 +126,8 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addWatchTarget("*.config.{js,ts}");
 	// eleventyConfig.addWatchTarget("tailwind.config.js");
 
+	// --- UNOCSS ---
+	eleventyConfig.on("eleventy.after", runUnoCss);
 	// --- DATA ---
 	eleventyConfig.addGlobalData("BUILD_CONTEXT", BUILD_CONTEXT);
 	eleventyConfig.addGlobalData("site", site);
@@ -132,9 +135,9 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addGlobalData("year", new Date().getFullYear());
 	// Global data from project
 	const { default: globalData } = await import(`./src/${srcDir}/_data/global.js`);
-	const globalDataObject = await globalData();
+	const globalDataObject = globalData || {};
 	for (const [key, value] of Object.entries(globalDataObject)) {
-		eleventyConfig.addGlobalData(key, value);
+		eleventyConfig.addGlobalData(key, await value);
 	}
 
 	// --- fILTERS ---

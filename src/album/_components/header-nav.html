@@ -1,5 +1,5 @@
 <header class="sticky-nav ctxc-default full-bleed-before f-py-s1+1 z-1000 sticky top-0">
-	<nav class="f-gap-s2 flex flex-nowrap items-center justify-start">
+	<nav class="f-gap-s3 flex flex-nowrap items-center justify-start justify-between">
 		<!-- "Menu" -->
 		<!-- <p class="menu-label ctxc-default f-py-s-1 hidden border-0 px-10 uppercase sm:inline-block">
 			Menu
@@ -47,7 +47,7 @@
 		</ul>
 		<!-- prettier-ignore -->
 		{% if altLangs %}
-		<div class="f-gap-s-2 flex shrink-0 flex-nowrap whitespace-nowrap">
+		<div class="f-gap-s-2 flex shrink-0 flex-nowrap">
 			{% for item in altLangs %} {% if item.isSelf %}
 			<span><strong>{{item.hreflang | upper}}</strong></span>
 			{% else %}

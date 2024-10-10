@@ -65,7 +65,7 @@
 		<!-- Contenu de la page -->
 		{% block content %} {{ content | safe }} {% endblock %}
 		<!-- Aside -->
-		{% include "../_partials/aside-eco.html" %}
+		{% include "../_partials/aside-eco/" + lang + ".html" %}
 		<!-- Footer -->
 		{% include "../_components/footer.html" %}
 

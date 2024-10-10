@@ -1,0 +1,75 @@
+import * as fs from "fs";
+import * as url from "url";
+import postcss from "postcss";
+import atImport from "postcss-import";
+import postcssPresetEnv from "postcss-preset-env";
+import tailwindcss from "tailwindcss";
+import twNesting from "tailwindcss/nesting/index.js";
+import UnoCSS from "@unocss/postcss";
+import cssNano from "cssnano";
+import utopia from "postcss-utopia";
+import { PROD, srcDir } from "../../../env.js";
+// postcss.config.js
+import postcssJitProps from "postcss-jit-props";
+import OpenProps from "open-props";
+
+export default async function runUnoCss({ dir, results, runMode, outputMode }) {
+	// console.log({ dir, results, runMode, outputMode });
+	const configFilePath = `src/${srcDir}/uno.config.ts`;
+	const destFileName = "main.css";
+	const destPath = `dist/assets/css/${destFileName}`;
+	const inputFileName = "main.css";
+	const inputCssFileUrl = new URL(`../../${srcDir}/styles/${inputFileName}`, import.meta.url);
+	const inputPathFull = url.fileURLToPath(inputCssFileUrl);
+	const inputPath = `${srcDir}/styles/${inputFileName}`;
+	const rawCss = fs.readFileSync(inputCssFileUrl, "utf-8");
+	// return {
+	// 	eleventyExcludeFromCollections: true,
+	// 	permalink: destPath,
+	// 	// permalink: false,
+	// 	configFilePath,
+	// 	destPath,
+	// 	inputPathFull,
+	// 	inputPath,
+	// 	rawCss: inputFileData,
+	// };
+
+	const relativeConfigFilePath = `../../${srcDir}/uno.config.ts`;
+	const { config: unoConfig } = await import(relativeConfigFilePath);
+	const inline = results.map((p) => p.content).join("\n");
+
+	const css = await postcss([
+		atImport(), // has to be first I believe
+		UnoCSS({
+			configOrPath: {
+				...unoConfig,
+				content: { inline },
+			},
+		}),
+		// utopia({ minWidth: 320, maxWidth: 1240 }),
+		// // twNesting,
+		// // tailwindcss,
+		postcssPresetEnv({
+			stage: 1,
+			features: {
+				// "nesting-rules": false, // Need to exclude if using 'postcss-nesting' (or 'tailwindcss/nesting')
+				// "custom-selectors": { preserve: false },
+			},
+		}), // OPTIONS: https://github.com/csstools/postcss-plugins/tree/main/plugin-packs/postcss-preset-env#options
+		postcssJitProps(OpenProps),
+		...(PROD ? [cssNano] : []),
+	])
+		.process(rawCss, { from: inputPathFull, to: destPath })
+		.then((result) => {
+			return result.css;
+		});
+
+	fs.promises
+		.writeFile(destPath, css)
+		.then(() => {
+			console.info(`Successfully wrote CSS file to '${destPath}'`);
+		})
+		.catch((err) => {
+			console.error(err);
+		});
+}
