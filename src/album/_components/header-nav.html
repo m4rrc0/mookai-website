@@ -5,7 +5,7 @@
 			Menu
 		</p> -->
 
-		<ul class="reset cluster f-gap-s-1+2 items-center uppercase leading-none">
+		<ul class="reset cluster f-gap-s-1+2 w-100% items-center uppercase leading-none">
 			<!-- <p class="sideways-lr">Menu</p> -->
 			<!-- <img
 				src="/album/_images/pictos/album_star_icon.png"
@@ -22,7 +22,7 @@
 			{% else %}
 			{% set ariaCurrent = 'false' %}
 			{% endif %}
-			<li class="sm:w-auto {{'w-100%' if loop.index == 1}}">
+			<li class="sm:w-auto {{'w-100% mr-auto' if loop.index == 1}}">
 				<a href="{{ li.href }}" aria-current="{{ariaCurrent}}" class="reset f-text-s0 block">
 					{% if loop.index == 1 %}
 					<!-- <img
