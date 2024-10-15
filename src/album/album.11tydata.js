@@ -15,10 +15,10 @@ export default async function () {
 				fr: { href: "/fr/", txt: "Accueil" },
 				en: { href: "/en/", txt: "Home" },
 			},
-			{
-				fr: { href: "/fr/partenariats/", txt: "Partenariats" },
-				en: { href: "/en/partnerships/", txt: "Partnerships" },
-			},
+			// {
+			// 	fr: { href: "/fr/partenariats/", txt: "Partenariats" },
+			// 	en: { href: "/en/partnerships/", txt: "Partnerships" },
+			// },
 			{
 				fr: { href: "/fr/photographes/", txt: "Photographes" },
 				en: { href: "/en/photographers/", txt: "Photographers" },
