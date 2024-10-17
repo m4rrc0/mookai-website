@@ -3,13 +3,18 @@ import { srcDir } from "../../env.js";
 export default function () {
 	return {
 		permalink: function ({
-			page: { fileSlug, filePathStem, outputFileExtension },
+			page: { fileSlug, filePathStem, outputFileExtension, ...page },
 			currentDir,
 			permalink,
 		}) {
 			// Early return if permalink is defined as false lower in the data cascade
+
 			if (permalink === false) {
 				return false;
+			}
+			if (filePathStem.startsWith("/_utils/")) {
+				console.log({ permalink });
+				return permalink;
 			}
 			// fileSlug: "album",
 			const regex = new RegExp(`^/${currentDir}/`);
