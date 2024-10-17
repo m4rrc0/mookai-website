@@ -25,7 +25,7 @@ export default async function () {
 			},
 			{
 				fr: { href: "/fr/ressources/", txt: "Ressources" },
-				en: { href: "/en/resources/", txt: "Ressources" },
+				en: { href: "/en/resources/", txt: "Resources" },
 			},
 			{
 				fr: { href: "/fr/agenda/", txt: "Agenda" },
