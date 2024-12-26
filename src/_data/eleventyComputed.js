@@ -13,7 +13,6 @@ export default function () {
 				return false;
 			}
 			if (filePathStem.startsWith("/_utils/")) {
-				console.log({ permalink });
 				return permalink;
 			}
 			// fileSlug: "album",
