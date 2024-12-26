@@ -7,8 +7,9 @@ metadata:
   description: "Come and meet us and discover Album in real life."
 ---
 
-<main class="stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
+<main class="grow-1 stack f-py-s3 *:[--gap-stack:var(--f-s3)]">
 	<h1 class="font-bums text-center">Calendar</h1>
+	{% if agenda and agenda.length %}
 	<ul class="reset center f-gap-s2 flex w-full max-w-xl flex-col">
 		{% for item in agenda|sort(false, true, 'sortField') %}
 		<li>
@@ -52,4 +53,10 @@ metadata:
 		</li>
 		{% endfor %}
 	</ul>
+	{% else %}
+	<p>
+		We do not have any scheduled demo right now.<br />
+		Please check back later.
+	</p>
+	{% endif %}
 </main>

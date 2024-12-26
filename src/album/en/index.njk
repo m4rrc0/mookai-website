@@ -12,7 +12,7 @@ head: |
 
 {# # default: "website" // Accepts: article, product, website #} {# {% extends "./_layouts/base.njk"
 %} {% block content %} #}
-<main class="stack f-py-s3+2 f-gap-s6 [--gap-stack:0]">
+<main class="grow-1 stack f-py-s3+2 f-gap-s6 [--gap-stack:0]">
 	<hgroup
 		class="stack items-center *:[--gap-stack:var(--f-s0)] [&>picture]:[--gap-stack:var(--f-s5)]"
 	>
@@ -99,6 +99,7 @@ head: |
 		</ul>
 	</section>
 
+	{#
 	<section class="full-bleed-before ctxc-contrast f-gap-s1 f-p-s2 flex flex-col items-center">
 		<p class="h3 font-bums">Come and try Album with the team</p>
 		<ul class="reset center f-gap-s2 cluster">
@@ -127,6 +128,7 @@ head: |
 			<span>Check the full schedule</span></a
 		>
 	</section>
+	#}
 
 	<section
 		class="game-description green-gradient-in stack full-bleed-before *:[--gap-stack:var(--f-s1)]"
@@ -194,7 +196,7 @@ head: |
 		</details>
 		<div class="cluster justify-center">
 			<a
-				href="/assets/documents/ALBUM_2024_RULES_240424-low.pdf"
+				href="/assets/documents/ALBUM_2024_RULES_ENGLISH.pdf"
 				class="button ctxc-contrast font-bums text-center"
 				target="_blank"
 				>Rules of the game <small class="block">(PDF)</small></a
