@@ -1,12 +1,12 @@
-{% from '../_svg/logo-mookai-asbl-no-border.njk' import logo %}
+{% from '../_svg/mookai_logo_only.njk' import logo %}
 
 <footer class="ctxc-contrast full-bleed-before stack f-gap-s0 f-pt-s3 f-pb-s2">
 	<div class="cluster f-gap-s1 justify-between">
-		<div class="stack">
-			<div class="f-h-s2">
+		<div class="flex flex-col">
+			<div class="f-h-s4">
 				{# % include "../_svg/logo_asbl.njk" % #}
 				<!-- <a href="#accueil" class="block h-full w-full"></a> -->
-				{{ logo() }}
+				{{ logo(class="h-full w-full") }}
 			</div>
 
 			{{ "hello@mookai.be" | emailLink }}
