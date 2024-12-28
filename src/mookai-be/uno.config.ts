@@ -1,5 +1,20 @@
-import { defineConfig } from "unocss";
+import {
+	defineConfig,
+	// presetMini,
+	presetUno, // Equivalet to presetWind. Includes presetMini.
+	// presetAttributify,
+	presetIcons,
+	// presetTypography,
+	// presetWebFonts,
+	// transformerDirectives,
+	transformerVariantGroup,
+	// toEscapedSelector,
+} from "unocss";
 import { theme as defaultTheme } from "@unocss/preset-mini";
+import presetCtxStyles, {
+	layoutsRules,
+	utilitiesRules,
+} from "../utils/unocss/preset-ctx-styles/index.ts";
 import { presetFluid } from "../utils/unocss/preset-fluid/index.js";
 import computeRanges from "../utils/unocss/preset-fluid/computeRanges.js";
 import { srcDir } from "../../env.js";
@@ -20,12 +35,21 @@ const fluidConfig = {
 };
 const ranges = computeRanges(fluidConfig);
 
-export default defineConfig({
-	content: {
-		filesystem: [`src/${srcDir}/**/*.{html,js,njk,webc}`],
-	},
+export const config = {
+	transformers: [transformerVariantGroup()],
 	presets: [
 		defaultConfig(),
+		presetUno({
+			// dark: {light: '.light', dark: '.dark'}, // Custom DarkModeSelectors
+			// preflight: false,
+		}),
+		presetIcons({
+			prefix: "i-",
+			// extraProperties: {
+			// 	display: "inline-block",
+			// },
+		}),
+		// presetCtxStyles({}),
 		presetFluid({
 			minWidth: 320,
 			maxWidth: 1240,
@@ -43,6 +67,7 @@ export default defineConfig({
 			},
 		}),
 	],
+	rules: [...layoutsRules, ...utilitiesRules],
 	theme: {
 		fontFamily: {
 			sans: '"Roboto Condensed",' + defaultTheme.fontFamily.sans,
@@ -94,4 +119,11 @@ export default defineConfig({
 			},
 		}, // backgroundColor, borderColor, textColor, ...
 	},
+};
+
+export default defineConfig({
+	content: {
+		filesystem: [`src/${srcDir}/**/*.{html,js,njk,webc}`],
+	},
+	...config,
 });

@@ -134,8 +134,13 @@ export default async function (eleventyConfig) {
 	eleventyConfig.addGlobalData("srcDir", srcDir);
 	eleventyConfig.addGlobalData("year", new Date().getFullYear());
 	// Global data from project
-	const { default: globalData } = await import(`./src/${srcDir}/_data/global.js`);
-	const globalDataObject = globalData || {};
+	let globalDataObject = {};
+	try {
+		const { default: globalData } = await import(`./src/${srcDir}/_data/global.js`);
+		globalDataObject = globalData || {};
+	} catch (err) {
+		console.log("No global data. Skipping...");
+	}
 	for (const [key, value] of Object.entries(globalDataObject)) {
 		eleventyConfig.addGlobalData(key, await value);
 	}

@@ -1,14 +1,14 @@
 import {
 	defineConfig,
-	presetMini,
+	// presetMini,
 	presetUno, // Equivalet to presetWind. Includes presetMini.
-	presetAttributify,
+	// presetAttributify,
 	presetIcons,
-	presetTypography,
-	presetWebFonts,
-	transformerDirectives,
+	// presetTypography,
+	// presetWebFonts,
+	// transformerDirectives,
 	transformerVariantGroup,
-	toEscapedSelector as e,
+	// toEscapedSelector,
 } from "unocss";
 // import transformerVariantGroup from "@unocss/transformer-variant-group";
 import { theme as defaultTheme } from "@unocss/preset-mini";
